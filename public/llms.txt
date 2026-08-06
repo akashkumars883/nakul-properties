@@ -1,0 +1,34 @@
+# Nakul Properties - Faridabad Real Estate Advisory
+
+Nakul Properties is a premium and trusted real estate consultancy based in Faridabad, Haryana, India. Specializing in HUDA/HSVP sector plots, luxury independent builder floors, commercial SCO plots, and gated townships across Faridabad and Greater Faridabad.
+
+## Contact Information
+- **Phone / WhatsApp:** +91 98115 48267
+- **Address:** Sector 65, Faridabad, Haryana - 121004
+- **Primary Website:** https://nakulproperties.com
+
+## Key Offerings & Services
+- **HUDA / HSVP Sector Plots:** Freehold plots with 100% clear legal titles in Sector 14, 15, 21, and other prime sectors.
+- **Independent Builder Floors:** Luxury 3 BHK and 4 BHK floors with private lifts, stilt parking, and exclusive terrace rights.
+- **Gated Township Plots:** Residential plots in secured gated societies like BPTP Parklands, Puri Amanvilas, Omaxe, and RPS Savana.
+- **Commercial Shops & SCO:** Retail shops and commercial land leasing (B+G+3 permitted layouts) on main Mathura Road highway and Omaxe World Street.
+
+## Core Navigation Routes
+- Home Page: /
+- HUDA Plots Category: /properties/huda-plots
+- Gated Townships: /properties/gated-townships
+- Builder Floors Category: /properties/builder-floors
+- Commercial Properties: /properties/commercial-rent-sale
+
+## Prime Location Areas Serviced
+- Sector 14 & 15 (VIP Sectors): /locations/sector-14-15
+- Sector 21, 28 & 31 (Central Faridabad): /locations/sector-21-28
+- Sector 81 to 89 (Greater Faridabad / Neharpar): /locations/sector-81-89
+- Mathura Road & World Street: /locations/sector-mathura-road
+
+## Search Engine Targeted Deals Pages
+- Main Authority Listing: /deals/best-property-dealer-faridabad
+- HUDA Sector Plots Search: /deals/huda-plots-for-sale-faridabad
+- Luxury Floors Deals: /deals/luxury-builder-floors-faridabad
+- Greater Faridabad Plots: /deals/plots-for-sale-greater-faridabad
+- Commercial Real Estate Hubs: /deals/commercial-sco-plots-faridabad
