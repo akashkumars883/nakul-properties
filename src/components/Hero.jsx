@@ -29,7 +29,7 @@ export default function Hero() {
       alt: 'Luxury Real Estate in Faridabad',
       heading: (
         <>
-          Top Real Estate Dealer & Property Consultant in <span className="font-semibold text-white">Faridabad</span>
+          Leading Real Estate Dealer &amp; Property Consultant in <span className="font-semibold text-white">Faridabad</span>
         </>
       ),
       paragraph: 'Nakul Properties helps you buy, sell & rent premier builder floors, residential plots, luxury apartments and commercial property across Sector 14, 15, 21 & Greater Faridabad (Neharpar).'
