@@ -101,7 +101,7 @@ export default function StartupFormModal() {
             <input
               type="text"
               required
-              placeholder="e.g. Akash Kumar"
+              placeholder="e.g. Rahul Sharma"
               value={name}
               onChange={(e) => setName(e.target.value)}
               className="w-full px-3.5 py-2.5 rounded-xl border border-neutral-200 focus:outline-none focus:border-black text-sm bg-neutral-50/50"
@@ -143,14 +143,23 @@ export default function StartupFormModal() {
             <span>Your information is secure and directly forwarded to Nakul Properties.</span>
           </div>
 
-          {/* Submit Button */}
-          <button
-            type="submit"
-            className="w-full flex items-center justify-center gap-2 bg-black hover:bg-neutral-900 text-white font-semibold py-3 rounded-xl transition-all active:scale-98 shadow-md mt-6 text-sm"
-          >
-            <FaWhatsapp className="w-4.5 h-4.5 text-white" />
-            <span>Connect on WhatsApp</span>
-          </button>
+          {/* Action Buttons Row */}
+          <div className="flex gap-3 mt-6 pt-1">
+            <button
+              type="button"
+              onClick={handleClose}
+              className="flex-1 bg-white hover:bg-neutral-50 text-neutral-700 border border-neutral-300 font-semibold py-3 rounded-xl transition-all active:scale-98 text-sm text-center"
+            >
+              Close
+            </button>
+            <button
+              type="submit"
+              className="flex-[2] flex items-center justify-center gap-2 bg-black hover:bg-neutral-900 text-white font-semibold py-3 rounded-xl transition-all active:scale-98 shadow-md text-sm"
+            >
+              <FaWhatsapp className="w-4.5 h-4.5 text-white" />
+              <span>Connect on WhatsApp</span>
+            </button>
+          </div>
         </form>
 
       </div>
