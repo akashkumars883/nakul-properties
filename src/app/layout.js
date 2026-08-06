@@ -70,6 +70,7 @@ export const metadata = {
 };
 
 import Footer from '@/components/Footer';
+import StartupFormModal from '@/components/StartupFormModal';
 
 export default function RootLayout({ children }) {
   // Schema.org RealEstateAgent Structured Data focused on Faridabad
@@ -151,6 +152,7 @@ export default function RootLayout({ children }) {
           {children}
         </div>
         <Footer />
+        <StartupFormModal />
       </body>
     </html>
   );
