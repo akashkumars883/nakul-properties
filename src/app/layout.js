@@ -68,6 +68,9 @@ export const metadata = {
   alternates: {
     canonical: siteUrl,
   },
+  verification: {
+    google: 'w9xjwo612cHUq_Ig87Aotfuj-WjBMbY54rWc33dQHOs',
+  },
 };
 
 import Footer from '@/components/Footer';
