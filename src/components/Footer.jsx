@@ -101,6 +101,8 @@ export default function Footer() {
           <a href="tel:+919811548267" className="hover:text-white transition-colors">Call Agent</a>
           <span className="text-neutral-800">|</span>
           <a href="https://wa.me/919811548267" className="hover:text-white transition-colors">WhatsApp</a>
+          <span className="text-neutral-800">|</span>
+          <a href="/sitemap.xml" className="hover:text-white transition-colors">Sitemap</a>
         </div>
       </div>
     </footer>

@@ -1,5 +1,6 @@
 import Navbar from '@/components/Navbar';
 import ContactForm from '@/components/ContactForm';
+import Map from '@/components/Map';
 import { Phone, Mail, MapPin, Clock } from 'lucide-react';
 import { FaWhatsapp } from 'react-icons/fa6';
 
@@ -12,6 +13,27 @@ export const metadata = {
 };
 
 export default function ContactPage() {
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'ContactPage',
+    'name': 'Contact Nakul Properties',
+    'description': 'Book a free site visit or consultation with Nakul Properties in Sector 65, Faridabad.',
+    'url': 'https://nakulproperties.com/contact',
+    'mainEntity': {
+      '@type': 'RealEstateAgent',
+      'name': 'Nakul Properties',
+      'telephone': '+919811548267',
+      'address': {
+        '@type': 'PostalAddress',
+        'streetAddress': 'Sector 65',
+        'addressLocality': 'Faridabad',
+        'addressRegion': 'Haryana',
+        'postalCode': '121004',
+        'addressCountry': 'IN',
+      },
+    },
+  };
+
   const contactDetails = [
     {
       icon: <Phone className="w-6 h-6 text-black" />,
@@ -31,13 +53,19 @@ export default function ContactPage() {
       icon: <MapPin className="w-6 h-6 text-black" />,
       title: 'Office Location',
       val: 'Sector 65, Faridabad, Haryana - 121004',
-      href: '#',
+      href: 'https://www.google.com/maps/search/?api=1&query=Sector%2065%2C%20Faridabad%2C%20Haryana%20121004',
       linkText: 'Get Directions',
     },
   ];
 
   return (
     <div className="flex flex-col min-h-screen bg-white">
+      {/* Insert JSON-LD script for ContactPage Local SEO */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+
       <Navbar />
 
       {/* Hero Title Area */}
@@ -109,6 +137,9 @@ export default function ContactPage() {
             <div className="text-xs sm:text-sm text-neutral-600">09:00 AM - 08:00 PM</div>
           </div>
         </section>
+
+        {/* Office Location Map */}
+        <Map />
 
       </main>
     </div>

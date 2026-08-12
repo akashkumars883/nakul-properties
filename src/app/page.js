@@ -7,6 +7,7 @@ import ExclusiveDeals from '@/components/ExclusiveDeals';
 import PrimeSectors from '@/components/PrimeSectors';
 import AboutUs from '@/components/AboutUs';
 import ContactForm from '@/components/ContactForm';
+import Map from '@/components/Map';
 import Testimonials from '@/components/Testimonials';
 import Faq from '@/components/Faq';
 import { client } from '@/sanity/lib/client';
@@ -14,6 +15,22 @@ import { client } from '@/sanity/lib/client';
 export const metadata = {
   title: 'Nakul Properties - Real Estate Dealer & Property Consultant in Faridabad',
   description: 'Nakul Properties - Buy, sell, and rent top luxury flats, builder floors, residential plots, and commercial properties in Faridabad & Greater Faridabad.',
+  keywords: [
+    'Real estate agent Faridabad',
+    'Property dealer near me Faridabad',
+    'Buy property in Faridabad',
+    'Flats for sale Faridabad',
+    'Builder floors Faridabad',
+    'Plots in Sector 14 15 21 Faridabad',
+    'Greater Faridabad Neharpar properties',
+    'Commercial property Mathura Road Faridabad',
+    'Best property consultant Faridabad',
+    'HUDA plots for sale Faridabad',
+    'Nakul Properties Faridabad'
+  ],
+  alternates: {
+    canonical: '/',
+  },
 };
 
 export const dynamic = 'force-dynamic';
@@ -49,11 +66,16 @@ export default async function Home() {
   }
 
   const staticDeals = [
-    { title: 'Best Property Dealer Faridabad', href: '/deals/best-property-dealer-faridabad' },
-    { title: 'HUDA Plots for Sale Faridabad', href: '/deals/huda-plots-for-sale-faridabad' },
-    { title: 'Luxury Builder Floors Faridabad', href: '/deals/luxury-builder-floors-faridabad' },
-    { title: 'Plots Greater Faridabad (Neharpar)', href: '/deals/plots-for-sale-greater-faridabad' },
-    { title: 'Commercial Shops & SCO Faridabad', href: '/deals/commercial-sco-plots-faridabad' }
+    { title: 'Real Estate Agent Faridabad', href: '/about' },
+    { title: 'Property Dealer Near Me Faridabad', href: '/contact' },
+    { title: 'Buy Property in Faridabad', href: '/properties' },
+    { title: 'Flats for Sale Faridabad', href: '/properties/builder-floors' },
+    { title: 'Builder Floors Faridabad', href: '/properties/builder-floors' },
+    { title: 'Plots in Sector 14 15 21 Faridabad', href: '/properties/huda-plots' },
+    { title: 'Greater Faridabad Neharpar Properties', href: '/locations/sector-81-89' },
+    { title: 'Commercial Property Mathura Road Faridabad', href: '/locations/sector-mathura-road' },
+    { title: 'Best Property Consultant Faridabad', href: '/about' },
+    { title: 'HUDA Plots for Sale Faridabad', href: '/properties/huda-plots' }
   ];
 
   const dynamicDeals = sanityKeywords.map((kp) => ({
@@ -97,6 +119,9 @@ export default async function Home() {
         {/* Book Site Visit / Contact Inquiry Form */}
         <ContactForm />
 
+        {/* Office Location Map */}
+        <Map />
+
         {/* Testimonials Section */}
         <Testimonials />
 
@@ -108,7 +133,7 @@ export default async function Home() {
           <span className="text-xs font-semibold text-neutral-500 uppercase tracking-widest block mb-3">Popular Searches in Faridabad</span>
           <div className="flex flex-wrap justify-center items-center gap-x-4 gap-y-2.5 text-xs sm:text-sm font-semibold">
             {allDeals.map((deal, idx) => (
-              <React.Fragment key={deal.href}>
+              <React.Fragment key={`${deal.href}-${idx}`}>
                 <a href={deal.href} className="text-black hover:text-neutral-600 transition-colors">
                   {deal.title}
                 </a>

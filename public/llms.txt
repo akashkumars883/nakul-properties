@@ -19,6 +19,9 @@ Nakul Properties is a premium and trusted real estate consultancy based in Farid
 - Gated Townships: /properties/gated-townships
 - Builder Floors Category: /properties/builder-floors
 - Commercial Properties: /properties/commercial-rent-sale
+- About Us Page: /about
+- Contact Page: /contact
+- Search Page: /search
 
 ## Prime Location Areas Serviced
 - Sector 14 & 15 (VIP Sectors): /locations/sector-14-15

@@ -111,21 +111,21 @@ export default function Navbar() {
           <div className="max-w-7xl mx-auto flex items-center justify-between gap-4 h-6">
 
             {/* Fading Item: Address & Offers */}
-            <div className="flex-1 flex items-center overflow-hidden">
+            <div className="flex-1 flex items-center overflow-hidden min-w-0">
               <div
-                className={`flex items-center gap-1.5 transition-opacity duration-500 ease-in-out ${fadeState ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-1'
+                className={`flex items-center gap-1.5 min-w-0 transition-opacity duration-500 ease-in-out ${fadeState ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-1'
                   }`}
               >
                 {currentItem.link ? (
                   <a
                     href={currentItem.link}
-                    className="hover:underline transition-colors flex items-center gap-1.5 truncate font-medium text-slate-200"
+                    className="hover:underline transition-colors flex items-center gap-1.5 truncate font-medium text-slate-200 min-w-0"
                   >
                     <span className="truncate">{currentItem.text}</span>
                     <ArrowRight className="w-3.5 h-3.5 text-white shrink-0" />
                   </a>
                 ) : (
-                  <div className="flex items-center gap-1.5 truncate text-slate-300 font-normal">
+                  <div className="flex items-center gap-1.5 truncate text-slate-300 font-normal min-w-0">
                     <span className="truncate">{currentItem.text}</span>
                     <ArrowRight className="w-3.5 h-3.5 text-white shrink-0" />
                   </div>
