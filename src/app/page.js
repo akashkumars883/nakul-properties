@@ -11,6 +11,7 @@ import ContactForm from '@/components/ContactForm';
 import Map from '@/components/Map';
 import Testimonials from '@/components/Testimonials';
 import Faq from '@/components/Faq';
+import LatestBlogs from '@/components/LatestBlogs';
 import { client } from '@/sanity/lib/client';
 
 export const metadata = {
@@ -39,6 +40,14 @@ export const dynamic = 'force-dynamic';
 export default async function Home() {
   // Fetch properties from Sanity
   const properties = await client.fetch(`*[_type == "property"] | order(_createdAt desc)`);
+
+  // Fetch top 3 latest blog posts from Sanity
+  let posts = [];
+  try {
+    posts = await client.fetch(`*[_type == "post"] | order(publishedAt desc)[0...3]`);
+  } catch (error) {
+    console.error('Failed to fetch posts for homepage:', error);
+  }
 
   // Generate LocalBusiness / RealEstateAgent Schema for Local SEO
   const jsonLd = {
@@ -125,6 +134,9 @@ export default async function Home() {
 
         {/* Testimonials Section */}
         <Testimonials />
+
+        {/* Latest Blog Articles & Market Guides */}
+        <LatestBlogs posts={posts} />
 
         {/* Faqs Section */}
         <Faq />
