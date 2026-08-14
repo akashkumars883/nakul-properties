@@ -13,6 +13,9 @@ export default async function sitemap() {
 
   // Dynamic location slugs
   const locations = [
+    'sector-65',
+    'sector-64',
+    'sector-62',
     'sector-14-15',
     'sector-21-28',
     'sector-81-89',

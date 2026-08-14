@@ -1,12 +1,69 @@
 'use client';
 
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useRef, useEffect } from 'react';
 import Link from 'next/link';
-import { MapPin, ShieldCheck, Tag, Search, SlidersHorizontal, Home, ChevronRight, Eye, Phone } from 'lucide-react';
+import { MapPin, ShieldCheck, Tag, Search, SlidersHorizontal, Home, ChevronRight, Eye, Phone, ChevronDown, Check, Building, ArrowUpDown, Filter } from 'lucide-react';
 import { FaWhatsapp } from 'react-icons/fa6';
 import { urlFor } from '@/sanity/lib/image';
 
 const ITEMS_PER_PAGE = 8;
+
+// Sleek Custom Dropdown Component
+function CustomDropdown({ value, onChange, options, icon: Icon, label, className = '' }) {
+  const [isOpen, setIsOpen] = useState(false);
+  const dropdownRef = useRef(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setIsOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
+  const selectedOption = options.find((opt) => opt.value === value) || options[0];
+
+  return (
+    <div className={`relative font-outfit ${className}`} ref={dropdownRef}>
+      <button
+        type="button"
+        onClick={() => setIsOpen(!isOpen)}
+        className="w-full bg-white border border-neutral-200 hover:border-black text-black text-xs sm:text-sm font-semibold px-3.5 py-2.5 rounded-xl shadow-xs flex items-center justify-between gap-2 transition-all cursor-pointer"
+      >
+        <span className="flex items-center gap-2 truncate">
+          {Icon && <Icon className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-black shrink-0" />}
+          <span className="truncate">{selectedOption.label}</span>
+        </span>
+        <ChevronDown className={`w-4 h-4 text-neutral-400 transition-transform duration-200 shrink-0 ${isOpen ? 'rotate-180 text-black' : ''}`} />
+      </button>
+
+      {isOpen && (
+        <div className="absolute left-0 right-0 mt-1.5 bg-white border border-neutral-200 rounded-xl shadow-xl z-50 py-1.5 overflow-hidden animate-in fade-in zoom-in-95 duration-100">
+          {options.map((opt) => (
+            <button
+              key={opt.value}
+              type="button"
+              onClick={() => {
+                onChange(opt.value);
+                setIsOpen(false);
+              }}
+              className={`w-full text-left px-3.5 py-2.5 text-xs sm:text-sm font-medium flex items-center justify-between transition-colors ${
+                value === opt.value
+                  ? 'bg-black text-white font-semibold'
+                  : 'text-neutral-700 hover:bg-neutral-100'
+              }`}
+            >
+              <span className="truncate">{opt.label}</span>
+              {value === opt.value && <Check className="w-3.5 h-3.5 text-white shrink-0 ml-1" />}
+            </button>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
 
 export default function AllPropertiesClient({ initialProperties = [] }) {
   const [searchQuery, setSearchQuery] = useState('');
@@ -30,9 +87,21 @@ export default function AllPropertiesClient({ initialProperties = [] }) {
     { value: 'all', label: 'All Categories' },
     { value: 'huda', label: 'HUDA Sectors' },
     { value: 'gated', label: 'Gated Townships' },
-    { value: 'budget', label: 'Budget & Individual Plots' },
+    { value: 'budget', label: 'Budget & Plots' },
     { value: 'floor', label: 'Builder Floors' },
     { value: 'commercial', label: 'Commercial' },
+  ];
+
+  const typesList = [
+    { value: 'all', label: 'All Types' },
+    { value: 'For Sale', label: 'For Sale' },
+    { value: 'For Rent', label: 'For Rent' },
+  ];
+
+  const priceSortList = [
+    { value: 'default', label: 'Sort by Price' },
+    { value: 'low-high', label: 'Price: Low to High' },
+    { value: 'high-low', label: 'Price: High to Low' },
   ];
 
   // Helper to parse price string for sorting (e.g. "₹1.85 Cr" -> 18500000, "₹45,000 / mo" -> 45000)
@@ -99,8 +168,8 @@ export default function AllPropertiesClient({ initialProperties = [] }) {
   }, [filteredAndSorted, currentPage]);
 
   return (
-    <main className="min-h-screen bg-neutral-50 pb-16">
-      {/* Hero Banner — starts right below fixed navbar (topbar ~40px + mainnav ~64px = 104px) */}
+    <main className="min-h-screen bg-neutral-50 pb-16 font-outfit">
+      {/* Hero Banner — starts right below fixed navbar */}
       <section className="relative w-full overflow-hidden" style={{ paddingTop: '104px', minHeight: '360px' }}>
         {/* Background Image fills entire section */}
         <div className="absolute inset-0 bg-neutral-900">
@@ -125,67 +194,75 @@ export default function AllPropertiesClient({ initialProperties = [] }) {
             <span className="text-white">Properties</span>
           </nav>
 
-          <span className="text-xs font-semibold uppercase tracking-widest text-white/70 mb-1 block">
-            Faridabad Listings
-          </span>
+          <div className="flex flex-wrap items-center gap-3 mb-2">
+            <span className="bg-white/10 backdrop-blur-md border border-white/20 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+              Total Listed: {initialProperties.length} Properties
+            </span>
+          </div>
           <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white tracking-tight leading-tight max-w-3xl">
-            All Listed Properties
+            All Verified Properties in Faridabad
           </h1>
         </div>
       </section>
 
       {/* Filter and Content Controls Panel (Flat toolbar layout) */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10">
-        <div className="border-b border-neutral-200 pb-6">
+        <div className="mb-2">
+
+          {/* Total Count Header */}
+          <div className="flex items-center justify-between pb-4 mb-4 border-b border-neutral-100">
+            <div className="flex items-center gap-2">
+              <Building className="w-5 h-5 text-black" />
+              <span className="text-sm font-bold text-black">
+                Showing {filteredAndSorted.length} of {initialProperties.length} Properties
+              </span>
+            </div>
+            <span className="text-xs font-medium text-neutral-500 hidden sm:inline-block">
+              Sector 65, 64, 62 &amp; Faridabad Listings
+            </span>
+          </div>
+
           <div className="flex flex-col lg:flex-row gap-4 items-center justify-between">
             {/* Search Input */}
             <div className="relative w-full lg:w-96">
               <Search className="absolute left-3.5 top-3 w-4 h-4 text-neutral-400" />
               <input
                 type="text"
-                placeholder="Search by location, sector, title..."
+                placeholder="Search location, sector, title..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-neutral-200 focus:outline-none focus:border-black text-sm bg-white"
+                className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-neutral-200 focus:outline-none focus:border-black text-sm bg-neutral-50 focus:bg-white transition-colors"
               />
             </div>
 
-            {/* Filters Row */}
-            <div className="flex flex-wrap items-center gap-3 w-full lg:w-auto">
-              {/* Category selector */}
-              <select
+            {/* Custom Animated Filters Row — Fully Mobile Responsive */}
+            <div className="grid grid-cols-2 sm:flex sm:flex-wrap items-center gap-2 sm:gap-3 w-full lg:w-auto">
+              <CustomDropdown
                 value={selectedCategory}
-                onChange={(e) => setSelectedCategory(e.target.value)}
-                className="bg-white px-3.5 py-2.5 rounded-xl border border-neutral-200 text-xs sm:text-sm font-semibold text-neutral-700 focus:outline-none focus:border-black cursor-pointer"
-              >
-                {categoriesList.map((cat) => (
-                  <option key={cat.value} value={cat.value}>
-                    {cat.label}
-                  </option>
-                ))}
-              </select>
+                onChange={setSelectedCategory}
+                options={categoriesList}
+                icon={Filter}
+                label="Category"
+                className="col-span-1 min-w-0 sm:min-w-[160px]"
+              />
 
-              {/* Listing Type selector */}
-              <select
+              <CustomDropdown
                 value={selectedType}
-                onChange={(e) => setSelectedType(e.target.value)}
-                className="bg-white px-3.5 py-2.5 rounded-xl border border-neutral-200 text-xs sm:text-sm font-semibold text-neutral-700 focus:outline-none focus:border-black cursor-pointer"
-              >
-                <option value="all">All Types</option>
-                <option value="For Sale">For Sale</option>
-                <option value="For Rent">For Rent</option>
-              </select>
+                onChange={setSelectedType}
+                options={typesList}
+                icon={Building}
+                label="Type"
+                className="col-span-1 min-w-0 sm:min-w-[140px]"
+              />
 
-              {/* Price Sort selector */}
-              <select
+              <CustomDropdown
                 value={priceSort}
-                onChange={(e) => setPriceSort(e.target.value)}
-                className="bg-white px-3.5 py-2.5 rounded-xl border border-neutral-200 text-xs sm:text-sm font-semibold text-neutral-700 focus:outline-none focus:border-black cursor-pointer"
-              >
-                <option value="default">Sort by Price</option>
-                <option value="low-high">Price: Low to High</option>
-                <option value="high-low">Price: High to Low</option>
-              </select>
+                onChange={setPriceSort}
+                options={priceSortList}
+                icon={ArrowUpDown}
+                label="Sort"
+                className="col-span-2 sm:col-span-1 min-w-0 sm:min-w-[160px]"
+              />
             </div>
           </div>
         </div>

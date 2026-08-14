@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
 import PropertyCategories from '@/components/PropertyCategories';
@@ -66,16 +67,16 @@ export default async function Home() {
   }
 
   const staticDeals = [
-    { title: 'Real Estate Agent Faridabad', href: '/about' },
-    { title: 'Property Dealer Near Me Faridabad', href: '/contact' },
+    { title: 'Real Estate Agent Faridabad', href: '/deals/best-property-dealer-faridabad' },
+    { title: 'Property Dealer Near Me Faridabad', href: '/deals/best-property-dealer-faridabad' },
     { title: 'Buy Property in Faridabad', href: '/properties' },
-    { title: 'Flats for Sale Faridabad', href: '/properties/builder-floors' },
-    { title: 'Builder Floors Faridabad', href: '/properties/builder-floors' },
-    { title: 'Plots in Sector 14 15 21 Faridabad', href: '/properties/huda-plots' },
-    { title: 'Greater Faridabad Neharpar Properties', href: '/locations/sector-81-89' },
-    { title: 'Commercial Property Mathura Road Faridabad', href: '/locations/sector-mathura-road' },
-    { title: 'Best Property Consultant Faridabad', href: '/about' },
-    { title: 'HUDA Plots for Sale Faridabad', href: '/properties/huda-plots' }
+    { title: 'Flats for Sale Faridabad', href: '/deals/luxury-builder-floors-faridabad' },
+    { title: 'Builder Floors Faridabad', href: '/deals/luxury-builder-floors-faridabad' },
+    { title: 'Plots in Sector 14 15 21 Faridabad', href: '/deals/huda-plots-for-sale-faridabad' },
+    { title: 'Greater Faridabad Neharpar Properties', href: '/deals/plots-for-sale-greater-faridabad' },
+    { title: 'Commercial Property Mathura Road Faridabad', href: '/deals/commercial-sco-plots-faridabad' },
+    { title: 'Best Property Consultant Faridabad', href: '/deals/best-property-dealer-faridabad' },
+    { title: 'HUDA Plots for Sale Faridabad', href: '/deals/huda-plots-for-sale-faridabad' }
   ];
 
   const dynamicDeals = sanityKeywords.map((kp) => ({
@@ -134,9 +135,9 @@ export default async function Home() {
           <div className="flex flex-wrap justify-center items-center gap-x-4 gap-y-2.5 text-xs sm:text-sm font-semibold">
             {allDeals.map((deal, idx) => (
               <React.Fragment key={`${deal.href}-${idx}`}>
-                <a href={deal.href} className="text-black hover:text-neutral-600 transition-colors">
+                <Link href={deal.href} className="text-black hover:text-neutral-600 transition-colors">
                   {deal.title}
-                </a>
+                </Link>
                 {idx < allDeals.length - 1 && (
                   <span className="text-neutral-300 hidden sm:inline">•</span>
                 )}

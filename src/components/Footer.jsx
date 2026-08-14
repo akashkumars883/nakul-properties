@@ -64,16 +64,16 @@ export default function Footer() {
           <h4 className="text-sm font-bold text-white uppercase tracking-wider">Popular Locations</h4>
           <ul className="space-y-2.5 text-sm">
             <li>
+              <a href="/locations/sector-65" className="hover:text-white transition-colors">Sector 65 (Head Office)</a>
+            </li>
+            <li>
+              <a href="/locations/sector-64" className="hover:text-white transition-colors">Sector 64 HUDA Plots</a>
+            </li>
+            <li>
+              <a href="/locations/sector-62" className="hover:text-white transition-colors">Sector 62 Freehold Plots</a>
+            </li>
+            <li>
               <a href="/locations/sector-14-15" className="hover:text-white transition-colors">Sector 14 &amp; 15 VIP</a>
-            </li>
-            <li>
-              <a href="/locations/sector-21-28" className="hover:text-white transition-colors">Sector 21 &amp; 28 Central</a>
-            </li>
-            <li>
-              <a href="/locations/sector-81-89" className="hover:text-white transition-colors">Sector 81 to 89 Neharpar</a>
-            </li>
-            <li>
-              <a href="/locations/sector-mathura-road" className="hover:text-white transition-colors">Mathura Road &amp; World Street</a>
             </li>
           </ul>
         </div>

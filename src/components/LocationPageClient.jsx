@@ -95,7 +95,7 @@ export default function LocationPageClient({ data }) {
         {/* Properties Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {data.properties.map((property) => {
-            const dynamicId = getSlugId(property.title);
+            const dynamicId = property.slug?.current || property._id || property.id;
             return (
               <article
                 key={property.id}

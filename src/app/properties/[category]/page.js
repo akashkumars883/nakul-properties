@@ -319,8 +319,31 @@ export async function generateMetadata({ params }) {
   return {
     title: data.seoTitle,
     description: data.seoDesc,
+    keywords: [
+      data.title,
+      `${decodedCategory} in Faridabad`,
+      'HUDA plots in Faridabad',
+      'Sector 65 plots Faridabad',
+      'Sector 64 plots Faridabad',
+      'Sector 62 plots Faridabad',
+      'plots for sale in Faridabad',
+      'Nakul Properties Faridabad',
+    ],
     alternates: {
       canonical: `/properties/${decodedCategory}`,
+    },
+    openGraph: {
+      title: data.seoTitle,
+      description: data.seoDesc,
+      url: `https://nakulproperties.com/properties/${decodedCategory}`,
+      siteName: 'Nakul Properties Faridabad',
+      type: 'website',
+      images: [{ url: `https://nakulproperties.com${data.heroImage}`, alt: data.title }],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: data.seoTitle,
+      description: data.seoDesc,
     },
   };
 }

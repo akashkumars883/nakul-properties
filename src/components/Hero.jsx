@@ -26,24 +26,24 @@ export default function Hero() {
     {
       id: 1,
       image: '/hero-banner.png',
-      alt: 'Luxury Real Estate in Faridabad',
+      alt: 'HUDA Sector Plots in Sector 65, 64 & 62 Faridabad',
       heading: (
         <>
           Leading Real Estate Dealer &amp; Property Consultant in <span className="font-semibold text-white">Faridabad</span>
         </>
       ),
-      paragraph: 'Nakul Properties helps you buy, sell & rent premier builder floors, residential plots, luxury apartments and commercial property across Sector 14, 15, 21 & Greater Faridabad (Neharpar).'
+      paragraph: 'Nakul Properties specializes in freehold HUDA sector plots, residential plot deals, and prime property investments across Sector 65, 64 & 62 Faridabad.'
     },
     {
       id: 2,
       image: '/hero-banner2.png',
-      alt: 'Independent Builder Floors & Apartments in Faridabad',
+      alt: 'Prime Residential Sector Plots in Faridabad',
       heading: (
         <>
-          Exclusive Builder Floors & Luxury Flats in <span className="font-semibold text-white">Greater Faridabad</span>
+          Exclusive 100 Gaj to 500 Gaj Sector Plots in <span className="font-semibold text-white">Sector 65, 64 &amp; 62</span>
         </>
       ),
-      paragraph: 'Explore premium 3 & 4 BHK independent floors and modern high-rise apartments with top amenities, 0% brokerage options, and 100% verified legal titles.'
+      paragraph: 'Explore verified freehold HUDA sector plots ranging from 100 Sq. Yds to 500 Sq. Yds with 100% clear legal titles and immediate registry ready.'
     }
   ];
 
@@ -57,6 +57,9 @@ export default function Hero() {
 
   const locationsList = [
     { value: 'all', label: 'All Faridabad' },
+    { value: 'sector-65', label: 'Sector 65' },
+    { value: 'sector-64', label: 'Sector 64' },
+    { value: 'sector-62', label: 'Sector 62' },
     { value: 'sector-14', label: 'Sector 14' },
     { value: 'sector-15', label: 'Sector 15' },
     { value: 'sector-21', label: 'Sector 21' },

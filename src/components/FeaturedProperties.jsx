@@ -36,9 +36,9 @@ export default function FeaturedProperties({ properties = [] }) {
         <section id="properties" className="scroll-mt-32" aria-labelledby="featured-heading">
             {/* Section Header */}
             <div className="text-center max-w-3xl mx-auto mb-10">
-                <span className="text-xs font-semibold uppercase tracking-widest text-neutral-500 mb-2 block">Featured Listings</span>
-                <h2 id="featured-heading" className="text-3xl sm:text-4xl font-semibold text-black mb-3 tracking-tight">Verified Plots &amp; Commercial Properties</h2>
-                <p className="text-neutral-600 text-base leading-relaxed">Direct options for HUDA approved sector plots, premium gated townships, and retail SCO shops in Faridabad.</p>
+                <span className="text-xs font-semibold uppercase tracking-widest text-neutral-500 mb-2 block">Featured Plot Listings</span>
+                <h2 id="featured-heading" className="text-3xl sm:text-4xl font-semibold text-black mb-3 tracking-tight">Verified Sector Plots for Sale</h2>
+                <p className="text-neutral-600 text-base leading-relaxed">Direct options for HUDA approved sector plots across Sector 65, 64 &amp; 62 Faridabad.</p>
             </div>
 
             {/* Filter Buttons */}

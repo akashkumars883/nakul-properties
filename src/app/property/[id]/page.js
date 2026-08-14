@@ -161,7 +161,7 @@ export async function generateMetadata({ params }) {
   
   // Try fetching from Sanity first
   let property = await client.fetch(
-    `*[_type == "property" && slug.current == $id][0]`,
+    `*[_type == "property" && (slug.current == $id || _id == $id)][0]`,
     { id: decodedId }
   );
 
@@ -170,18 +170,39 @@ export async function generateMetadata({ params }) {
   }
 
   if (!property) return {};
-  const desc = `Buy or lease this premium verified property: ${property.title} in ${property.location}. Size: ${property.size || 'N/A'}. Contact Nakul Properties today.`;
+  const desc = `Buy or lease this premium verified plot/property: ${property.title} in ${property.location}. Size: ${property.size || 'N/A'}. 100% verified freehold title. Contact Nakul Properties today.`;
+  const imageUrl = property.image ? (typeof property.image === 'string' ? property.image : '') : '';
+
   return {
-    title: `${property.title} | Nakul Properties`,
+    title: `${property.title} | Nakul Properties Faridabad`,
     description: desc,
+    keywords: [
+      property.title,
+      `plots in ${property.location}`,
+      `property for sale in ${property.location}`,
+      `HUDA sector plot ${property.location}`,
+      'Sector 65 plots Faridabad',
+      'Sector 64 plots Faridabad',
+      'Sector 62 plots Faridabad',
+      'freehold plots for sale Faridabad',
+      'buy plot in Faridabad',
+      'Nakul Properties Faridabad',
+    ],
     alternates: {
       canonical: `/property/${decodedId}`,
     },
     openGraph: {
-      title: `${property.title} | Nakul Properties`,
+      title: `${property.title} | Nakul Properties Faridabad`,
       description: desc,
       url: `https://nakulproperties.com/property/${decodedId}`,
+      siteName: 'Nakul Properties Faridabad',
       type: 'website',
+      images: imageUrl ? [{ url: imageUrl, alt: property.title }] : [],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${property.title} | Nakul Properties`,
+      description: desc,
     },
   };
 }
@@ -192,7 +213,7 @@ export default async function PropertyPage({ params }) {
   
   // Try fetching from Sanity first
   let property = await client.fetch(
-    `*[_type == "property" && slug.current == $id][0]`,
+    `*[_type == "property" && (slug.current == $id || _id == $id)][0]`,
     { id: decodedId }
   );
 

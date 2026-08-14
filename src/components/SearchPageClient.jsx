@@ -22,6 +22,9 @@ export default function SearchPageClient({ type, location, budget, propertiesDb 
       // 2. Filter by Location
       if (location && location !== 'all') {
         const itemLoc = item.location.toLowerCase();
+        if (location === 'sector-65' && !itemLoc.includes('65')) return false;
+        if (location === 'sector-64' && !itemLoc.includes('64')) return false;
+        if (location === 'sector-62' && !itemLoc.includes('62')) return false;
         if (location === 'sector-14' && !itemLoc.includes('sector 14')) return false;
         if (location === 'sector-15' && !itemLoc.includes('sector 15')) return false;
         if (location === 'sector-21' && !itemLoc.includes('21')) return false;

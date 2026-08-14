@@ -48,10 +48,10 @@ export default function ExclusiveDeals({ properties = [] }) {
           className="text-3xl sm:text-4xl font-semibold text-black mb-3 tracking-tight"
           itemProp="name"
         >
-          Exclusive Deals — Floors, Shops &amp; Plots in Faridabad
+          Exclusive Sector Plot Deals in Faridabad
         </h2>
         <p className="text-neutral-600 text-base leading-relaxed">
-          Handpicked property deals — independent builder floors, commercial rentals &amp; premium plots available now.
+          Verified freehold HUDA sector plots across Sector 65, 64 &amp; 62 — 100 Gaj to 500 Gaj available now.
         </p>
       </div>
 

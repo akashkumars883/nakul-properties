@@ -114,7 +114,7 @@ export default function PropertyDetailsClient({ property }) {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 font-outfit">
         {/* Detail Layout Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
 
           {/* Left Area (Images and description) */}
           <div className="lg:col-span-8 space-y-8">
@@ -176,65 +176,96 @@ export default function PropertyDetailsClient({ property }) {
                 </div>
               </div>
 
+              {/* Highlight Badges */}
+              <div className="flex flex-wrap gap-2 text-xs font-semibold">
+                <span className="bg-neutral-100 border border-neutral-200 text-neutral-800 px-3 py-1.5 rounded-lg flex items-center gap-1.5">
+                  <ShieldCheck className="w-4 h-4 text-black" /> HUDA / HSVP Approved
+                </span>
+                <span className="bg-neutral-100 border border-neutral-200 text-neutral-800 px-3 py-1.5 rounded-lg flex items-center gap-1.5">
+                  <Check className="w-4 h-4 text-black" /> Freehold Registry Title
+                </span>
+                <span className="bg-neutral-100 border border-neutral-200 text-neutral-800 px-3 py-1.5 rounded-lg flex items-center gap-1.5">
+                  <Check className="w-4 h-4 text-black" /> 100% Verified Legal Documents
+                </span>
+                <span className="bg-neutral-100 border border-neutral-200 text-neutral-800 px-3 py-1.5 rounded-lg flex items-center gap-1.5">
+                  <Check className="w-4 h-4 text-black" /> Immediate Possession Ready
+                </span>
+              </div>
+
               <hr className="border-neutral-100" />
 
-              {/* Detailed specs quick indicators */}
+              {/* Detailed specs quick indicators — 4-Grid */}
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-                <div className="space-y-1">
-                  <div className="text-neutral-500 text-xs font-semibold flex items-center gap-1">
-                    <Ruler className="w-3.5 h-3.5 text-black" /> Plot Size
+                <div className="bg-neutral-50 border border-neutral-200/80 rounded-xl p-3.5 space-y-1">
+                  <div className="text-neutral-500 text-xs font-semibold flex items-center gap-1.5">
+                    <Ruler className="w-3.5 h-3.5 text-black" /> Plot Area
                   </div>
-                  <div className="text-black font-semibold text-base sm:text-lg">{property.size}</div>
+                  <div className="text-black font-bold text-base sm:text-lg">{property.size}</div>
+                  <div className="text-[11px] text-neutral-500">Freehold Plot</div>
                 </div>
-                <div className="space-y-1">
-                  <div className="text-neutral-500 text-xs font-semibold flex items-center gap-1">
-                    <Compass className="w-3.5 h-3.5 text-black" /> Facing
-                  </div>
-                  <div className="text-black font-semibold text-base sm:text-lg">{property.facing || 'N/A'}</div>
-                </div>
-                <div className="space-y-1">
-                  <div className="text-neutral-500 text-xs font-semibold flex items-center gap-1">
-                    <Road className="w-3.5 h-3.5 text-black" /> Road Size
-                  </div>
-                  <div className="text-black font-semibold text-base sm:text-lg">{property.roadSize || 'N/A'}</div>
-                </div>
-                <div className="space-y-1">
-                  <div className="text-neutral-500 text-xs font-semibold flex items-center gap-1">
+
+                <div className="bg-neutral-50 border border-neutral-200/80 rounded-xl p-3.5 space-y-1">
+                  <div className="text-neutral-500 text-xs font-semibold flex items-center gap-1.5">
                     <Info className="w-3.5 h-3.5 text-black" /> Dimensions
                   </div>
-                  <div className="text-black font-semibold text-base sm:text-lg truncate">{property.dimensions || 'N/A'}</div>
+                  <div className="text-black font-bold text-base sm:text-lg truncate">{property.dimensions || 'Standard Plot'}</div>
+                  <div className="text-[11px] text-neutral-500">Length × Width</div>
+                </div>
+
+                <div className="bg-neutral-50 border border-neutral-200/80 rounded-xl p-3.5 space-y-1">
+                  <div className="text-neutral-500 text-xs font-semibold flex items-center gap-1.5">
+                    <Compass className="w-3.5 h-3.5 text-black" /> Facing / Orientation
+                  </div>
+                  <div className="text-black font-bold text-base sm:text-lg">{property.facing || 'East / North-East'}</div>
+                  <div className="text-[11px] text-neutral-500">Vastu Compliant</div>
+                </div>
+
+                <div className="bg-neutral-50 border border-neutral-200/80 rounded-xl p-3.5 space-y-1">
+                  <div className="text-neutral-500 text-xs font-semibold flex items-center gap-1.5">
+                    <Road className="w-3.5 h-3.5 text-black" /> Front Road Width
+                  </div>
+                  <div className="text-black font-bold text-base sm:text-lg">{property.roadSize || '12-18 Meter'}</div>
+                  <div className="text-[11px] text-neutral-500">Wide Sector Road</div>
                 </div>
               </div>
 
               {/* Long description text */}
-              <div className="space-y-3.5">
-                <h2 className="text-xl font-bold text-black">Property Details &amp; Description</h2>
-                <p className="text-neutral-600 text-sm sm:text-base leading-relaxed">
-                  {property.longDescription || 'This premium property listing is located in a prime locality of Faridabad. Features close connectivity to metro stations, main highways, schools, and shopping markets. 100% verified legal clear titles with freehold registry guidelines ready for immediate registry and possession.'}
+              <div className="space-y-3.5 pt-2">
+                <h2 className="text-xl font-bold text-black">Property Overview &amp; Description</h2>
+                <p className="text-neutral-600 text-sm sm:text-base leading-relaxed font-light">
+                  {property.longDescription || 'This prime freehold residential sector plot is located in an established locality of Faridabad. Features 100% verified legal papers, clear single owner registry, wide front roads, and ready for immediate registry and physical possession.'}
                 </p>
               </div>
 
               {/* Legal Checklist & Approvals */}
               <div className="space-y-3.5 pt-2">
                 <h3 className="text-xl font-bold text-black flex items-center gap-2">
-                  <ShieldCheck className="w-5.5 h-5.5 text-black" /> Legal Approvals &amp; Compliance
+                  <ShieldCheck className="w-5.5 h-5.5 text-black" /> Legal Approvals &amp; Compliance Verification
                 </h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm text-neutral-700">
-                  <div className="flex items-center gap-2">
-                    <Check className="w-4 h-4 text-neutral-900" />
-                    <span>HSVP / HUDA Approved Layout</span>
+                  <div className="flex items-center gap-2 bg-neutral-50 border border-neutral-200/80 p-3 rounded-lg">
+                    <Check className="w-4 h-4 text-black shrink-0" />
+                    <span>HSVP / HUDA Approved Sector Layout</span>
                   </div>
-                  <div className="flex items-center gap-2">
-                    <Check className="w-4 h-4 text-neutral-900" />
-                    <span>Freehold Registry Title</span>
+                  <div className="flex items-center gap-2 bg-neutral-50 border border-neutral-200/80 p-3 rounded-lg">
+                    <Check className="w-4 h-4 text-black shrink-0" />
+                    <span>Freehold Registry Title (Single Owner)</span>
                   </div>
-                  <div className="flex items-center gap-2">
-                    <Check className="w-4 h-4 text-neutral-900" />
-                    <span>State Bank Approved Project</span>
+                  <div className="flex items-center gap-2 bg-neutral-50 border border-neutral-200/80 p-3 rounded-lg">
+                    <Check className="w-4 h-4 text-black shrink-0" />
+                    <span>100% Legal Title Clearance &amp; Zero Dispute</span>
                   </div>
-                  <div className="flex items-center gap-2">
-                    <Check className="w-4 h-4 text-neutral-900" />
-                    <span>No Legal Dispute - Clear History</span>
+                  <div className="flex items-center gap-2 bg-neutral-50 border border-neutral-200/80 p-3 rounded-lg">
+                    <Check className="w-4 h-4 text-black shrink-0" />
+                    <span>Immediate Physical Possession Ready</span>
+                  </div>
+                  <div className="flex items-center gap-2 bg-neutral-50 border border-neutral-200/80 p-3 rounded-lg">
+                    <Check className="w-4 h-4 text-black shrink-0" />
+                    <span>Full Stamp Duty &amp; Registry Assistance</span>
+                  </div>
+                  <div className="flex items-center gap-2 bg-neutral-50 border border-neutral-200/80 p-3 rounded-lg">
+                    <Check className="w-4 h-4 text-black shrink-0" />
+                    <span>Direct Site Visit Available</span>
                   </div>
                 </div>
               </div>
@@ -242,24 +273,24 @@ export default function PropertyDetailsClient({ property }) {
               {/* Nearby Landmarks & Distances */}
               <div className="space-y-3.5 pt-2">
                 <h3 className="text-xl font-bold text-black flex items-center gap-2">
-                  <Map className="w-5.5 h-5.5 text-black" /> Location Highlights &amp; Distance
+                  <Map className="w-5.5 h-5.5 text-black" /> Location Advantages &amp; Proximity
                 </h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm text-neutral-700">
-                  <div className="flex items-center gap-2">
-                    <div className="w-2 h-2 rounded-full bg-black shrink-0" />
+                  <div className="flex items-center gap-2.5 bg-neutral-50 border border-neutral-200/80 p-3 rounded-lg">
+                    <Train className="w-4 h-4 text-black shrink-0" />
                     <span>Nearest Metro Station: 5 mins drive</span>
                   </div>
-                  <div className="flex items-center gap-2">
-                    <div className="w-2 h-2 rounded-full bg-black shrink-0" />
+                  <div className="flex items-center gap-2.5 bg-neutral-50 border border-neutral-200/80 p-3 rounded-lg">
+                    <Road className="w-4 h-4 text-black shrink-0" />
                     <span>Delhi-Mathura Highway Link: 8 mins drive</span>
                   </div>
-                  <div className="flex items-center gap-2">
-                    <div className="w-2 h-2 rounded-full bg-black shrink-0" />
+                  <div className="flex items-center gap-2.5 bg-neutral-50 border border-neutral-200/80 p-3 rounded-lg">
+                    <Store className="w-4 h-4 text-black shrink-0" />
                     <span>Local Sector HUDA Market: Walk-in Distance</span>
                   </div>
-                  <div className="flex items-center gap-2">
-                    <div className="w-2 h-2 rounded-full bg-black shrink-0" />
-                    <span>Convent School &amp; Hospital: 10 mins proximity</span>
+                  <div className="flex items-center gap-2.5 bg-neutral-50 border border-neutral-200/80 p-3 rounded-lg">
+                    <Landmark className="w-4 h-4 text-black shrink-0" />
+                    <span>Convent School &amp; Hospital: 10 mins Proximity</span>
                   </div>
                 </div>
               </div>
@@ -267,7 +298,7 @@ export default function PropertyDetailsClient({ property }) {
               {/* Features checklist */}
               {property.features && property.features.length > 0 && (
                 <div className="space-y-4 pt-2">
-                  <h3 className="text-xl font-bold text-black">Amenities &amp; Features</h3>
+                  <h3 className="text-xl font-bold text-black">Infrastructure &amp; Amenities</h3>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 text-sm text-neutral-700">
                     {property.features.map((feat, idx) => (
                       <div key={idx} className="flex items-center gap-2.5">
@@ -320,75 +351,110 @@ export default function PropertyDetailsClient({ property }) {
                 <BookOpen className="w-4 h-4 text-neutral-500" /> Popular Searches in Faridabad
               </h4>
               <div className="flex flex-wrap gap-x-3.5 gap-y-2 text-xs font-semibold text-neutral-700">
-                <a href="/deals/best-property-dealer-faridabad" className="hover:text-black transition-colors underline underline-offset-2">Best Property Dealer Faridabad</a>
+                <Link href="/deals/best-property-dealer-faridabad" className="hover:text-black transition-colors underline underline-offset-2">Best Property Dealer Faridabad</Link>
                 <span className="text-neutral-300">•</span>
-                <a href="/deals/huda-plots-for-sale-faridabad" className="hover:text-black transition-colors underline underline-offset-2">HUDA Plots for Sale Faridabad</a>
+                <Link href="/deals/huda-plots-for-sale-faridabad" className="hover:text-black transition-colors underline underline-offset-2">HUDA Plots for Sale Faridabad</Link>
                 <span className="text-neutral-300">•</span>
-                <a href="/deals/luxury-builder-floors-faridabad" className="hover:text-black transition-colors underline underline-offset-2">Luxury Builder Floors Faridabad</a>
+                <Link href="/deals/luxury-builder-floors-faridabad" className="hover:text-black transition-colors underline underline-offset-2">Luxury Builder Floors Faridabad</Link>
                 <span className="text-neutral-300">•</span>
-                <a href="/deals/plots-for-sale-greater-faridabad" className="hover:text-black transition-colors underline underline-offset-2">Plots Greater Faridabad</a>
+                <Link href="/deals/plots-for-sale-greater-faridabad" className="hover:text-black transition-colors underline underline-offset-2">Plots Greater Faridabad</Link>
               </div>
             </div>
 
           </div>
 
-          {/* Right Area (Pricing and Contact CTA card) */}
-          <div className="lg:col-span-4 lg:sticky lg:top-28 space-y-6">
+          {/* Right Area — Sticky Interactive Inquiry Form */}
+          <div className="lg:col-span-4 relative">
+            <div className="sticky top-[120px] z-30 space-y-6">
 
-            {/* Price & Contact Box */}
-            <div className="bg-white border border-neutral-200/90 rounded-md p-6 space-y-6">
-              <div>
-                <span className="text-neutral-500 text-xs uppercase tracking-wider block font-bold">Total Price Guide</span>
-                <div className="text-3xl sm:text-4xl font-extrabold text-black tracking-tight mt-1">{property.price}</div>
-                <div className="text-xs text-neutral-500 font-semibold mt-1">{property.pricePerSqYd || property.priceSub || 'registry inclusive'}</div>
-              </div>
-
-              <hr className="border-neutral-100" />
-
-              {/* Verification Info */}
-              <div className="flex items-start gap-3 bg-neutral-50 border border-neutral-200/80 rounded-md p-4 text-xs text-neutral-700">
-                <ShieldCheck className="w-5 h-5 text-black shrink-0 mt-0.5" />
+              {/* Price & Sticky Inquiry Form Box */}
+              <div className="bg-white border border-neutral-200/90 rounded-2xl p-6 shadow-xl space-y-5 font-outfit">
                 <div>
-                  <p className="font-bold text-black">Verified Ownership Title</p>
-                  <p className="text-neutral-500 mt-1 leading-relaxed">This listing has been verified by Nakul Properties for document titles and road mapping approvals.</p>
+                  <span className="text-neutral-500 text-[11px] uppercase tracking-wider block font-bold">Total Price Guide</span>
+                  <div className="text-3xl sm:text-4xl font-extrabold text-black tracking-tight mt-1">{property.price}</div>
+                  <div className="text-xs text-neutral-500 font-semibold mt-1">{property.pricePerSqYd || property.priceSub || 'registry inclusive'}</div>
                 </div>
+
+                <hr className="border-neutral-100" />
+
+                {/* Inquiry Form */}
+                <div className="space-y-4">
+                  <h4 className="text-sm font-bold text-black uppercase tracking-wider flex items-center gap-1.5">
+                    <Phone className="w-4 h-4 text-black" /> Quick Plot Inquiry
+                  </h4>
+                  <p className="text-xs text-neutral-500">Fill your details to get exact location &amp; plot details directly.</p>
+
+                  <form
+                    onSubmit={(e) => {
+                      e.preventDefault();
+                      const form = e.target;
+                      const name = form.name.value;
+                      const phone = form.phone.value;
+                      const msg = form.message.value;
+                      const text = `Hi Nakul Properties, I am interested in ${property.title} (${property.location}, ${property.price}). My Name: ${name}, Phone: ${phone}. Note: ${msg}`;
+                      window.open(`https://wa.me/919811548267?text=${encodeURIComponent(text)}`, '_blank');
+                    }}
+                    className="space-y-3"
+                  >
+                    <div>
+                      <input
+                        type="text"
+                        name="name"
+                        required
+                        placeholder="Your Full Name"
+                        className="w-full bg-neutral-50 border border-neutral-200 rounded-xl px-3.5 py-2.5 text-xs text-black focus:outline-none focus:border-black transition-colors"
+                      />
+                    </div>
+                    <div>
+                      <input
+                        type="tel"
+                        name="phone"
+                        required
+                        placeholder="Phone Number"
+                        className="w-full bg-neutral-50 border border-neutral-200 rounded-xl px-3.5 py-2.5 text-xs text-black focus:outline-none focus:border-black transition-colors"
+                      />
+                    </div>
+                    <div>
+                      <textarea
+                        name="message"
+                        rows={2}
+                        placeholder="Any specific requirement? (Optional)"
+                        className="w-full bg-neutral-50 border border-neutral-200 rounded-xl px-3.5 py-2.5 text-xs text-black focus:outline-none focus:border-black transition-colors resize-none"
+                      />
+                    </div>
+
+                    <button
+                      type="submit"
+                      className="w-full bg-black hover:bg-neutral-800 text-white font-bold text-xs py-3 px-4 rounded-xl transition-all shadow-md active:scale-98 flex items-center justify-center gap-2"
+                    >
+                      <FaWhatsapp className="w-4 h-4" />
+                      <span>Send Inquiry on WhatsApp</span>
+                    </button>
+                  </form>
+
+                  <div className="pt-2">
+                    <a
+                      href="tel:+919811548267"
+                      className="w-full flex items-center justify-center gap-2 border border-neutral-300 hover:bg-neutral-50 text-black font-bold text-xs py-2.5 px-4 rounded-xl transition-all active:scale-98"
+                    >
+                      <Phone className="w-3.5 h-3.5" />
+                      <span>Call Agent Direct (+91 9811548267)</span>
+                    </a>
+                  </div>
+                </div>
+
+                {/* Verification Info */}
+                <div className="flex items-start gap-3 bg-neutral-50 border border-neutral-200/80 rounded-xl p-3.5 text-xs text-neutral-700">
+                  <ShieldCheck className="w-4 h-4 text-black shrink-0 mt-0.5" />
+                  <div>
+                    <p className="font-bold text-black">Verified Plot Title</p>
+                    <p className="text-neutral-500 text-[11px] mt-0.5 leading-relaxed">Verified by Nakul Properties for document titles &amp; site visit inspection.</p>
+                  </div>
+                </div>
+
               </div>
 
-              {/* Contact CTAs */}
-              <div className="space-y-3 pt-2">
-                <a
-                  href={`https://wa.me/919811548267?text=Hi%20Nakul%20Properties,%20I%20am%20interested%20in%20the%20${encodeURIComponent(property.title)}%20at%20${encodeURIComponent(property.location)}.%20Please%20share%20details.`}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="w-full flex items-center justify-center gap-2 bg-black hover:bg-neutral-800 text-white font-bold py-3.5 px-4 rounded-md transition-all active:scale-98"
-                >
-                  <FaWhatsapp className="w-5 h-5" />
-                  <span>Inquire on WhatsApp</span>
-                </a>
-                <a
-                  href="tel:+919811548267"
-                  className="w-full flex items-center justify-center gap-2 border border-neutral-300 hover:bg-neutral-50 text-black font-bold py-3.5 px-4 rounded-md transition-all active:scale-98"
-                >
-                  <Phone className="w-4 h-4" />
-                  <span>Call Property Agent</span>
-                </a>
-              </div>
             </div>
-
-            {/* General Advice Banner */}
-            <div className="bg-neutral-900 border border-neutral-800 rounded-md p-6 text-white space-y-4">
-              <h4 className="text-sm font-bold uppercase tracking-wider text-neutral-400">Need Help?</h4>
-              <p className="text-xs text-neutral-300 leading-relaxed">
-                Looking for alternative dimensions or have a specific budget requirement? Share your parameters and we will find the perfect property matches.
-              </p>
-              <Link
-                href="/#contact"
-                className="text-xs font-semibold text-[#D4AF37] hover:underline flex items-center gap-1"
-              >
-                Book a Site Visit <ChevronRight className="w-3.5 h-3.5" />
-              </Link>
-            </div>
-
           </div>
 
         </div>

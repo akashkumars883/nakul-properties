@@ -273,12 +273,36 @@ export async function generateMetadata({ params }) {
   }
 
   const data = seoDealsData[decodedSlug];
-  if (!data) return {};
+  const title = sanityKeyword?.seoTitle || data?.seoTitle || 'Property Deals in Faridabad | Nakul Properties';
+  const description = sanityKeyword?.seoDesc || data?.seoDesc || 'Find verified property deals, HUDA plots, and commercial spaces in Faridabad.';
+
   return {
-    title: data.seoTitle,
-    description: data.seoDesc,
+    title,
+    description,
+    keywords: [
+      title,
+      `${decodedSlug.replace(/-/g, ' ')}`,
+      'Nakul Properties Faridabad',
+      'HUDA plots Sector 65 Faridabad',
+      'HUDA plots Sector 64 Faridabad',
+      'HUDA plots Sector 62 Faridabad',
+      'real estate agent Faridabad',
+      'property dealers in Faridabad',
+    ],
     alternates: {
       canonical: `/deals/${decodedSlug}`,
+    },
+    openGraph: {
+      title,
+      description,
+      url: `https://nakulproperties.com/deals/${decodedSlug}`,
+      siteName: 'Nakul Properties Faridabad',
+      type: 'website',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
     },
   };
 }
