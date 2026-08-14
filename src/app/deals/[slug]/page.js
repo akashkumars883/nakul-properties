@@ -253,21 +253,12 @@ export async function generateMetadata({ params }) {
   const { slug } = await params;
   const decodedSlug = decodeURIComponent(slug || '').trim().toLowerCase();
 
-  // Try fetching from Sanity first
+  let sanityKeyword = null;
   try {
-    const sanityKeyword = await client.fetch(
+    sanityKeyword = await client.fetch(
       `*[_type == "keywordPage" && slug.current == $slug][0]`,
       { slug: decodedSlug }
     );
-    if (sanityKeyword) {
-      return {
-        title: sanityKeyword.seoTitle,
-        description: sanityKeyword.seoDesc,
-        alternates: {
-          canonical: `/deals/${decodedSlug}`,
-        },
-      };
-    }
   } catch (error) {
     console.error('Failed to fetch metadata from Sanity:', error);
   }
