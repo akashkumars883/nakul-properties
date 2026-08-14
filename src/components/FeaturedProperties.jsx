@@ -68,8 +68,6 @@ export default function FeaturedProperties({ properties = [] }) {
                     <article
                         key={propertyId}
                         className="bg-white border border-neutral-200 rounded-xl p-4 transition-all duration-300 group hover:-translate-y-1 flex flex-col justify-between"
-                        itemScope
-                        itemType="https://schema.org/Product"
                     >
                         <div>
                             {/* Property Image Container */}
@@ -95,7 +93,7 @@ export default function FeaturedProperties({ properties = [] }) {
 
                             {/* Title */}
                             <Link href={`/property/${propertyId}`}>
-                                <h3 className="text-base font-bold text-black mb-1.5 leading-snug group-hover:text-neutral-700 transition-colors" itemProp="name">
+                                <h3 className="text-base font-bold text-black mb-1.5 leading-snug group-hover:text-neutral-700 transition-colors">
                                     {property.title}
                                 </h3>
                             </Link>

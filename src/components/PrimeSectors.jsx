@@ -58,8 +58,6 @@ export default function PrimeSectors() {
       id="prime-sectors"
       className="scroll-mt-32"
       aria-labelledby="sectors-heading"
-      itemScope
-      itemType="https://schema.org/ItemList"
     >
       {/* Section Header */}
       <div className="text-center max-w-3xl mx-auto mb-10">
@@ -69,7 +67,6 @@ export default function PrimeSectors() {
         <h2
           id="sectors-heading"
           className="text-3xl sm:text-4xl font-semibold text-black mb-3 tracking-tight"
-          itemProp="name"
         >
           Top Locations &amp; Sectors for Plots in Faridabad
         </h2>
@@ -91,8 +88,6 @@ export default function PrimeSectors() {
             >
               <article
                 className="bg-white border border-neutral-200 rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 flex flex-col h-full"
-                itemScope
-                itemType="https://schema.org/ListItem"
               >
                 {/* Sector Image */}
                 <div className="relative w-full h-44 overflow-hidden bg-neutral-100">

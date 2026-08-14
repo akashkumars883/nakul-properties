@@ -10,8 +10,6 @@ export default function AboutUs() {
       id="about"
       className="scroll-mt-12 w-full bg-white rounded-xl p-6 sm:p-10 border border-neutral-200"
       aria-labelledby="about-heading"
-      itemScope
-      itemType="https://schema.org/RealEstateAgent"
     >
       <div className="max-w-6xl mx-auto flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
 

@@ -100,8 +100,6 @@ export default function LocationPageClient({ data }) {
               <article
                 key={property.id}
                 className="bg-white border border-neutral-200 rounded-xl p-4 transition-all duration-300 group hover:-translate-y-1 hover:shadow-lg flex flex-col justify-between"
-                itemScope
-                itemType="https://schema.org/Product"
               >
                 <div>
                   {/* Property Image */}
@@ -131,7 +129,6 @@ export default function LocationPageClient({ data }) {
                   <Link href={`/property/${dynamicId}`}>
                     <h2
                       className="text-base font-bold text-black mb-1.5 leading-snug group-hover:text-neutral-700 transition-colors"
-                      itemProp="name"
                     >
                       {property.title}
                     </h2>

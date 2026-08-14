@@ -35,8 +35,6 @@ export default function ExclusiveDeals({ properties = [] }) {
       id="exclusive-deals"
       className="scroll-mt-32"
       aria-labelledby="deals-heading"
-      itemScope
-      itemType="https://schema.org/ItemList"
     >
       {/* Section Header */}
       <div className="text-center max-w-3xl mx-auto mb-10">
@@ -46,7 +44,6 @@ export default function ExclusiveDeals({ properties = [] }) {
         <h2
           id="deals-heading"
           className="text-3xl sm:text-4xl font-semibold text-black mb-3 tracking-tight"
-          itemProp="name"
         >
           Exclusive Sector Plot Deals in Faridabad
         </h2>
@@ -86,8 +83,6 @@ export default function ExclusiveDeals({ properties = [] }) {
           <article
             key={`${dealId}-${index}`}
             className="bg-white border border-neutral-200 rounded-xl p-4 transition-all duration-300 group hover:-translate-y-1 flex flex-col justify-between"
-            itemScope
-            itemType="https://schema.org/Product"
           >
             <div>
               {/* Image with link wrapper */}
@@ -120,7 +115,7 @@ export default function ExclusiveDeals({ properties = [] }) {
               </div>
               
               <Link href={`/property/${dealId}`}>
-                <h3 className="text-base font-bold text-black mb-1.5 leading-snug group-hover:text-neutral-700 transition-colors" itemProp="name">
+                <h3 className="text-base font-bold text-black mb-1.5 leading-snug group-hover:text-neutral-700 transition-colors">
                   {deal.title}
                 </h3>
               </Link>

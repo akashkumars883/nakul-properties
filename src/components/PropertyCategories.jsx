@@ -50,8 +50,6 @@ export default function PropertyCategories() {
       id="properties"
       className="scroll-mt-32"
       aria-labelledby="properties-heading"
-      itemScope
-      itemType="https://schema.org/OfferCatalog"
     >
       {/* SEO Optimized Section Header */}
       <div className="text-center max-w-3xl mx-auto mb-12">
@@ -61,7 +59,6 @@ export default function PropertyCategories() {
         <h2
           id="properties-heading"
           className="text-3xl sm:text-4xl font-semibold text-black mb-4 tracking-tight"
-          itemProp="name"
         >
           Explore Plot Categories &amp; Property Types in Faridabad
         </h2>
@@ -82,8 +79,6 @@ export default function PropertyCategories() {
             <article
               id={cat.id}
               className="bg-white border border-neutral-200 rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 flex flex-col h-full"
-              itemScope
-              itemType="https://schema.org/ListItem"
             >
               {/* Category Image */}
               <div className="relative w-full h-44 overflow-hidden bg-neutral-100">
