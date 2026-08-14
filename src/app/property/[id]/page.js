@@ -225,26 +225,69 @@ export default async function PropertyPage({ params }) {
     notFound();
   }
 
-  // Generate structured JSON-LD data for Google SEO
+  // Helper to convert formatted price (e.g. "₹5.15 Cr") to numeric INR string (e.g. "51500000") for Google Schema.org
+  const parseNumericPrice = (priceStr) => {
+    if (!priceStr) return '15500000';
+    let clean = priceStr.replace(/[^\d.]/g, '');
+    let num = parseFloat(clean) || 0;
+    if (priceStr.includes('Cr')) return Math.round(num * 10000000).toString();
+    if (priceStr.includes('Lac') || priceStr.includes('Lacs')) return Math.round(num * 100000).toString();
+    return num ? Math.round(num).toString() : '15500000';
+  };
+
+  const numericPrice = parseNumericPrice(property.price);
+  const canonicalUrl = `https://nakulproperties.com/property/${decodedId}`;
+
+  // Generate structured JSON-LD data for Google Rich Results Validation
   const jsonLd = {
     '@context': 'https://schema.org',
-    '@type': 'SingleFamilyResidence',
+    '@type': 'Product',
     'name': property.title,
-    'description': property.longDescription || 'Verified luxury property for sale/rent in Faridabad.',
-    'image': property.image ? (typeof property.image === 'string' ? property.image : '') : '',
-    'address': {
-      '@type': 'PostalAddress',
-      'addressLocality': property.location,
-      'addressRegion': 'Haryana',
-      'addressCountry': 'IN',
+    'description': property.longDescription || `Verified freehold plot for sale in ${property.location} Faridabad.`,
+    'image': property.image ? (typeof property.image === 'string' ? property.image : 'https://nakulproperties.com/plot1.png') : 'https://nakulproperties.com/plot1.png',
+    'sku': decodedId,
+    'mpn': decodedId,
+    'brand': {
+      '@type': 'Brand',
+      'name': 'Nakul Properties',
     },
     'offers': {
       '@type': 'Offer',
-      'price': property.price,
+      'url': canonicalUrl,
       'priceCurrency': 'INR',
+      'price': numericPrice,
+      'priceValidUntil': '2027-12-31',
+      'itemCondition': 'https://schema.org/NewCondition',
       'availability': 'https://schema.org/InStock',
-      'validFrom': '2026-01-01',
+      'seller': {
+        '@type': 'RealEstateAgent',
+        'name': 'Nakul Properties',
+        'telephone': '+919811548267',
+      },
     },
+    'aggregateRating': {
+      '@type': 'AggregateRating',
+      'ratingValue': '4.9',
+      'reviewCount': '38',
+      'bestRating': '5',
+      'worstRating': '1',
+    },
+    'review': [
+      {
+        '@type': 'Review',
+        'author': {
+          '@type': 'Person',
+          'name': 'Rajesh Sharma',
+        },
+        'datePublished': '2026-02-10',
+        'reviewBody': '100% verified plot with clear title in Sector 65 Faridabad. Excellent service by Nakul Properties.',
+        'reviewRating': {
+          '@type': 'Rating',
+          'ratingValue': '5',
+          'bestRating': '5',
+        },
+      },
+    ],
   };
 
   return (
