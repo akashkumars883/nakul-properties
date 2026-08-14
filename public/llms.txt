@@ -1,37 +1,35 @@
-# Nakul Properties - Faridabad Real Estate Advisory
+# Nakul Properties - Faridabad Real Estate Advisory & Plot Specialist
 
-Nakul Properties is a premium and trusted real estate consultancy based in Faridabad, Haryana, India. Specializing in HUDA/HSVP sector plots, luxury independent builder floors, commercial SCO plots, and gated townships across Faridabad and Greater Faridabad.
+Nakul Properties is the leading real estate consultancy and property dealer based in Sector 65, Faridabad, Haryana, India. Specializing in freehold HUDA/HSVP approved sector plots, residential plot deals (100 Gaj to 500 Gaj), and prime property investments across Sector 65, Sector 64, Sector 62, and prime Faridabad sectors.
 
 ## Contact Information
 - **Phone / WhatsApp:** +91 98115 48267
-- **Address:** Sector 65, Faridabad, Haryana - 121004
+- **Head Office Address:** Sector 65, Faridabad, Haryana - 121004
 - **Primary Website:** https://nakulproperties.com
 
-## Key Offerings & Services
-- **HUDA / HSVP Sector Plots:** Freehold plots with 100% clear legal titles in Sector 14, 15, 21, and other prime sectors.
-- **Independent Builder Floors:** Luxury 3 BHK and 4 BHK floors with private lifts, stilt parking, and exclusive terrace rights.
-- **Gated Township Plots:** Residential plots in secured gated societies like BPTP Parklands, Puri Amanvilas, Omaxe, and RPS Savana.
-- **Commercial Shops & SCO:** Retail shops and commercial land leasing (B+G+3 permitted layouts) on main Mathura Road highway and Omaxe World Street.
+## Key Offerings & Plot Inventory
+- **Sector 65 Freehold Plots:** 100 Gaj (₹1.70 Cr), 160 Gaj (₹2.55 Cr), 250 Gaj (₹3.55 Cr), 350 Gaj (₹4.50 Cr), 500 Gaj (₹5.15 Cr)
+- **Sector 64 Freehold Plots:** 100 Gaj (₹1.60 Cr), 160 Gaj (₹2.50 Cr), 250 Gaj (₹3.40 Cr), 350 Gaj (₹4.10 Cr), 500 Gaj (₹5.65 Cr)
+- **Sector 62 Freehold Plots:** 100 Gaj (₹1.55 Cr), 160 Gaj (₹2.30 Cr), 250 Gaj (₹3.30 Cr), 350 Gaj (₹4.25 Cr), 500 Gaj (₹5.00 Cr)
+- **HUDA / HSVP Approved Sector Plots:** Freehold plots with 100% clear legal titles, wide roads, and immediate physical possession.
 
 ## Core Navigation Routes
 - Home Page: /
-- HUDA Plots Category: /properties/huda-plots
-- Gated Townships: /properties/gated-townships
-- Builder Floors Category: /properties/builder-floors
-- Commercial Properties: /properties/commercial-rent-sale
+- All Properties: /properties
+- HUDA Sector Plots Category: /properties/huda-plots
+- Gated Townships & Plots: /properties/gated-townships
 - About Us Page: /about
 - Contact Page: /contact
 - Search Page: /search
 
 ## Prime Location Areas Serviced
-- Sector 14 & 15 (VIP Sectors): /locations/sector-14-15
-- Sector 21, 28 & 31 (Central Faridabad): /locations/sector-21-28
-- Sector 81 to 89 (Greater Faridabad / Neharpar): /locations/sector-81-89
-- Mathura Road & World Street: /locations/sector-mathura-road
+- Sector 65 (Head Office & Prime Sector): /locations/sector-65
+- Sector 64 (HUDA Residential Sector): /locations/sector-64
+- Sector 62 (Freehold Residential Plots): /locations/sector-62
+- Sector 14 & 15 (Established Sectors): /locations/sector-14-15
 
-## Search Engine Targeted Deals Pages
+## Targeted Keyword Deals Pages
 - Main Authority Listing: /deals/best-property-dealer-faridabad
 - HUDA Sector Plots Search: /deals/huda-plots-for-sale-faridabad
-- Luxury Floors Deals: /deals/luxury-builder-floors-faridabad
 - Greater Faridabad Plots: /deals/plots-for-sale-greater-faridabad
 - Commercial Real Estate Hubs: /deals/commercial-sco-plots-faridabad
