@@ -8,11 +8,20 @@ export default function robots() {
         allow: '/',
         disallow: ['/api/', '/admin/'],
       },
-      // Block AI Scrapers / LLM Crawlers
+      // Explicitly allow AI Search Engines & LLM Crawlers for GEO (Generative Engine Optimization)
       {
-        userAgent: ['GPTBot', 'ChatGPT-User', 'Google-Extended', 'Anthropic-ai', 'Claude-Web', 'cohere-ai'],
-        disallow: '/',
-      }
+        userAgent: [
+          'GPTBot',
+          'ChatGPT-User',
+          'Google-Extended',
+          'Anthropic-ai',
+          'Claude-Web',
+          'PerplexityBot',
+          'cohere-ai',
+          'Bytespider',
+        ],
+        allow: '/',
+      },
     ],
     sitemap: `${baseUrl}/sitemap.xml`,
   };
