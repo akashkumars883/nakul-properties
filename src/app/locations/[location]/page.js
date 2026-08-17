@@ -238,8 +238,82 @@ export default async function LocationPage({ params }) {
     properties: sanityProperties.length > 0 ? sanityProperties : baseData.properties,
   };
 
+  const faqSchema = pageData.faqs && pageData.faqs.length > 0 ? {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    'mainEntity': pageData.faqs.map(faq => ({
+      '@type': 'Question',
+      'name': faq.q,
+      'acceptedAnswer': {
+        '@type': 'Answer',
+        'text': faq.a
+      }
+    }))
+  } : null;
+
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    'itemListElement': [
+      {
+        '@type': 'ListItem',
+        'position': 1,
+        'name': 'Home',
+        'item': 'https://nakulproperties.com/'
+      },
+      {
+        '@type': 'ListItem',
+        'position': 2,
+        'name': 'Locations',
+        'item': 'https://nakulproperties.com/#prime-sectors'
+      },
+      {
+        '@type': 'ListItem',
+        'position': 3,
+        'name': pageData.title,
+        'item': `https://nakulproperties.com/locations/${decodedLocation}`
+      }
+    ]
+  };
+
+  const realEstateAgentSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'RealEstateAgent',
+    'name': 'Nakul Properties',
+    'image': 'https://nakulproperties.com/logo.png',
+    '@id': 'https://nakulproperties.com/#organization',
+    'url': 'https://nakulproperties.com',
+    'telephone': '+91-9811548267',
+    'priceRange': '₹₹₹',
+    'address': {
+      '@type': 'PostalAddress',
+      'streetAddress': 'Sector 65',
+      'addressLocality': 'Faridabad',
+      'addressRegion': 'Haryana',
+      'postalCode': '121004',
+      'addressCountry': 'IN'
+    },
+    'areaServed': 'Faridabad'
+  };
+
   return (
     <div className="flex flex-col min-h-screen">
+      {/* Structured Data (JSON-LD) */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(realEstateAgentSchema) }}
+      />
+      {faqSchema && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        />
+      )}
+
       <Navbar />
       <LocationPageClient data={pageData} />
     </div>

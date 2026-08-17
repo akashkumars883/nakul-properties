@@ -286,8 +286,69 @@ export default async function BlogPostPage({ params }) {
 
   const portableTextComponents = createPortableTextComponents(urlFor);
 
+  const blogPostingSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    'headline': post.title,
+    'description': post.excerpt,
+    'image': [getImageUrl(post.mainImage)],
+    'datePublished': post.publishedAt,
+    'author': {
+      '@type': 'Organization',
+      'name': 'Nakul Properties',
+      'url': 'https://nakulproperties.com'
+    },
+    'publisher': {
+      '@type': 'Organization',
+      'name': 'Nakul Properties',
+      'logo': {
+        '@type': 'ImageObject',
+        'url': 'https://nakulproperties.com/logo.png'
+      }
+    },
+    'mainEntityOfPage': {
+      '@type': 'WebPage',
+      '@id': `https://nakulproperties.com/blog/${decodedSlug}`
+    }
+  };
+
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    'itemListElement': [
+      {
+        '@type': 'ListItem',
+        'position': 1,
+        'name': 'Home',
+        'item': 'https://nakulproperties.com/'
+      },
+      {
+        '@type': 'ListItem',
+        'position': 2,
+        'name': 'Blog',
+        'item': 'https://nakulproperties.com/blog'
+      },
+      {
+        '@type': 'ListItem',
+        'position': 3,
+        'name': post.title,
+        'item': `https://nakulproperties.com/blog/${decodedSlug}`
+      }
+    ]
+  };
+
   return (
     <div className="flex flex-col min-h-screen bg-white">
+      {/* Structured Data (JSON-LD) */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(blogPostingSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+
       <Navbar />
 
       {/* Main Reading Container */}

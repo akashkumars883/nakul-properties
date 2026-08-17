@@ -368,8 +368,66 @@ export default async function DealPage({ params }) {
     };
   }
 
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    'itemListElement': [
+      {
+        '@type': 'ListItem',
+        'position': 1,
+        'name': 'Home',
+        'item': 'https://nakulproperties.com/'
+      },
+      {
+        '@type': 'ListItem',
+        'position': 2,
+        'name': 'Deals',
+        'item': 'https://nakulproperties.com/#deals'
+      },
+      {
+        '@type': 'ListItem',
+        'position': 3,
+        'name': pageData.keywordTitle || pageData.seoTitle,
+        'item': `https://nakulproperties.com/deals/${decodedSlug}`
+      }
+    ]
+  };
+
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    'mainEntity': [
+      {
+        '@type': 'Question',
+        'name': `What makes Nakul Properties the trusted real estate consultant for ${pageData.keywordTitle}?`,
+        'acceptedAnswer': {
+          '@type': 'Answer',
+          'text': 'Nakul Properties provides 100% verified freehold titles, zero dispute guarantees, direct physical site visits in Sector 65/64/62, and complete registry and stamp duty documentation assistance.'
+        }
+      },
+      {
+        '@type': 'Question',
+        'name': 'Are all property listings verified for single-owner freehold registry?',
+        'acceptedAnswer': {
+          '@type': 'Answer',
+          'text': 'Yes, every plot and builder floor listed by Nakul Properties undergoes rigorous 7-point due diligence, including allotment check, title chain review, and authority clearance.'
+        }
+      }
+    ]
+  };
+
   return (
     <div className="flex flex-col min-h-screen">
+      {/* Structured Data (JSON-LD) */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+
       <Navbar />
       <SeoLandingClient data={pageData} />
     </div>

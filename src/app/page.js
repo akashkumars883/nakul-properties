@@ -65,6 +65,39 @@ export default async function Home() {
       'postalCode': '121004',
       'addressCountry': 'IN',
     },
+    'priceRange': '₹₹₹',
+    'areaServed': ['Sector 65 Faridabad', 'Sector 64 Faridabad', 'Sector 62 Faridabad', 'Faridabad']
+  };
+
+  const faqJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    'mainEntity': [
+      {
+        '@type': 'Question',
+        'name': 'Where is Nakul Properties office located in Faridabad?',
+        'acceptedAnswer': {
+          '@type': 'Answer',
+          'text': 'Nakul Properties head office is located at Sector 65, Faridabad, Haryana 121004.'
+        }
+      },
+      {
+        '@type': 'Question',
+        'name': 'Which property types do you deal in?',
+        'acceptedAnswer': {
+          '@type': 'Answer',
+          'text': 'We specialize in HUDA/HSVP freehold residential plots (Sector 65, 64, 62, 14, 15, 21), luxury independent builder floors, gated society plots, and commercial SCOs.'
+        }
+      },
+      {
+        '@type': 'Question',
+        'name': 'Are all property titles verified by Nakul Properties?',
+        'acceptedAnswer': {
+          '@type': 'Answer',
+          'text': 'Yes, 100% of our listed properties undergo 7-point due diligence checking allotment letters, conveyance deeds, zero pending dues, and physical site verification.'
+        }
+      }
+    ]
   };
 
   // Fetch dynamic keywords from Sanity for Popular Searches
@@ -101,6 +134,10 @@ export default async function Home() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
       
       {/* Transparent Fixed Header Navbar */}
