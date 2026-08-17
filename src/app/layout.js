@@ -192,13 +192,6 @@ export default function RootLayout({ children }) {
         </div>
         <Footer />
         <StartupFormModal />
-
-        {/* Anavya AI Chatbot Widget */}
-        <Script
-          src="https://anavyainfotech.com/widget.js"
-          data-site-id="nakul-properties"
-          strategy="lazyOnload"
-        />
       </body>
     </html>
   );
