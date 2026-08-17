@@ -10,6 +10,7 @@ import {
 } from 'lucide-react';
 import { FaWhatsapp } from 'react-icons/fa6';
 import { urlFor } from '@/sanity/lib/image';
+import InternalLinkHub from '@/components/InternalLinkHub';
 
 export default function PropertyDetailsClient({ property }) {
   const [activeImageIdx, setActiveImageIdx] = useState(0);
@@ -360,6 +361,9 @@ export default function PropertyDetailsClient({ property }) {
                 <Link href="/deals/plots-for-sale-greater-faridabad" className="hover:text-black transition-colors underline underline-offset-2">Plots Greater Faridabad</Link>
               </div>
             </div>
+
+            {/* Internal Link Hub */}
+            <InternalLinkHub title="Explore Property Network &amp; Verification Guides" />
 
           </div>
 

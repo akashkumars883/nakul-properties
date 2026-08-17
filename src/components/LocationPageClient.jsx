@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { MapPin, ShieldCheck, Phone, ArrowLeft, ChevronRight, Home, Eye } from 'lucide-react';
 import { FaWhatsapp } from 'react-icons/fa6';
+import InternalLinkHub from '@/components/InternalLinkHub';
 
 export default function LocationPageClient({ data }) {
   // Helper to map properties array local items IDs to dynamic Db slugs
@@ -215,6 +216,9 @@ export default function LocationPageClient({ data }) {
             );
           })}
         </div>
+
+        {/* Internal Link Network Hub */}
+        <InternalLinkHub title="Explore Other Sectors &amp; Buyer Guides" />
 
         {/* Bottom CTA Strip */}
         <div className="mt-14 bg-black rounded-2xl p-8 sm:p-10 text-center">

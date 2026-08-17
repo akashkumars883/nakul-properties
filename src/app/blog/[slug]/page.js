@@ -6,6 +6,7 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { Calendar, ArrowLeft, ChevronRight, Home, BadgeAlert } from 'lucide-react';
 import { PortableText } from '@portabletext/react';
+import InternalLinkHub from '@/components/InternalLinkHub';
 
 function parseInlineText(text) {
   if (!text) return null;
@@ -378,6 +379,9 @@ export default async function BlogPostPage({ params }) {
             </div>
           </div>
         )}
+
+        {/* Internal Link Network Hub */}
+        <InternalLinkHub currentPath={`/blog/${decodedSlug}`} title="Explore Related Sectors & Live Property Inventory" />
 
         {/* Footer Actions */}
         <div className="mt-12 pt-6 border-t border-neutral-150 flex items-center justify-between">
