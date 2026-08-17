@@ -88,12 +88,12 @@ export default function Footer() {
           <span>
             Developed &amp; Managed by{' '}
             <a
-              href="https://geetanjalisoftwares.in"
+              href="https://anavyainfotech.com"
               target="_blank"
               rel="noopener noreferrer"
               className="text-neutral-400 hover:text-white transition-colors underline decoration-neutral-700 underline-offset-2 font-medium"
             >
-              Geetanjali Softwares
+              Anavya Infotech
             </a>
           </span>
         </div>

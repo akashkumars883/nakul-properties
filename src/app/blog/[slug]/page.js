@@ -7,6 +7,7 @@ import Link from 'next/link';
 import { Calendar, ArrowLeft, ChevronRight, Home, BadgeAlert } from 'lucide-react';
 import { PortableText } from '@portabletext/react';
 import InternalLinkHub from '@/components/InternalLinkHub';
+import ShareButtons from '@/components/ShareButtons';
 
 function parseInlineText(text) {
   if (!text) return null;
@@ -382,6 +383,9 @@ export default async function BlogPostPage({ params }) {
           </p>
         </header>
 
+        {/* Social Share Buttons */}
+        <ShareButtons title={post.title} slug={decodedSlug} />
+
         {/* Hero Image */}
         <div className="relative w-full h-[240px] sm:h-[450px] rounded-xl overflow-hidden bg-neutral-100 mb-10 border border-neutral-200">
           <img 
@@ -399,6 +403,9 @@ export default async function BlogPostPage({ params }) {
             renderLegacyBody(post.body)
           )}
         </article>
+
+        {/* Social Share Buttons (Bottom of Article) */}
+        <ShareButtons title={post.title} slug={decodedSlug} />
 
         {/* Tags Section */}
         {post.tags && post.tags.length > 0 && (
