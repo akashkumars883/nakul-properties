@@ -1,9 +1,216 @@
+import React from 'react';
 import Navbar from '@/components/Navbar';
 import { client } from '@/sanity/lib/client';
 import { urlFor } from '@/sanity/lib/image';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { Calendar, ArrowLeft, ChevronRight, Home, BadgeAlert } from 'lucide-react';
+import { PortableText } from '@portabletext/react';
+
+function parseInlineText(text) {
+  if (!text) return null;
+  const parts = text.split(/(\*\*.*?\*\*|\*.*?\*|\[.*?\]\(.*?\))/g);
+  return parts.map((part, i) => {
+    if (part.startsWith('**') && part.endsWith('**') && part.length > 4) {
+      return <strong key={i} className="font-semibold text-black">{part.slice(2, -2)}</strong>;
+    }
+    if (part.startsWith('*') && part.endsWith('*') && part.length > 2) {
+      return <em key={i} className="italic">{part.slice(1, -1)}</em>;
+    }
+    const linkMatch = part.match(/^\[(.*?)\]\((.*?)\)$/);
+    if (linkMatch) {
+      return (
+        <a key={i} href={linkMatch[2]} target={linkMatch[2].startsWith('http') ? '_blank' : undefined} rel="noopener noreferrer" className="text-black font-medium underline underline-offset-4 hover:text-neutral-600">
+          {linkMatch[1]}
+        </a>
+      );
+    }
+    return part;
+  });
+}
+
+function renderLegacyBody(bodyText) {
+  if (!bodyText || typeof bodyText !== 'string') return null;
+  const blocks = bodyText.split(/\n\s*\n/);
+  
+  return blocks.map((block, idx) => {
+    const trimmed = block.trim();
+    if (!trimmed) return null;
+
+    if (/^#{1,4}\s+/.test(trimmed)) {
+      const level = (trimmed.match(/^#+/) || [''])[0].length;
+      const titleText = trimmed.replace(/^#+\s+/, '');
+      if (level === 1) return <h1 key={idx} className="text-3xl sm:text-4xl font-bold text-black tracking-tight mt-8 mb-4">{parseInlineText(titleText)}</h1>;
+      if (level === 2) return <h2 key={idx} className="text-2xl sm:text-3xl font-bold text-black tracking-tight mt-8 mb-4">{parseInlineText(titleText)}</h2>;
+      if (level === 3) return <h3 key={idx} className="text-xl sm:text-2xl font-semibold text-black tracking-tight mt-6 mb-3">{parseInlineText(titleText)}</h3>;
+      return <h4 key={idx} className="text-lg font-semibold text-black mt-5 mb-2">{parseInlineText(titleText)}</h4>;
+    }
+
+    if (trimmed.startsWith('> ')) {
+      return (
+        <blockquote key={idx} className="border-l-4 border-black pl-4 py-2 my-6 italic text-neutral-700 font-light bg-neutral-50 rounded-r-lg">
+          {parseInlineText(trimmed.replace(/^>\s+/, ''))}
+        </blockquote>
+      );
+    }
+
+    const lines = trimmed.split('\n');
+
+    const isBulletList = lines.every(l => /^[-*•]\s+/.test(l.trim()));
+    if (isBulletList && lines.length > 0) {
+      return (
+        <ul key={idx} className="list-disc list-outside space-y-2 my-4 ml-6 text-neutral-700 font-light text-base sm:text-lg">
+          {lines.map((line, lIdx) => (
+            <li key={lIdx} className="leading-relaxed pl-1">
+              {parseInlineText(line.trim().replace(/^[-*•]\s+/, ''))}
+            </li>
+          ))}
+        </ul>
+      );
+    }
+
+    const isNumList = lines.every(l => /^\d+[\.\)]\s+/.test(l.trim()));
+    if (isNumList && lines.length > 0) {
+      return (
+        <ol key={idx} className="list-decimal list-outside space-y-2 my-4 ml-6 text-neutral-700 font-light text-base sm:text-lg">
+          {lines.map((line, lIdx) => (
+            <li key={lIdx} className="leading-relaxed pl-1">
+              {parseInlineText(line.trim().replace(/^\d+[\.\)]\s+/, ''))}
+            </li>
+          ))}
+        </ol>
+      );
+    }
+
+    if (lines.length === 1 && (trimmed.endsWith(':') || (trimmed.startsWith('**') && trimmed.endsWith('**')))) {
+      return (
+        <h3 key={idx} className="text-xl sm:text-2xl font-bold text-black tracking-tight mt-6 mb-2">
+          {parseInlineText(trimmed)}
+        </h3>
+      );
+    }
+
+    return (
+      <p key={idx} className="font-light text-neutral-700 leading-relaxed my-4 text-base sm:text-lg">
+        {lines.map((line, lIdx) => (
+          <React.Fragment key={lIdx}>
+            {lIdx > 0 && <br />}
+            {parseInlineText(line)}
+          </React.Fragment>
+        ))}
+      </p>
+    );
+  });
+}
+
+const createPortableTextComponents = (urlFor) => ({
+  types: {
+    image: ({ value }) => {
+      if (!value?.asset?._ref) return null;
+      return (
+        <figure className="my-8">
+          <img
+            src={urlFor(value).url()}
+            alt={value.alt || 'Blog image'}
+            className="w-full h-auto rounded-xl border border-neutral-200 object-cover shadow-sm"
+          />
+          {value.caption && (
+            <figcaption className="mt-2 text-center text-xs text-neutral-500 italic">
+              {value.caption}
+            </figcaption>
+          )}
+        </figure>
+      );
+    },
+  },
+  block: {
+    h1: ({ children }) => (
+      <h1 className="text-3xl sm:text-4xl font-bold text-black tracking-tight mt-8 mb-4">
+        {children}
+      </h1>
+    ),
+    h2: ({ children }) => (
+      <h2 className="text-2xl sm:text-3xl font-bold text-black tracking-tight mt-8 mb-4">
+        {children}
+      </h2>
+    ),
+    h3: ({ children }) => (
+      <h3 className="text-xl sm:text-2xl font-semibold text-black tracking-tight mt-6 mb-3">
+        {children}
+      </h3>
+    ),
+    h4: ({ children }) => (
+      <h4 className="text-lg font-semibold text-black mt-5 mb-2">
+        {children}
+      </h4>
+    ),
+    blockquote: ({ children }) => (
+      <blockquote className="border-l-4 border-black pl-4 py-2 my-6 italic text-neutral-700 font-light bg-neutral-50 rounded-r-lg">
+        {children}
+      </blockquote>
+    ),
+    normal: ({ children }) => (
+      <p className="font-light text-neutral-700 leading-relaxed my-4 text-base sm:text-lg">
+        {children}
+      </p>
+    ),
+  },
+  list: {
+    bullet: ({ children }) => (
+      <ul className="list-disc list-outside space-y-2 my-4 ml-6 text-neutral-700 font-light text-base sm:text-lg">
+        {children}
+      </ul>
+    ),
+    number: ({ children }) => (
+      <ol className="list-decimal list-outside space-y-2 my-4 ml-6 text-neutral-700 font-light text-base sm:text-lg">
+        {children}
+      </ol>
+    ),
+  },
+  listItem: {
+    bullet: ({ children }) => <li className="leading-relaxed pl-1">{children}</li>,
+    number: ({ children }) => <li className="leading-relaxed pl-1">{children}</li>,
+  },
+  marks: {
+    strong: ({ children }) => <strong className="font-semibold text-black">{children}</strong>,
+    em: ({ children }) => <em className="italic">{children}</em>,
+    underline: ({ children }) => <span className="underline decoration-1 underline-offset-4">{children}</span>,
+    code: ({ children }) => <code className="bg-neutral-100 text-red-600 px-1.5 py-0.5 rounded text-sm font-mono">{children}</code>,
+    highlight: ({ children }) => (
+      <mark className="bg-amber-200/90 text-neutral-900 px-1.5 py-0.5 rounded font-normal">
+        {children}
+      </mark>
+    ),
+    greenHighlight: ({ children }) => (
+      <mark className="bg-emerald-100 text-emerald-950 px-1.5 py-0.5 rounded font-normal">
+        {children}
+      </mark>
+    ),
+    redText: ({ children }) => (
+      <span className="text-red-600 font-semibold">{children}</span>
+    ),
+    blueText: ({ children }) => (
+      <span className="text-blue-600 font-semibold">{children}</span>
+    ),
+    greenText: ({ children }) => (
+      <span className="text-emerald-600 font-semibold">{children}</span>
+    ),
+    link: ({ value, children }) => {
+      const href = value?.href || '#';
+      const target = href.startsWith('http') ? '_blank' : undefined;
+      return (
+        <a
+          href={href}
+          target={target}
+          rel={target === '_blank' ? 'noopener noreferrer' : undefined}
+          className="text-black font-medium underline underline-offset-4 hover:text-neutral-600 transition-colors"
+        >
+          {children}
+        </a>
+      );
+    },
+  },
+});
 
 export async function generateStaticParams() {
   const posts = await client.fetch(`*[_type == "post" && defined(slug.current)]`);
@@ -76,8 +283,7 @@ export default async function BlogPostPage({ params }) {
     });
   };
 
-  // Split text by double newlines to render as clean paragraphs
-  const paragraphs = post.body ? post.body.split('\n\n') : [];
+  const portableTextComponents = createPortableTextComponents(urlFor);
 
   return (
     <div className="flex flex-col min-h-screen bg-white">
@@ -124,16 +330,12 @@ export default async function BlogPostPage({ params }) {
         </div>
 
         {/* Article Body */}
-        <article className="prose max-w-none text-neutral-700 text-base leading-relaxed space-y-6">
-          {paragraphs.map((para, idx) => {
-            const trimmed = para.trim();
-            if (!trimmed) return null;
-            return (
-              <p key={idx} className="font-light whitespace-pre-line">
-                {trimmed}
-              </p>
-            );
-          })}
+        <article className="prose max-w-none text-neutral-700 text-base leading-relaxed">
+          {Array.isArray(post.body) ? (
+            <PortableText value={post.body} components={portableTextComponents} />
+          ) : (
+            renderLegacyBody(post.body)
+          )}
         </article>
 
         {/* Tags Section */}

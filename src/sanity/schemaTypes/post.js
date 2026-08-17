@@ -54,9 +54,74 @@ export default {
     },
     {
       name: 'body',
-      title: 'Body Content (Detailed Text)',
-      type: 'text',
-      description: 'Write your full blog post here. Use double line breaks for paragraphs.',
+      title: 'Body Content (Rich Text / Detailed)',
+      type: 'array',
+      description: 'Write your full blog post here with headings, lists, bold text, links, and inline images.',
+      of: [
+        {
+          type: 'block',
+          styles: [
+            { title: 'Normal', value: 'normal' },
+            { title: 'Heading 1', value: 'h1' },
+            { title: 'Heading 2', value: 'h2' },
+            { title: 'Heading 3', value: 'h3' },
+            { title: 'Heading 4', value: 'h4' },
+            { title: 'Quote', value: 'blockquote' },
+          ],
+          lists: [
+            { title: 'Bullet', value: 'bullet' },
+            { title: 'Numbered', value: 'number' },
+          ],
+          marks: {
+            decorators: [
+              { title: 'Strong', value: 'strong' },
+              { title: 'Emphasis', value: 'em' },
+              { title: 'Code', value: 'code' },
+              { title: 'Underline', value: 'underline' },
+              { title: 'Strike', value: 'strike-through' },
+              { title: 'Yellow Highlight', value: 'highlight' },
+              { title: 'Green Highlight', value: 'greenHighlight' },
+              { title: 'Red Text', value: 'redText' },
+              { title: 'Blue Text', value: 'blueText' },
+              { title: 'Green Text', value: 'greenText' },
+            ],
+            annotations: [
+              {
+                name: 'link',
+                type: 'object',
+                title: 'Link',
+                fields: [
+                  {
+                    title: 'URL',
+                    name: 'href',
+                    type: 'url',
+                    validation: Rule => Rule.uri({
+                      allowRelative: true,
+                      scheme: ['http', 'https', 'mailto', 'tel'],
+                    }),
+                  },
+                ],
+              },
+            ],
+          },
+        },
+        {
+          type: 'image',
+          options: { hotspot: true },
+          fields: [
+            {
+              name: 'alt',
+              type: 'string',
+              title: 'Alt Text',
+            },
+            {
+              name: 'caption',
+              type: 'string',
+              title: 'Caption',
+            },
+          ],
+        },
+      ],
       validation: Rule => Rule.required(),
     },
   ],
