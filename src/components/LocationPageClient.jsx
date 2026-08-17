@@ -69,7 +69,7 @@ export default function LocationPageClient({ data }) {
       {/* Content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14 font-outfit">
         {/* Description + Back Link */}
-        <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-10">
+        <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-8">
           <p className="text-neutral-600 text-base leading-relaxed max-w-2xl">
             {data.description}
           </p>
@@ -81,6 +81,18 @@ export default function LocationPageClient({ data }) {
             All Locations
           </Link>
         </div>
+
+        {/* Highlights Cards (if present) */}
+        {data.highlights && data.highlights.length > 0 && (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-10">
+            {data.highlights.map((item, idx) => (
+              <div key={idx} className="bg-neutral-50 border border-neutral-200/80 rounded-xl p-4 space-y-1">
+                <span className="text-xs font-bold text-black uppercase tracking-wider block">{item.title}</span>
+                <p className="text-xs text-neutral-600 font-medium">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        )}
 
         {/* Results Count */}
         <div className="flex items-center justify-between mb-6">
@@ -216,6 +228,26 @@ export default function LocationPageClient({ data }) {
             );
           })}
         </div>
+
+        {/* Frequently Asked Questions */}
+        {data.faqs && data.faqs.length > 0 && (
+          <div className="mt-14 pt-10 border-t border-neutral-200/80 space-y-6">
+            <div className="space-y-1">
+              <span className="text-xs font-semibold uppercase tracking-widest text-neutral-500 block">Clear Answers for Buyers</span>
+              <h3 className="text-xl sm:text-2xl font-bold text-black tracking-tight">
+                Frequently Asked Questions ({data.subtitle})
+              </h3>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {data.faqs.map((faq, idx) => (
+                <div key={idx} className="bg-neutral-50 border border-neutral-200/80 rounded-xl p-5 space-y-2">
+                  <h4 className="text-sm font-bold text-black leading-snug">{faq.q}</h4>
+                  <p className="text-xs text-neutral-600 leading-relaxed font-light">{faq.a}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
 
         {/* Internal Link Network Hub */}
         <InternalLinkHub title="Explore Other Sectors &amp; Buyer Guides" />

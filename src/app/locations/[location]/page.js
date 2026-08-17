@@ -7,14 +7,34 @@ import { client } from '@/sanity/lib/client';
 const locationData = {
   'sector-65': {
     slug: 'sector-65',
-    title: 'Prime Residential Plots for Sale in Sector 65, Faridabad',
-    subtitle: 'Head Office Location & Premium Sector Hub',
+    title: 'HUDA Approved Freehold Residential Plots for Sale in Sector 65, Faridabad',
+    subtitle: 'Head Office Location & Prime HUDA Sector Hub',
     description:
-      'Explore verified 100 Gaj to 500 Gaj residential plots in Sector 65, Faridabad. Situated right at Nakul Properties head office locality, featuring wide 18m planned sector roads, clear freehold titles, 100% legal clearance, and top connectivity.',
+      'Sector 65 is one of Faridabad’s most sought-after prime HUDA sectors, featuring wide 18-meter planned sector roads, 100% legal freehold registry titles, and top capital appreciation potential. Situated right at Nakul Properties head office locality, offering direct physical site visits, instant legal due diligence, and verified 100 Gaj to 500 Gaj plot options.',
     heroImage: '/plot1.png',
-    seoTitle: 'Plots for Sale in Sector 65 Faridabad | Nakul Properties',
+    seoTitle: 'Sector 65 HUDA Plots for Sale in Faridabad | Nakul Properties Head Office',
     seoDesc:
-      'Buy verified freehold residential plots (100 Gaj to 500 Gaj) in Sector 65 Faridabad. Clear HSVP approvals and immediate registry ready. Contact Nakul Properties.',
+      'Buy 100% verified freehold HUDA residential plots (100 Gaj to 500 Gaj) in Sector 65 Faridabad. 18m wide roads, clear title, instant registry ready. Contact Nakul Properties Head Office.',
+    highlights: [
+      { title: 'Plot Sizes Available', desc: '100 Gaj, 160 Gaj, 250 Gaj, 350 Gaj & 500 Gaj' },
+      { title: 'Planned Sector Roads', desc: '18 Meter & 12 Meter Wide Paved Roads' },
+      { title: 'Ownership & Legal Status', desc: 'Single Owner Freehold HUDA Registry Deed' },
+      { title: 'Location Connectivity', desc: 'Direct Link to Bypass Road, Delhi Highway & Metro' },
+    ],
+    faqs: [
+      {
+        q: 'Why is Sector 65 Faridabad considered a prime location for HUDA plots?',
+        a: 'Sector 65 offers planned 18-meter sector roads, excellent connectivity to the Delhi-Mumbai Expressway bypass, top schools, local HUDA markets, and Nakul Properties head office guidance.'
+      },
+      {
+        q: 'What plot sizes are available in Sector 65 Faridabad?',
+        a: 'Common plot sizes in Sector 65 HUDA include 100 Sq. Yds (Gaj), 160 Sq. Yds, 250 Sq. Yds, 350 Sq. Yds, and 500 Sq. Yds.'
+      },
+      {
+        q: 'Are registry and physical possession available for Sector 65 plots?',
+        a: 'Yes, all our listed plots in Sector 65 feature 100% verified legal papers, clear title deeds, and immediate physical possession ready for registry.'
+      }
+    ],
     properties: []
   },
   'sector-64': {
