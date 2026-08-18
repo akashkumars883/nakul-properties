@@ -9,15 +9,14 @@ const sectorLinks = [
   { label: 'Sector 64 Freehold Plots', href: '/locations/sector-64', badge: 'Popular' },
   { label: 'Sector 62 HUDA Plots', href: '/locations/sector-62', badge: 'Hot Deal' },
   { label: 'Sector 14 & 15 VIP Plots', href: '/locations/sector-14-15', badge: 'Prime' },
-  { label: 'Sector 70 Greater Faridabad', href: '/locations/sector-70', badge: 'Growth Hub' },
+  { label: 'Central Faridabad (21 & 28)', href: '/locations/sector-21-28', badge: 'Metro Link' },
 ];
 
 const guideLinks = [
   { label: '7-Point HUDA Plot Verification Checklist', href: '/blog/huda-plots-in-faridabad-property-verification', badge: 'Must Read' },
-  { label: 'HUDA Plot Registry & Possession Process', href: '/blog/huda-plot-registry-process-faridabad', badge: 'Guide' },
-  { label: 'Top 5 Sectors to Invest in Faridabad', href: '/blog/top-5-sectors-to-invest-huda-plots-faridabad', badge: 'Investment' },
-  { label: 'Faridabad Master Plan 2031 Sector 70', href: '/blog/faridabad-master-plan-2031-sector-70-development', badge: 'Planning' },
-  { label: 'Why Invest in Sector 70 Faridabad', href: '/blog/why-invest-in-sector-70-faridabad', badge: 'Insight' },
+  { label: 'HUDA Plot Registry & Possession Process', href: '/blog/faridabad-huda-plot-registry-process-guide', badge: 'Guide' },
+  { label: 'Top Sectors to Buy Freehold HUDA Plots', href: '/blog/top-5-sectors-to-invest-huda-plots-faridabad', badge: 'Investment' },
+  { label: 'Why Sector 65 is #1 Location for Plots', href: '/blog/why-invest-in-sector-65-faridabad-plots', badge: 'Insight' },
 ];
 
 const inventoryLinks = [
@@ -25,7 +24,7 @@ const inventoryLinks = [
   { label: 'Luxury Builder Floors', href: '/properties/builder-floors', count: 'Premium' },
   { label: 'Gated Townships & Societies', href: '/properties/gated-townships', count: 'Gated' },
   { label: 'Commercial Shops & SCO Plots', href: '/properties/commercial-rent-sale', count: 'Commercial' },
-  { label: 'Browse All Verified Properties', href: '/all-properties', count: 'View All' },
+  { label: 'Browse All Verified Properties', href: '/properties', count: 'View All' },
 ];
 
 export default function InternalLinkHub({ currentPath = '', title = "Explore Faridabad Real Estate Network", className = "" }) {

@@ -10,7 +10,7 @@ import {
 } from 'lucide-react';
 import { FaWhatsapp } from 'react-icons/fa6';
 import { urlFor } from '@/sanity/lib/image';
-import InternalLinkHub from '@/components/InternalLinkHub';
+import RelatedBlogsForProperty from '@/components/RelatedBlogsForProperty';
 
 export default function PropertyDetailsClient({ property }) {
   const [activeImageIdx, setActiveImageIdx] = useState(0);
@@ -362,8 +362,8 @@ export default function PropertyDetailsClient({ property }) {
               </div>
             </div>
 
-            {/* Internal Link Hub */}
-            <InternalLinkHub title="Explore Property Network &amp; Verification Guides" />
+            {/* Related Blog Guides (Matched by Property Keywords) */}
+            <RelatedBlogsForProperty property={property} title="Related Verification & Buyer Guides" />
 
           </div>
 

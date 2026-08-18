@@ -6,7 +6,7 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { Calendar, ArrowLeft, ChevronRight, Home, BadgeAlert } from 'lucide-react';
 import { PortableText } from '@portabletext/react';
-import InternalLinkHub from '@/components/InternalLinkHub';
+import RelatedBlogsForProperty from '@/components/RelatedBlogsForProperty';
 import ShareButtons from '@/components/ShareButtons';
 
 function parseInlineText(text) {
@@ -448,8 +448,8 @@ export default async function BlogPostPage({ params }) {
           </div>
         )}
 
-        {/* Internal Link Network Hub */}
-        <InternalLinkHub currentPath={`/blog/${decodedSlug}`} title="Explore Related Sectors & Live Property Inventory" />
+        {/* Related Buyer & Verification Guides */}
+        <RelatedBlogsForProperty property={{ title: post.title, longDescription: post.excerpt }} title="Related Market & Verification Guides" />
 
         {/* Footer Actions */}
         <div className="mt-12 pt-6 border-t border-neutral-150 flex items-center justify-between">
