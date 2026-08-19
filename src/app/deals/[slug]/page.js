@@ -8,7 +8,7 @@ const seoDealsData = {
     slug: 'best-property-dealer-faridabad',
     keywordTitle: 'Best Property Dealer & Real Estate Consultant in Faridabad',
     seoTitle: 'Best Property Dealer in Faridabad | Nakul Properties',
-    seoDesc: 'Looking for the best property dealer in Faridabad? Nakul Properties provides 100% verified residential plots, luxury floors, and commercial SCOs.',
+    seoDesc: 'Best Property Dealer in Faridabad! Nakul Properties offers 100% verified HUDA residential plots, luxury builder floors & commercial SCOs. Call: +91 9811548267!',
     heroImage: '/hero-banner.png',
     longDescription: 'Welcome to Nakul Properties, your premium real estate consultant in Faridabad. With over a decade of trust, we specialize in delivering the most profitable freehold HUDA sector plots, gated townships (BPTP, Puri), and commercial SCOs. We assure transparent registry process and zero-brokerage benefits on select developer properties.',
     benefits: [
@@ -52,7 +52,7 @@ const seoDealsData = {
     slug: 'huda-plots-for-sale-faridabad',
     keywordTitle: 'HUDA & HSVP Approved Sector Plots for Sale in Faridabad',
     seoTitle: 'HUDA Plots for Sale in Faridabad | HSVP Approved Sectors',
-    seoDesc: 'Explore premium freehold HUDA & HSVP sector plots for sale in Faridabad with clear titles. Verified plots in Sector 14, 15, 21, and prime sectors.',
+    seoDesc: 'Verified Freehold HUDA & HSVP sector plots for sale in Faridabad with clear titles. Sector 14, 15, 21, 64 & 65 plots. Bank Loan Approved. Call: +91 9811548267!',
     heroImage: '/cat-huda.png',
     longDescription: 'HUDA / HSVP approved sectors are highly preferred due to high quality civic infrastructure, wide roads, municipal water supply, and high-class neighborhood amenities. We present selected clear-title sector plots for sale in Faridabad with hassle-free freehold registry approvals.',
     benefits: [
@@ -96,7 +96,7 @@ const seoDealsData = {
     slug: 'luxury-builder-floors-faridabad',
     keywordTitle: 'Luxury Independent Builder Floors for Sale in Faridabad',
     seoTitle: 'Luxury Builder Floors in Faridabad | 3 & 4 BHK Independent Floors',
-    seoDesc: 'Buy ready-to-move luxury builder floors for sale in Sector 14, 15, 21, 28 Faridabad. Premium independent builder floors with lift, stilt parking, and terrace rights.',
+    seoDesc: 'Ready-to-move luxury builder floors for sale in Sector 14, 15, 21, 28 Faridabad. Private lift, stilt parking & terrace rights. Call: +91 9811548267!',
     heroImage: '/cat-builder.png',
     longDescription: 'Upgrade to a high-end lifestyle with independent builder floors in premium sectors of Faridabad. These modern 3 BHK and 4 BHK floors feature secure stilt car park, private high-speed lift, state-of-the-art modular kitchen fittings, premium Italian marble floorings, and exclusive private roof/terrace rights.',
     benefits: [
@@ -139,8 +139,8 @@ const seoDealsData = {
   'plots-for-sale-greater-faridabad': {
     slug: 'plots-for-sale-greater-faridabad',
     keywordTitle: 'Premium Gated Residential Plots for Sale in Greater Faridabad (Neharpar)',
-    seoTitle: 'Plots for Sale in Greater Faridabad Neharpar | Nakul Properties',
-    seoDesc: 'Buy premium gated residential plots for sale in Greater Faridabad (Neharpar). High-growth locations in BPTP, Puri Amanvilas, and Omaxe.',
+    seoTitle: 'Plots for Sale in Greater Faridabad Neharpar | Gated Societies',
+    seoDesc: 'Buy premium gated residential plots in Greater Faridabad (Neharpar). BPTP Parklands, Puri Amanvilas & Omaxe. High growth value! Call: +91 9811548267!',
     heroImage: '/cat-gated.png',
     longDescription: 'Greater Faridabad (Neharpar) has emerged as the fastest-growing residential hub in Delhi NCR. We bring you premium residential plots in secure gated townships featuring 24/7 security, lush green parks, underground wiring, and high-class amenities. Great investment potential with high value appreciation.',
     benefits: [
@@ -184,7 +184,7 @@ const seoDealsData = {
     slug: 'commercial-sco-plots-faridabad',
     keywordTitle: 'Commercial Shops & SCO Plots for Sale / Rent on Mathura Road & World Street',
     seoTitle: 'Commercial Shops & SCO for Sale/Rent Faridabad | Nakul Properties',
-    seoDesc: 'Explore commercial shops, offices, and SCO plots for sale and lease on Mathura Road & Omaxe World Street Faridabad. High footfall & corporate yields.',
+    seoDesc: 'Explore commercial retail shops & SCO plots for sale and lease on Mathura Road & Omaxe World Street Faridabad. High footfall & rental returns. Call: +91 9811548267!',
     heroImage: '/cat-commercial.png',
     longDescription: 'Invest in high-performance commercial spaces located at prime business corridors of Faridabad. Offering high visibility, excellent footfall density, dedicated car parking basements, and multi-floor layouts (B+G+3 permitted) suitable for showrooms, corporate headquarters, and premium restaurants.',
     benefits: [
@@ -281,7 +281,7 @@ export async function generateMetadata({ params }) {
       'property dealers in Faridabad',
     ],
     alternates: {
-      canonical: `/deals/${decodedSlug}`,
+      canonical: `https://nakulproperties.com/deals/${decodedSlug}`,
     },
     openGraph: {
       title,

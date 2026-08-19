@@ -15,8 +15,8 @@ import LatestBlogs from '@/components/LatestBlogs';
 import { client } from '@/sanity/lib/client';
 
 export const metadata = {
-  title: 'Nakul Properties - Real Estate Dealer & Property Consultant in Faridabad',
-  description: 'Nakul Properties - Buy, sell, and rent top luxury flats, builder floors, residential plots, and commercial properties in Faridabad & Greater Faridabad.',
+  title: 'Nakul Properties Faridabad | Top Real Estate Agent & Verified Plots Dealer',
+  description: 'Buy, Sell & Invest in 100% Verified HUDA Residential Plots, Independent Builder Floors & Commercial Properties in Faridabad. Bank Loan & Registry Ready. Call/WhatsApp: +91 9811548267!',
   keywords: [
     'Real estate agent Faridabad',
     'Property dealer near me Faridabad',
@@ -24,6 +24,7 @@ export const metadata = {
     'Flats for sale Faridabad',
     'Builder floors Faridabad',
     'Plots in Sector 14 15 21 Faridabad',
+    'Sector 65 64 62 HUDA plots Faridabad',
     'Greater Faridabad Neharpar properties',
     'Commercial property Mathura Road Faridabad',
     'Best property consultant Faridabad',
@@ -31,7 +32,14 @@ export const metadata = {
     'Nakul Properties Faridabad'
   ],
   alternates: {
-    canonical: '/',
+    canonical: 'https://nakulproperties.com',
+  },
+  openGraph: {
+    title: 'Nakul Properties Faridabad | Top Real Estate Agent & Verified Plots Dealer',
+    description: 'Buy, Sell & Invest in 100% Verified HUDA Residential Plots, Independent Builder Floors & Commercial Properties in Faridabad. Call +91 9811548267!',
+    url: 'https://nakulproperties.com',
+    siteName: 'Nakul Properties Faridabad',
+    type: 'website',
   },
 };
 

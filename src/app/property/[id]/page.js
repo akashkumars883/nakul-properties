@@ -170,17 +170,31 @@ export async function generateMetadata({ params }) {
   }
 
   if (!property) return {};
-  const desc = `Buy or lease this premium verified plot/property: ${property.title} in ${property.location}. Size: ${property.size || 'N/A'}. 100% verified freehold title. Contact Nakul Properties today.`;
+
+  // Clean leading numbers like "12. " or "1. " from property titles
+  const cleanTitle = (property.title || '').replace(/^\d+\.\s*/, '').trim();
+  const locationText = property.location || 'Faridabad';
+  const sizeText = property.size ? `${property.size}` : '';
+  const priceText = property.price ? `@ ${property.price}` : '';
+
+  // High-CTR Title (Keeps main query first, removes clutter)
+  const metaTitle = sizeText 
+    ? `${sizeText} ${cleanTitle} in ${locationText} ${priceText} | Nakul Properties`
+    : `${cleanTitle} in ${locationText} ${priceText} | Nakul Properties`;
+
+  // Dynamic High-CTR Meta Description with strong CTA
+  const metaDescription = `Verified ${sizeText ? `${sizeText} ` : ''}${cleanTitle} for sale in ${locationText}. ${property.facing ? `${property.facing}, ` : ''}${property.roadSize ? `${property.roadSize}. ` : ''}100% Freehold Title, Bank Loan & Registry Ready. Call/WhatsApp: +91 9811548267 for Direct Site Visit!`;
+
   const imageUrl = property.image ? (typeof property.image === 'string' ? property.image : '') : '';
 
   return {
-    title: `${property.title} | Nakul Properties Faridabad`,
-    description: desc,
+    title: metaTitle,
+    description: metaDescription,
     keywords: [
-      property.title,
-      `plots in ${property.location}`,
-      `property for sale in ${property.location}`,
-      `HUDA sector plot ${property.location}`,
+      cleanTitle,
+      `plots in ${locationText}`,
+      `property for sale in ${locationText}`,
+      `HUDA sector plot ${locationText}`,
       'Sector 65 plots Faridabad',
       'Sector 64 plots Faridabad',
       'Sector 62 plots Faridabad',
@@ -189,20 +203,20 @@ export async function generateMetadata({ params }) {
       'Nakul Properties Faridabad',
     ],
     alternates: {
-      canonical: `/property/${decodedId}`,
+      canonical: `https://nakulproperties.com/property/${decodedId}`,
     },
     openGraph: {
-      title: `${property.title} | Nakul Properties Faridabad`,
-      description: desc,
+      title: metaTitle,
+      description: metaDescription,
       url: `https://nakulproperties.com/property/${decodedId}`,
       siteName: 'Nakul Properties Faridabad',
       type: 'website',
-      images: imageUrl ? [{ url: imageUrl, alt: property.title }] : [],
+      images: imageUrl ? [{ url: imageUrl, alt: cleanTitle }] : [],
     },
     twitter: {
       card: 'summary_large_image',
-      title: `${property.title} | Nakul Properties`,
-      description: desc,
+      title: metaTitle,
+      description: metaDescription,
     },
   };
 }

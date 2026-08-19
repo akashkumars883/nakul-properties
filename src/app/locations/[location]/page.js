@@ -12,9 +12,9 @@ const locationData = {
     description:
       'Sector 65 is one of Faridabad’s most sought-after prime HUDA sectors, featuring wide 18-meter planned sector roads, 100% legal freehold registry titles, and top capital appreciation potential. Situated right at Nakul Properties head office locality, offering direct physical site visits, instant legal due diligence, and verified 100 Gaj to 500 Gaj plot options.',
     heroImage: '/plot1.png',
-    seoTitle: 'Sector 65 HUDA Plots for Sale in Faridabad | Nakul Properties Head Office',
+    seoTitle: 'Sector 65 HUDA Plots for Sale in Faridabad | 100-500 Gaj Freehold',
     seoDesc:
-      'Buy 100% verified freehold HUDA residential plots (100 Gaj to 500 Gaj) in Sector 65 Faridabad. 18m wide roads, clear title, instant registry ready. Contact Nakul Properties Head Office.',
+      'Buy 100% verified freehold HUDA residential plots (100 Gaj to 500 Gaj) in Sector 65 Faridabad. 18m wide roads, clear title, instant registry ready. Call/WhatsApp: +91 9811548267!',
     highlights: [
       { title: 'Plot Sizes Available', desc: '100 Gaj, 160 Gaj, 250 Gaj, 350 Gaj & 500 Gaj' },
       { title: 'Planned Sector Roads', desc: '18 Meter & 12 Meter Wide Paved Roads' },
@@ -44,9 +44,9 @@ const locationData = {
     description:
       'Discover prime 100 Gaj, 160 Gaj, 250 Gaj, 350 Gaj & 500 Gaj residential plots for sale in Sector 64, Faridabad. Clean single owner freehold registry, 12m to 18m wide sector roads, zero legal disputes, and immediate physical possession.',
     heroImage: '/plot2.png',
-    seoTitle: 'HUDA Plots for Sale in Sector 64 Faridabad | Freehold Registry Plots',
+    seoTitle: 'Sector 64 HUDA Plots for Sale Faridabad | 100-500 Gaj Freehold',
     seoDesc:
-      'Explore verified 100 Gaj to 500 Gaj HUDA sector plots for sale in Sector 64 Faridabad with clear titles, 18m wide roads & instant registry. Contact Nakul Properties.',
+      'Explore 100% verified 100 Gaj to 500 Gaj HUDA sector plots for sale in Sector 64 Faridabad with clear titles, 18m wide roads & instant registry. Call/WhatsApp: +91 9811548267!',
     highlights: [
       { title: 'Available Plot Sizes', desc: '100 Gaj, 160 Gaj, 250 Gaj, 350 Gaj & 500 Gaj' },
       { title: 'Wide Sector Roads', desc: '18 Meter & 12 Meter Wide Paved Roads' },
@@ -78,7 +78,7 @@ const locationData = {
     heroImage: '/plot3.png',
     seoTitle: 'Freehold Plots for Sale in Sector 62 Faridabad | HSVP Approved',
     seoDesc:
-      'Find 100 Gaj, 160 Gaj, 250 Gaj, 350 Gaj & 500 Gaj residential plots for sale in Sector 62 Faridabad with clear single-owner freehold registry.',
+      'Verified 100 Gaj to 500 Gaj residential plots for sale in Sector 62 Faridabad with single-owner freehold registry & bank loan approval. Call: +91 9811548267!',
     highlights: [
       { title: 'Plot Options', desc: '100 Gaj, 160 Gaj, 250 Gaj, 350 Gaj & 500 Gaj' },
       { title: 'Peaceful Sector Layout', desc: 'Surrounded by Parks & Green Belts' },
@@ -104,9 +104,9 @@ const locationData = {
     description:
       'Explore premium residential listings in Sector 14 & 15, widely recognized as the most elite and premium VIP localities in Faridabad. These established sectors feature wide 18m wide layout avenues, beautifully landscaped local parks, top security checks, and top-ranking convent schools.',
     heroImage: '/loc-sec14-15.png',
-    seoTitle: 'VIP Plots & Luxury Floors in Sector 14 & 15 Faridabad | Nakul Properties',
+    seoTitle: 'VIP Plots & Luxury Builder Floors in Sector 14 & 15 Faridabad',
     seoDesc:
-      'Buy verified freehold residential plots & luxury independent builder floors in Sector 14 & 15, Faridabad. Premier VIP zones with zero title disputes.',
+      'Buy verified freehold residential plots & luxury independent builder floors in VIP Sectors 14 & 15, Faridabad. Zero title disputes. Call: +91 9811548267!',
     highlights: [
       { title: 'Elite Locality', desc: 'Premier VIP Residential Address of Faridabad' },
       { title: 'Wide Avenues', desc: '18m Planned Sector Roads & Lush Green Parks' },
@@ -128,9 +128,9 @@ const locationData = {
     description:
       'Find prime residential houses, independent floors, and freehold plots in Central Faridabad micro-markets, including Sector 21, 28, and 31. Immediate proximity to Delhi-Mathura Highway metro stations.',
     heroImage: '/loc-sec21-28.png',
-    seoTitle: 'Plots & Floors for Sale in Sector 21 & 28 Faridabad | Metro Linked',
+    seoTitle: 'Plots & Luxury Floors in Sector 21 & 28 Faridabad | Metro Linked',
     seoDesc:
-      'Explore residential plots & premium independent builder floors in Sector 21, 28, and 31 Faridabad. Metro connected, fully registry ready properties.',
+      'Explore residential plots & premium independent builder floors in Sector 21, 28 & 31 Faridabad. Metro connected, 100% registry ready. Call: +91 9811548267!',
     highlights: [
       { title: 'Metro Proximity', desc: 'Walk to Violet Line Metro Stations' },
       { title: 'Prime Location', desc: 'Heart of Central Commercial & Residential Faridabad' },
@@ -144,9 +144,9 @@ const locationData = {
     description:
       'Discover residential plot listings and modern township developments in Sectors 81 to 89 (Greater Faridabad/Neharpar). Gated societies by BPTP Parklands, Puri Amanvilas, Omaxe, and RPS.',
     heroImage: '/loc-sec81-89.png',
-    seoTitle: 'Plots for Sale in Sector 81-89 Neharpar Faridabad | Gated Townships',
+    seoTitle: 'Plots for Sale in Sector 81-89 Neharpar Faridabad | Gated Societies',
     seoDesc:
-      'Acquire premium gated residential plots in BPTP Parklands, Puri Amanvilas, Omaxe Greater Faridabad Sectors 81 to 89.',
+      'Acquire premium gated residential plots in BPTP Parklands, Puri Amanvilas & Omaxe Greater Faridabad Sectors 81 to 89. Call/WhatsApp: +91 9811548267!',
     highlights: [
       { title: 'Gated Security', desc: '24/7 Gated Security & Clubhouse Amenities' },
       { title: 'Modern Townships', desc: 'BPTP Parklands, Puri Amanvilas & Omaxe' },
@@ -162,7 +162,7 @@ const locationData = {
     heroImage: '/loc-mathura.png',
     seoTitle: 'Commercial Shops & SCO for Sale/Rent Mathura Road Faridabad',
     seoDesc:
-      'Buy or rent commercial shops & SCO office spaces on prime Mathura Road and Omaxe World Street Faridabad.',
+      'Buy or lease high-footfall commercial shops & SCO office spaces on Mathura Road & Omaxe World Street Faridabad. High returns! Call: +91 9811548267!',
     highlights: [
       { title: 'High Footfall', desc: 'Highway Visibility & High Traffic Commercial Zones' },
       { title: 'SCO & Retail', desc: 'Freehold Commercial Shops & SCO Plots' },
@@ -193,7 +193,7 @@ export async function generateMetadata({ params }) {
       'Nakul Properties Faridabad',
     ],
     alternates: {
-      canonical: `/locations/${decodedLocation}`,
+      canonical: `https://nakulproperties.com/locations/${decodedLocation}`,
     },
     openGraph: {
       title: data.seoTitle,
