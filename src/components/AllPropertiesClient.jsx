@@ -85,11 +85,13 @@ export default function AllPropertiesClient({ initialProperties = [] }) {
   // Categories helper mapping
   const categoriesList = [
     { value: 'all', label: 'All Categories' },
-    { value: 'huda', label: 'HUDA Sectors' },
-    { value: 'gated', label: 'Gated Townships' },
-    { value: 'budget', label: 'Budget & Plots' },
+    { value: 'bptp', label: 'BPTP Townships' },
+    { value: 'plots', label: 'Residential Plots' },
+    { value: 'flats', label: 'Flats & Apartments' },
     { value: 'floor', label: 'Builder Floors' },
-    { value: 'commercial', label: 'Commercial' },
+    { value: 'villas', label: 'Luxury Villas' },
+    { value: 'commercial', label: 'Commercial Shops & SCO' },
+    { value: 'industrial', label: 'Industrial Plots' },
   ];
 
   const typesList = [
@@ -130,7 +132,32 @@ export default function AllPropertiesClient({ initialProperties = [] }) {
 
     // Category filter
     if (selectedCategory !== 'all') {
-      result = result.filter((p) => p.category === selectedCategory);
+      result = result.filter((p) => {
+        const cat = p.category;
+        const titleLower = p.title?.toLowerCase() || '';
+        if (selectedCategory === 'bptp') {
+          return cat === 'bptp' || cat === 'gated' || titleLower.includes('bptp');
+        }
+        if (selectedCategory === 'plots') {
+          return cat === 'plots' || cat === 'huda' || cat === 'budget' || titleLower.includes('plot');
+        }
+        if (selectedCategory === 'flats') {
+          return cat === 'flats' || titleLower.includes('flat') || titleLower.includes('apartment');
+        }
+        if (selectedCategory === 'floor') {
+          return cat === 'floor' || titleLower.includes('floor');
+        }
+        if (selectedCategory === 'villas') {
+          return cat === 'villas' || titleLower.includes('villa');
+        }
+        if (selectedCategory === 'commercial') {
+          return cat === 'commercial' || titleLower.includes('shop') || titleLower.includes('sco') || titleLower.includes('office');
+        }
+        if (selectedCategory === 'industrial') {
+          return cat === 'industrial' || titleLower.includes('industrial') || titleLower.includes('factory');
+        }
+        return cat === selectedCategory;
+      });
     }
 
     // Listing Type filter
@@ -218,7 +245,7 @@ export default function AllPropertiesClient({ initialProperties = [] }) {
               </span>
             </div>
             <span className="text-xs font-medium text-neutral-500 hidden sm:inline-block">
-              Sector 65, 64, 62 &amp; Faridabad Listings
+              Sectors 2, 62, 63, 64, 65 &amp; Faridabad Listings
             </span>
           </div>
 
@@ -286,112 +313,92 @@ export default function AllPropertiesClient({ initialProperties = [] }) {
                 return (
                   <article
                     key={propertyId}
-                    className="bg-white border border-neutral-200 rounded-xl p-4 transition-all duration-300 group hover:-translate-y-1 flex flex-col justify-between"
+                    className="bg-white border border-neutral-200 rounded-xl overflow-hidden transition-all duration-300 group hover:-translate-y-1 hover:shadow-lg flex flex-col justify-between"
                   >
                     <div>
-                      {/* Image container */}
-                      <Link href={`/property/${propertyId}`} className="relative w-full h-44 rounded-md overflow-hidden mb-4 bg-neutral-100 block">
+                      {/* Top Image — Full Bleed Header */}
+                      <Link href={`/property/${propertyId}`} className="relative w-full h-44 overflow-hidden bg-neutral-100 block">
                         <img
                           src={getImageUrl(property.image)}
                           alt={property.title}
                           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                         />
-                        <div className="absolute top-2.5 left-2.5">
-                          <span className="bg-black/80 backdrop-blur-md text-white text-[11px] font-semibold px-2.5 py-1 rounded-md">
-                            {property.badge || 'Property'}
+                        {/* Gradient Overlay */}
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
+
+                        <div className="absolute top-3 left-3">
+                          <span className="bg-black/80 backdrop-blur-xs text-white text-[11px] font-semibold px-2.5 py-1 rounded-md">
+                            {property.badge || 'Verified'}
                           </span>
                         </div>
                         {property.verified && (
-                          <div className="absolute top-2.5 right-2.5">
-                            <span className="bg-white/90 backdrop-blur-md text-black text-[11px] font-semibold px-2 py-0.5 rounded-md flex items-center gap-1">
-                              <ShieldCheck className="w-3.5 h-3.5 text-black" /> Verified
+                          <div className="absolute top-3 right-3">
+                            <span className="bg-white/95 text-black text-[10px] font-bold px-2 py-0.5 rounded-md border border-neutral-200 shadow-xs flex items-center gap-1">
+                              <ShieldCheck className="w-3 h-3 text-black" /> Verified
                             </span>
                           </div>
                         )}
                       </Link>
 
-                      {/* Title */}
-                      <Link href={`/property/${propertyId}`}>
-                        <h3 className="text-base font-bold text-black mb-1.5 leading-snug group-hover:text-neutral-700 transition-colors">
-                          {property.title}
-                        </h3>
-                      </Link>
+                      {/* Card Content Body */}
+                      <div className="p-4">
+                        <div className="flex items-center gap-1 text-neutral-500 font-semibold text-[11px] tracking-wider uppercase mb-1">
+                          <MapPin className="w-3 h-3 text-black shrink-0" />
+                          <span className="truncate">{property.location}</span>
+                        </div>
 
-                      {/* Location */}
-                      <div className="flex items-center gap-1 text-neutral-500 text-xs font-medium mb-3">
-                        <MapPin className="w-3.5 h-3.5 text-black shrink-0" />
-                        <span className="truncate">{property.location}</span>
+                        <Link href={`/property/${propertyId}`}>
+                          <h3 className="text-base font-bold text-black mb-3 group-hover:text-neutral-600 transition-colors leading-snug line-clamp-1">
+                            {property.title}
+                          </h3>
+                        </Link>
+
+                        {/* Specs Grid */}
+                        <div className="grid grid-cols-2 gap-2 text-xs bg-neutral-50 p-2.5 rounded-md border border-neutral-200/80 mb-2">
+                          <div className="space-y-0.5">
+                            <p className="text-neutral-500 text-[11px]">Size</p>
+                            <p className="text-black font-semibold truncate">{property.size || 'N/A'}</p>
+                          </div>
+                          <div className="space-y-0.5">
+                            <p className="text-neutral-500 text-[11px]">Facing</p>
+                            <p className="text-black font-semibold truncate">{property.facing || 'N/A'}</p>
+                          </div>
+                          <div className="space-y-0.5">
+                            <p className="text-neutral-500 text-[11px]">Dimensions</p>
+                            <p className="text-black font-semibold truncate">{property.dimensions || 'N/A'}</p>
+                          </div>
+                          <div className="space-y-0.5">
+                            <p className="text-neutral-500 text-[11px]">Road Size</p>
+                            <p className="text-black font-semibold truncate">{property.roadSize || 'N/A'}</p>
+                          </div>
+                        </div>
                       </div>
-
-                      {/* Details specs */}
-                      <div className="grid grid-cols-2 gap-2 text-xs bg-neutral-50 p-2.5 rounded-md border border-neutral-200/80 mb-4">
-                        <div className="space-y-0.5">
-                          <p className="text-neutral-500 text-[11px]">Size</p>
-                          <p className="text-black font-semibold truncate">{property.size || 'N/A'}</p>
-                        </div>
-                        <div className="space-y-0.5">
-                          <p className="text-neutral-500 text-[11px]">Facing</p>
-                          <p className="text-black font-semibold truncate">{property.facing || 'N/A'}</p>
-                        </div>
-                        <div className="space-y-0.5">
-                          <p className="text-neutral-500 text-[11px]">Dimensions</p>
-                          <p className="text-black font-semibold truncate">{property.dimensions || 'N/A'}</p>
-                        </div>
-                        <div className="space-y-0.5">
-                          <p className="text-neutral-500 text-[11px]">Road Size</p>
-                          <p className="text-black font-semibold truncate">{property.roadSize || 'N/A'}</p>
-                        </div>
-                      </div>
-
-                      {/* Features */}
-                      {property.features && property.features.length > 0 && (
-                        <div className="flex flex-wrap gap-1 mb-4">
-                          {property.features.slice(0, 3).map((f) => (
-                            <span
-                              key={f}
-                              className="bg-neutral-100 text-neutral-700 text-[10px] font-semibold px-2 py-0.5 rounded-md border border-neutral-200"
-                            >
-                              {f}
-                            </span>
-                          ))}
-                        </div>
-                      )}
                     </div>
 
-                    {/* Price and CTAs */}
-                    <div>
-                      <div className="pt-2 pb-3 border-t border-neutral-100 flex items-baseline justify-between mb-3">
-                        <div>
-                          <div className="text-xl font-bold text-black tracking-tight">{property.price}</div>
-                          <div className="text-[11px] text-neutral-500 font-medium">{property.priceSub || property.pricePerSqYd}</div>
+                    {/* Card Footer Price & Action Bar */}
+                    <div className="p-4 pt-0">
+                      <div className="pt-3 border-t border-neutral-100 flex items-center justify-between gap-2">
+                        <div className="min-w-0">
+                          <span className="text-[10px] text-neutral-400 block font-medium uppercase tracking-wider">Price Guide</span>
+                          <span className="text-sm font-bold text-black truncate block">{property.price}</span>
                         </div>
-                      </div>
 
-                      {/* Action buttons */}
-                      <div className="flex flex-col gap-2">
-                        <Link
-                          href={`/property/${propertyId}`}
-                          className="w-full flex items-center justify-center gap-1.5 bg-black hover:bg-neutral-800 text-white font-semibold text-xs py-2.5 rounded-md transition-all active:scale-95 shadow-xs"
-                        >
-                          <Eye className="w-3.5 h-3.5" />
-                          <span>View Details</span>
-                        </Link>
-                        <div className="grid grid-cols-2 gap-2">
+                        <div className="flex items-center gap-1.5 shrink-0">
+                          <Link
+                            href={`/property/${propertyId}`}
+                            className="flex items-center gap-1 bg-black hover:bg-neutral-800 text-white font-semibold text-xs px-3 py-2 rounded-lg transition-all active:scale-95 shadow-xs"
+                          >
+                            <Eye className="w-3.5 h-3.5" />
+                            <span>Details</span>
+                          </Link>
                           <a
-                            href={`https://wa.me/919811548267?text=Hi%20Nakul%20Properties,%20I%20am%20interested%20in%20${encodeURIComponent(property.title)}%20(${encodeURIComponent(property.location)})`}
+                            href={`https://wa.me/919811548267?text=Hi%20Nakul%20Properties,%20I%20am%20interested%20in%20${encodeURIComponent(property.title)}%20at%20${encodeURIComponent(property.location)}`}
                             target="_blank"
                             rel="noreferrer"
-                            className="flex items-center justify-center gap-1 text-black border border-neutral-300 hover:bg-neutral-50 font-semibold text-[10px] sm:text-xs py-2 rounded-md transition-all active:scale-95"
+                            title="WhatsApp Agent"
+                            className="w-8 h-8 flex items-center justify-center bg-green-500 hover:bg-green-600 text-white rounded-lg transition-all active:scale-95"
                           >
-                            <FaWhatsapp className="w-3.5 h-3.5 text-black shrink-0" />
-                            <span>WhatsApp</span>
-                          </a>
-                          <a
-                            href="tel:+919811548267"
-                            className="flex items-center justify-center gap-1 text-black border border-neutral-300 hover:bg-neutral-50 font-semibold text-[10px] sm:text-xs py-2 rounded-md transition-all active:scale-95"
-                          >
-                            <Phone className="w-3.5 h-3.5 text-black shrink-0" />
-                            <span>Call Agent</span>
+                            <FaWhatsapp className="w-4 h-4" />
                           </a>
                         </div>
                       </div>

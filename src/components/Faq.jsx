@@ -12,8 +12,8 @@ export default function Faq() {
 
     const faqs = [
         {
-            question: 'Are the plots HUDA and HSVP approved?',
-            answer: 'Yes, all the sector plots listed under our HUDA category are 100% HSVP approved with clear legal titles and freehold status, making them safe for immediate registry and construction.',
+            question: 'Are the plots and properties verified for registry?',
+            answer: 'Yes, all sector plots, BPTP township plots, builder floors, flats, villas, commercial and industrial properties listed with us come with 100% clear legal titles, freehold status, and immediate registry capability.',
         },
         {
             question: 'Can I get a bank loan for purchasing residential plots in Faridabad?',

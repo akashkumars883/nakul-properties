@@ -81,7 +81,7 @@ export default function AboutPage() {
                 Our Faridabad real estate agency history dates back over two decades of successful deals. As a top rated property broker Faridabad, we function as a trusted real estate consultant Faridabad and experienced property advisor Faridabad. If you want secure deals, we are the best property dealer in Faridabad providing professional assistance for property title clearance Faridabad.
               </p>
               <p>
-                Whether you are looking for legal verified plots Faridabad or seeking an HSVP registry expert Faridabad, our team offers unmatched advisory. From our real estate consultancy Sector 65 Faridabad, we operate also as a zero brokerage builder floor dealer on selected luxury properties.
+                Whether you are looking for legal verified plots Faridabad or seeking a plot registry expert Faridabad, our team offers unmatched advisory. From our real estate consultancy Sector 65 Faridabad, we operate also as a zero brokerage builder floor dealer on selected luxury properties.
               </p>
             </div>
           </div>

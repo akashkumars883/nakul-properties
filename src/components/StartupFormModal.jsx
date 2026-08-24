@@ -8,7 +8,7 @@ export default function StartupFormModal() {
   const [isOpen, setIsOpen] = useState(false);
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
-  const [category, setCategory] = useState('huda');
+  const [category, setCategory] = useState('bptp');
 
   useEffect(() => {
     // Check if user has already dismissed or filled the modal during this session
@@ -36,11 +36,13 @@ export default function StartupFormModal() {
 
     // Format selected category text
     const categoryLabels = {
-      huda: 'HUDA / HSVP Sector Plots',
-      gated: 'Gated Township Plots',
+      bptp: 'BPTP Townships & Plots',
+      plots: 'Residential Plots & Land',
+      flats: 'Residential Flats / Apartments',
       floor: 'Independent Builder Floors',
+      villas: 'Luxury Villas',
       commercial: 'Commercial Shops & SCO Plots',
-      budget: 'Budget / Individual Plots'
+      industrial: 'Industrial Plots & Units'
     };
     const selectedCategoryText = categoryLabels[category] || category;
 
@@ -86,7 +88,7 @@ export default function StartupFormModal() {
             Consultation Request
           </span>
           <h3 className="text-xl sm:text-2xl font-bold tracking-tight">
-            Find Your Dream Plot in Faridabad
+            Find Your Dream Property in Faridabad
           </h3>
           <p className="text-xs text-neutral-400 font-light mt-1 max-w-[90%]">
             Enter your details below. Our direct agent will guide you with circle rates, legal verification, and floor registry listings.
@@ -129,11 +131,13 @@ export default function StartupFormModal() {
               onChange={(e) => setCategory(e.target.value)}
               className="w-full px-3.5 py-2.5 rounded-xl border border-neutral-200 focus:outline-none focus:border-black text-sm bg-white cursor-pointer"
             >
-              <option value="huda">HUDA / HSVP Sector Plots</option>
-              <option value="gated">Gated Township Plots (BPTP, Puri)</option>
+              <option value="bptp">BPTP Townships &amp; Plots</option>
+              <option value="plots">Residential Plots &amp; Land</option>
+              <option value="flats">Residential Flats / Apartments</option>
               <option value="floor">Independent Builder Floors</option>
+              <option value="villas">Luxury Villas</option>
               <option value="commercial">Commercial Shops &amp; SCO Plots</option>
-              <option value="budget">Budget / Individual Plots</option>
+              <option value="industrial">Industrial Plots &amp; Units</option>
             </select>
           </div>
 

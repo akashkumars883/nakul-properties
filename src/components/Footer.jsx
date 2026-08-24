@@ -13,7 +13,7 @@ export default function Footer() {
             Nakul<span className="text-neutral-500 font-light">Properties</span>
           </h3>
           <p className="text-sm text-neutral-500 leading-relaxed max-w-sm">
-            Faridabad’s most trusted real estate consultancy with over a decade of experience in HUDA sectors, luxury builder floors, and gated societies.
+            Faridabad’s most trusted real estate consultancy with over a decade of experience in BPTP townships, residential plots, flats, luxury builder floors, villas, commercial &amp; industrial properties.
           </p>
           <div className="text-xs text-neutral-500 space-y-1">
             <p className="font-semibold text-neutral-400">Office Location:</p>
@@ -45,16 +45,22 @@ export default function Footer() {
           <h4 className="text-sm font-bold text-white uppercase tracking-wider">Property Types</h4>
           <ul className="space-y-2.5 text-sm">
             <li>
-              <a href="/properties/huda-plots" className="hover:text-white transition-colors">HUDA &amp; HSVP Plots</a>
+              <a href="/properties/bptp-townships" className="hover:text-white transition-colors">BPTP Townships &amp; Plots</a>
             </li>
             <li>
-              <a href="/properties/gated-townships" className="hover:text-white transition-colors">Gated Townships</a>
+              <a href="/properties/residential-plots" className="hover:text-white transition-colors">Residential Plots &amp; Land</a>
             </li>
             <li>
-              <a href="/properties/builder-floors" className="hover:text-white transition-colors">Independent Floors</a>
+              <a href="/properties/flats" className="hover:text-white transition-colors">Flats &amp; Apartments</a>
+            </li>
+            <li>
+              <a href="/properties/builder-floors" className="hover:text-white transition-colors">Builder Floors &amp; Villas</a>
             </li>
             <li>
               <a href="/properties/commercial-rent-sale" className="hover:text-white transition-colors">Commercial Shops &amp; SCO</a>
+            </li>
+            <li>
+              <a href="/properties/industrial" className="hover:text-white transition-colors">Industrial Plots &amp; Units</a>
             </li>
           </ul>
         </div>
@@ -67,13 +73,16 @@ export default function Footer() {
               <a href="/locations/sector-65" className="hover:text-white transition-colors">Sector 65 (Head Office)</a>
             </li>
             <li>
-              <a href="/locations/sector-64" className="hover:text-white transition-colors">Sector 64 HUDA Plots</a>
+              <a href="/locations/sector-64" className="hover:text-white transition-colors">Sector 64 Sector Plots</a>
+            </li>
+            <li>
+              <a href="/locations/sector-63" className="hover:text-white transition-colors">Sector 63 Plots &amp; Commercial</a>
             </li>
             <li>
               <a href="/locations/sector-62" className="hover:text-white transition-colors">Sector 62 Freehold Plots</a>
             </li>
             <li>
-              <a href="/locations/sector-14-15" className="hover:text-white transition-colors">Sector 14 &amp; 15 VIP</a>
+              <a href="/locations/sector-2" className="hover:text-white transition-colors">Sector 2 Sector Plots</a>
             </li>
           </ul>
         </div>

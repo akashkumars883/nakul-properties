@@ -5,7 +5,8 @@ import SearchPageClient from '@/components/SearchPageClient';
 const allPropertiesDb = {
   'huda-plot-sec14-250': {
     id: 'huda-plot-sec14-250',
-    title: 'HUDA Approved Prime Sector 14 Residential Plot',
+    title: 'Prime Sector 14 Residential Plot',
+    category: 'plots',
     location: 'Sector 14, Faridabad',
     size: '250 Sq. Yds (Gaj)',
     dimensions: '30 ft × 75 ft',
@@ -13,14 +14,15 @@ const allPropertiesDb = {
     roadSize: '12 Meter Wide Road',
     price: '₹1.85 Cr',
     pricePerSqYd: '₹74,000 / Sq. Yd',
-    badge: 'HUDA Sector 14',
+    badge: 'Sector 14',
     verified: true,
-    features: ['HUDA Approved Layout', 'Freehold Clear Registry', 'Near HUDA Market', 'Wide Paved Roads', 'Municipal Water Connection'],
+    features: ['Approved Layout', 'Freehold Clear Registry', 'Near Market', 'Wide Paved Roads', 'Municipal Water Connection'],
     image: '/plot1.png'
   },
   'huda-plot-sec15-300': {
     id: 'huda-plot-sec15-300',
-    title: 'HSVP Corner Residential Plot Sector 15',
+    title: 'Corner Residential Plot Sector 15',
+    category: 'plots',
     location: 'Sector 15, Faridabad',
     size: '300 Sq. Yds (Gaj)',
     dimensions: '30 ft × 90 ft',
@@ -35,7 +37,8 @@ const allPropertiesDb = {
   },
   'huda-plot-sec21-200': {
     id: 'huda-plot-sec21-200',
-    title: 'Prime HUDA Plot in Sector 21C',
+    title: 'Prime Plot in Sector 21C',
+    category: 'plots',
     location: 'Sector 21C, Faridabad',
     size: '200 Sq. Yds (Gaj)',
     dimensions: '27 ft × 66 ft',
@@ -43,14 +46,15 @@ const allPropertiesDb = {
     roadSize: '9 Meter Wide Road',
     price: '₹1.35 Cr',
     pricePerSqYd: '₹67,500 / Sq. Yd',
-    badge: 'HUDA Approved',
+    badge: 'Approved',
     verified: true,
-    features: ['HUDA Approved', 'Registry Ready', 'Metro Connected', 'Freehold Registry', 'Quiet Neighborhood'],
+    features: ['Approved', 'Registry Ready', 'Metro Connected', 'Freehold Registry', 'Quiet Neighborhood'],
     image: '/plot3.png'
   },
   'huda-plot-sec7-160': {
     id: 'huda-plot-sec7-160',
-    title: 'HSVP Plot Near Metro Station Sector 7',
+    title: 'Residential Plot Near Metro Station Sector 7',
+    category: 'plots',
     location: 'Sector 7, Faridabad',
     size: '160 Sq. Yds (Gaj)',
     dimensions: '24 ft × 60 ft',
@@ -66,6 +70,7 @@ const allPropertiesDb = {
   'builder-floor-sec15-300': {
     id: 'builder-floor-sec15-300',
     title: '4 BHK Luxury Independent Builder Floor',
+    category: 'floor',
     location: 'Sector 15, Faridabad',
     size: '300 Sq. Yds',
     dimensions: 'Stilt + 4 Floors',
@@ -81,6 +86,7 @@ const allPropertiesDb = {
   'builder-floor-sec14-250': {
     id: 'builder-floor-sec14-250',
     title: '3 BHK Premium Builder Floor Sector 14',
+    category: 'floor',
     location: 'Sector 14, Faridabad',
     size: '250 Sq. Yds',
     dimensions: 'Ground Floor | Stilt',
@@ -96,6 +102,7 @@ const allPropertiesDb = {
   'gated-plot-sec85-350': {
     id: 'gated-plot-sec85-350',
     title: 'Premium Gated Township Plot in BPTP Parklands',
+    category: 'bptp',
     location: 'BPTP Parklands, Sector 85',
     size: '350 Sq. Yds (Gaj)',
     dimensions: '35 ft × 90 ft',
@@ -103,7 +110,7 @@ const allPropertiesDb = {
     roadSize: '18 Meter Wide Road',
     price: '₹1.45 Cr',
     pricePerSqYd: '₹41,400 / Sq. Yd',
-    badge: 'Gated Township',
+    badge: 'BPTP Township',
     verified: true,
     features: ['24/7 Gated Security', 'Park Facing', 'Underground Wiring', 'Clubhouse Access', 'Paved Paths'],
     image: '/plot2.png'
@@ -111,6 +118,7 @@ const allPropertiesDb = {
   'commercial-shop-sec79-600': {
     id: 'commercial-shop-sec79-600',
     title: 'Ground Floor Retail Shop in Omaxe World Street',
+    category: 'commercial',
     location: 'Omaxe World Street, Sector 79',
     size: '600 Sq. Ft (Carpet)',
     dimensions: 'Ground Floor',

@@ -7,28 +7,28 @@ import { client } from '@/sanity/lib/client';
 const locationData = {
   'sector-65': {
     slug: 'sector-65',
-    title: 'HUDA Approved Freehold Residential Plots for Sale in Sector 65, Faridabad',
-    subtitle: 'Head Office Location & Prime HUDA Sector Hub',
+    title: 'Freehold Residential Plots & Properties for Sale in Sector 65, Faridabad',
+    subtitle: 'Head Office Location & Prime Sector Hub',
     description:
-      'Sector 65 is one of Faridabad’s most sought-after prime HUDA sectors, featuring wide 18-meter planned sector roads, 100% legal freehold registry titles, and top capital appreciation potential. Situated right at Nakul Properties head office locality, offering direct physical site visits, instant legal due diligence, and verified 100 Gaj to 500 Gaj plot options.',
+      'Sector 65 is one of Faridabad’s most sought-after prime sectors, featuring wide 18-meter planned sector roads, 100% legal freehold registry titles, and top capital appreciation potential. Situated right at Nakul Properties head office locality, offering direct physical site visits, instant legal due diligence, and verified 100 Gaj to 500 Gaj plot and floor options.',
     heroImage: '/plot1.png',
-    seoTitle: 'Sector 65 HUDA Plots for Sale in Faridabad | 100-500 Gaj Freehold',
+    seoTitle: 'Sector 65 Plots & Properties for Sale in Faridabad | 100-500 Gaj Freehold',
     seoDesc:
-      'Buy 100% verified freehold HUDA residential plots (100 Gaj to 500 Gaj) in Sector 65 Faridabad. 18m wide roads, clear title, instant registry ready. Call/WhatsApp: +91 9811548267!',
+      'Buy 100% verified freehold residential plots (100 Gaj to 500 Gaj) & builder floors in Sector 65 Faridabad. 18m wide roads, clear title, instant registry ready. Call/WhatsApp: +91 9811548267!',
     highlights: [
-      { title: 'Plot Sizes Available', desc: '100 Gaj, 160 Gaj, 250 Gaj, 350 Gaj & 500 Gaj' },
+      { title: 'Plot & Floor Options Available', desc: '100 Gaj, 160 Gaj, 250 Gaj, 350 Gaj & 500 Gaj' },
       { title: 'Planned Sector Roads', desc: '18 Meter & 12 Meter Wide Paved Roads' },
-      { title: 'Ownership & Legal Status', desc: 'Single Owner Freehold HUDA Registry Deed' },
+      { title: 'Ownership & Legal Status', desc: 'Single Owner Freehold Registry Deed' },
       { title: 'Location Connectivity', desc: 'Direct Link to Bypass Road, Delhi Highway & Metro' },
     ],
     faqs: [
       {
-        q: 'Why is Sector 65 Faridabad considered a prime location for HUDA plots?',
-        a: 'Sector 65 offers planned 18-meter sector roads, excellent connectivity to the Delhi-Mumbai Expressway bypass, top schools, local HUDA markets, and Nakul Properties head office guidance.'
+        q: 'Why is Sector 65 Faridabad considered a prime location for property investment?',
+        a: 'Sector 65 offers planned 18-meter sector roads, excellent connectivity to the Delhi-Mumbai Expressway bypass, top schools, local commercial hubs, and Nakul Properties head office guidance.'
       },
       {
         q: 'What plot sizes are available in Sector 65 Faridabad?',
-        a: 'Common plot sizes in Sector 65 HUDA include 100 Sq. Yds (Gaj), 160 Sq. Yds, 250 Sq. Yds, 350 Sq. Yds, and 500 Sq. Yds.'
+        a: 'Common plot sizes in Sector 65 include 100 Sq. Yds (Gaj), 160 Sq. Yds, 250 Sq. Yds, 350 Sq. Yds, and 500 Sq. Yds.'
       },
       {
         q: 'Are registry and physical possession available for Sector 65 plots?',
@@ -39,60 +39,108 @@ const locationData = {
   },
   'sector-64': {
     slug: 'sector-64',
-    title: 'HUDA Approved Freehold Residential Plots for Sale in Sector 64, Faridabad',
-    subtitle: 'High Demand HUDA Sector Locality',
+    title: 'Freehold Residential Plots for Sale in Sector 64, Faridabad',
+    subtitle: 'High Demand Sector Locality',
     description:
       'Discover prime 100 Gaj, 160 Gaj, 250 Gaj, 350 Gaj & 500 Gaj residential plots for sale in Sector 64, Faridabad. Clean single owner freehold registry, 12m to 18m wide sector roads, zero legal disputes, and immediate physical possession.',
     heroImage: '/plot2.png',
-    seoTitle: 'Sector 64 HUDA Plots for Sale Faridabad | 100-500 Gaj Freehold',
+    seoTitle: 'Sector 64 Plots for Sale Faridabad | 100-500 Gaj Freehold',
     seoDesc:
-      'Explore 100% verified 100 Gaj to 500 Gaj HUDA sector plots for sale in Sector 64 Faridabad with clear titles, 18m wide roads & instant registry. Call/WhatsApp: +91 9811548267!',
+      'Explore 100% verified 100 Gaj to 500 Gaj sector plots for sale in Sector 64 Faridabad with clear titles, 18m wide roads & instant registry. Call/WhatsApp: +91 9811548267!',
     highlights: [
       { title: 'Available Plot Sizes', desc: '100 Gaj, 160 Gaj, 250 Gaj, 350 Gaj & 500 Gaj' },
       { title: 'Wide Sector Roads', desc: '18 Meter & 12 Meter Wide Paved Roads' },
-      { title: 'HUDA Approval', desc: '100% HSVP Approved Freehold Title Deed' },
+      { title: 'Approval Status', desc: '100% Approved Freehold Title Deed' },
       { title: 'High Demand Pocket', desc: 'Rapid Capital Appreciation & Top Infrastructure' },
     ],
     faqs: [
       {
-        q: 'Why should I buy a HUDA plot in Sector 64 Faridabad?',
-        a: 'Sector 64 is a high-demand HUDA sector offering 18m wide sector roads, underground utilities, close proximity to Sector 65 markets, and high appreciation rates.'
+        q: 'Why should I buy a plot in Sector 64 Faridabad?',
+        a: 'Sector 64 is a high-demand sector offering 18m wide sector roads, underground utilities, close proximity to Sector 65 markets, and high appreciation rates.'
       },
       {
         q: 'What is the price trend per Gaj for plots in Sector 64?',
         a: 'Sector 64 plot prices vary based on location (corner, wide road, facing park). Contact Nakul Properties for current verified market rates per Gaj.'
       },
       {
-        q: 'Can I build 4 floors on a HUDA plot in Sector 64?',
-        a: 'Yes, as per Haryana HSVP building norms, residential plot owners can construct stilt + 4 floors after necessary sanction plan approvals.'
+        q: 'Can I build 4 floors on a residential plot in Sector 64?',
+        a: 'Yes, as per building norms, residential plot owners can construct stilt + 4 floors after necessary sanction plan approvals.'
+      }
+    ],
+    properties: []
+  },
+  'sector-63': {
+    slug: 'sector-63',
+    title: 'Freehold Plots & Commercial Properties in Sector 63, Faridabad',
+    subtitle: 'Residential & Commercial Sector Pocket',
+    description:
+      'Explore verified residential plots, builder floors, commercial SCOs, and industrial spaces in Sector 63, Faridabad. Excellent road connectivity, clear titles, and high investment return potential.',
+    heroImage: '/plot4.png',
+    seoTitle: 'Plots & Properties for Sale in Sector 63 Faridabad | Nakul Properties',
+    seoDesc:
+      'Buy verified freehold plots, floors, and commercial properties in Sector 63 Faridabad. Clear registry, bank loans available. Call: +91 9811548267!',
+    highlights: [
+      { title: 'Property Types', desc: 'Residential Plots, Floors, Commercial & Industrial' },
+      { title: 'Sector Layout', desc: 'Wide Planned Roads & Green Belts' },
+      { title: 'Clear Title Deeds', desc: '100% Verified Single Owner Registry' },
+      { title: 'Connectivity', desc: 'Direct link to Bypass Road & Main Arterial Roads' },
+    ],
+    faqs: [
+      {
+        q: 'What type of properties are available in Sector 63 Faridabad?',
+        a: 'Sector 63 features residential plots, independent builder floors, commercial retail spaces, and industrial plot options.'
       }
     ],
     properties: []
   },
   'sector-62': {
     slug: 'sector-62',
-    title: 'Freehold HUDA Residential Plots for Sale in Sector 62, Faridabad',
+    title: 'Freehold Residential Plots for Sale in Sector 62, Faridabad',
     subtitle: 'Peaceful & Established Residential Pocket',
     description:
       'Buy clear title freehold residential plots in Sector 62, Faridabad ranging from 100 Gaj to 500 Gaj. Featuring excellent sector layout, close proximity to main markets, top schools, and direct metro station links.',
     heroImage: '/plot3.png',
-    seoTitle: 'Freehold Plots for Sale in Sector 62 Faridabad | HSVP Approved',
+    seoTitle: 'Freehold Plots for Sale in Sector 62 Faridabad | Nakul Properties',
     seoDesc:
       'Verified 100 Gaj to 500 Gaj residential plots for sale in Sector 62 Faridabad with single-owner freehold registry & bank loan approval. Call: +91 9811548267!',
     highlights: [
       { title: 'Plot Options', desc: '100 Gaj, 160 Gaj, 250 Gaj, 350 Gaj & 500 Gaj' },
       { title: 'Peaceful Sector Layout', desc: 'Surrounded by Parks & Green Belts' },
       { title: 'Clear Title Deeds', desc: '100% Verified Ownership & Zero Dues' },
-      { title: 'Convenient Connectivity', desc: 'Close to Mathura Road & Local HUDA Markets' },
+      { title: 'Convenient Connectivity', desc: 'Close to Mathura Road & Local Markets' },
     ],
     faqs: [
       {
-        q: 'Is Sector 62 Faridabad a fully developed HUDA sector?',
-        a: 'Yes, Sector 62 is a fully inhabited and developed HUDA sector with complete electricity, water supply, sewage systems, and paved sector roads.'
+        q: 'Is Sector 62 Faridabad a fully developed sector?',
+        a: 'Yes, Sector 62 is a fully inhabited and developed sector with complete electricity, water supply, sewage systems, and paved sector roads.'
       },
       {
         q: 'Are plots in Sector 62 eligible for home loans?',
         a: 'Yes, all our listed plots in Sector 62 feature clear freehold registry titles and are 100% eligible for home/plot loans from leading national banks.'
+      }
+    ],
+    properties: []
+  },
+  'sector-2': {
+    slug: 'sector-2',
+    title: 'Freehold Residential Plots & Builder Floors in Sector 2, Faridabad',
+    subtitle: 'Prime Central Connectivity Sector',
+    description:
+      'Explore premium residential plots, builder floors, and flats for sale in Sector 2, Faridabad. Situated close to Mathura Road highway and metro station, offering top connectivity and high rental yields.',
+    heroImage: '/plot2.png',
+    seoTitle: 'Plots & Builder Floors for Sale in Sector 2 Faridabad | Nakul Properties',
+    seoDesc:
+      'Verified residential plots & builder floors for sale in Sector 2 Faridabad. Metro connected, 100% registry ready. Call/WhatsApp: +91 9811548267!',
+    highlights: [
+      { title: 'Location Advantage', desc: 'Prime Proximity to Delhi Highway & Metro' },
+      { title: 'Property Options', desc: 'Freehold Plots, Builder Floors & Flats' },
+      { title: 'Registry Status', desc: 'Instant Registry & Single Owner Documents' },
+      { title: 'Amenities', desc: 'Inhabited Locality, Markets & Top Schools' },
+    ],
+    faqs: [
+      {
+        q: 'Why invest in Sector 2 Faridabad properties?',
+        a: 'Sector 2 offers established infrastructure, rapid access to Mathura Road, metro connectivity, and strong resale value.'
       }
     ],
     properties: []

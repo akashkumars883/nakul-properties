@@ -1,35 +1,36 @@
-# Nakul Properties - Faridabad Real Estate Advisory & Plot Specialist
+# Nakul Properties - Faridabad Real Estate Advisory & Property Specialist
 
-Nakul Properties is the leading real estate consultancy and property dealer based in Sector 65, Faridabad, Haryana, India. Specializing in freehold HUDA/HSVP approved sector plots, residential plot deals (100 Gaj to 500 Gaj), and prime property investments across Sector 65, Sector 64, Sector 62, and prime Faridabad sectors.
+Nakul Properties is the leading real estate consultancy and property dealer based in Sector 65, Faridabad, Haryana, India. Specializing in BPTP townships, residential plots (100 Gaj to 500 Gaj), flats, builder floors, luxury villas, commercial SCOs, and industrial properties across Sector 2, Sector 62, Sector 63, Sector 64, Sector 65, and prime Faridabad sectors.
 
 ## Contact Information
 - **Phone / WhatsApp:** +91 98115 48267
 - **Head Office Address:** Sector 65, Faridabad, Haryana - 121004
 - **Primary Website:** https://nakulproperties.com
 
-## Key Offerings & Plot Inventory
-- **Sector 65 Freehold Plots:** 100 Gaj (₹1.70 Cr), 160 Gaj (₹2.55 Cr), 250 Gaj (₹3.55 Cr), 350 Gaj (₹4.50 Cr), 500 Gaj (₹5.15 Cr)
-- **Sector 64 Freehold Plots:** 100 Gaj (₹1.60 Cr), 160 Gaj (₹2.50 Cr), 250 Gaj (₹3.40 Cr), 350 Gaj (₹4.10 Cr), 500 Gaj (₹5.65 Cr)
-- **Sector 62 Freehold Plots:** 100 Gaj (₹1.55 Cr), 160 Gaj (₹2.30 Cr), 250 Gaj (₹3.30 Cr), 350 Gaj (₹4.25 Cr), 500 Gaj (₹5.00 Cr)
-- **HUDA / HSVP Approved Sector Plots:** Freehold plots with 100% clear legal titles, wide roads, and immediate physical possession.
+## Key Offerings & Property Inventory
+- **BPTP Townships & Gated Plots:** BPTP Parklands, BPTP District, and prime gated communities.
+- **Sector 65 Freehold Plots & Floors:** 100 Gaj to 500 Gaj plots and luxury floors.
+- **Sector 64 Freehold Plots & Floors:** 100 Gaj to 500 Gaj residential sector plots.
+- **Sector 63 Plots & Commercial:** Freehold plots, floors, and commercial SCOs.
+- **Sector 62 Freehold Plots:** 100 Gaj to 500 Gaj residential plots.
+- **Sector 2 Plots & Floors:** Prime connectivity residential plots & builder floors.
+- **Commercial & Industrial:** Commercial shops, SCO plots, office spaces, and industrial plots.
 
 ## Core Navigation Routes
 - Home Page: /
 - All Properties: /properties
-- HUDA Sector Plots Category: /properties/huda-plots
-- Gated Townships & Plots: /properties/gated-townships
+- BPTP Townships & Plots: /properties/bptp-townships
+- Residential Plots: /properties/residential-plots
+- Builder Floors & Villas: /properties/builder-floors
+- Commercial & Industrial: /properties/commercial-rent-sale
 - About Us Page: /about
 - Contact Page: /contact
 - Search Page: /search
 
 ## Prime Location Areas Serviced
 - Sector 65 (Head Office & Prime Sector): /locations/sector-65
-- Sector 64 (HUDA Residential Sector): /locations/sector-64
+- Sector 64 (Residential Sector): /locations/sector-64
+- Sector 63 (Residential & Commercial): /locations/sector-63
 - Sector 62 (Freehold Residential Plots): /locations/sector-62
-- Sector 14 & 15 (Established Sectors): /locations/sector-14-15
-
-## Targeted Keyword Deals Pages
-- Main Authority Listing: /deals/best-property-dealer-faridabad
-- HUDA Sector Plots Search: /deals/huda-plots-for-sale-faridabad
-- Greater Faridabad Plots: /deals/plots-for-sale-greater-faridabad
-- Commercial Real Estate Hubs: /deals/commercial-sco-plots-faridabad
+- Sector 2 (Central Connectivity Hub): /locations/sector-2
+- Sector 14 & 15 (VIP Sectors): /locations/sector-14-15

@@ -5,25 +5,25 @@ import Link from 'next/link';
 import { MapPin, BookOpen, Building2, ChevronRight, Compass } from 'lucide-react';
 
 const sectorLinks = [
-  { label: 'Sector 65 HUDA Plots', href: '/locations/sector-65', badge: 'Head Office' },
+  { label: 'Sector 65 Prime Plots', href: '/locations/sector-65', badge: 'Head Office' },
   { label: 'Sector 64 Freehold Plots', href: '/locations/sector-64', badge: 'Popular' },
-  { label: 'Sector 62 HUDA Plots', href: '/locations/sector-62', badge: 'Hot Deal' },
-  { label: 'Sector 14 & 15 VIP Plots', href: '/locations/sector-14-15', badge: 'Prime' },
-  { label: 'Central Faridabad (21 & 28)', href: '/locations/sector-21-28', badge: 'Metro Link' },
+  { label: 'Sector 63 Plots & Commercial', href: '/locations/sector-63', badge: 'Hot Deal' },
+  { label: 'Sector 62 Residential Plots', href: '/locations/sector-62', badge: 'Verified' },
+  { label: 'Sector 2 Prime Plots', href: '/locations/sector-2', badge: 'Prime' },
 ];
 
 const guideLinks = [
-  { label: '7-Point HUDA Plot Verification Checklist', href: '/blog/huda-plots-in-faridabad-property-verification', badge: 'Must Read' },
-  { label: 'HUDA Plot Registry & Possession Process', href: '/blog/faridabad-huda-plot-registry-process-guide', badge: 'Guide' },
-  { label: 'Top Sectors to Buy Freehold HUDA Plots', href: '/blog/top-5-sectors-to-invest-huda-plots-faridabad', badge: 'Investment' },
+  { label: '7-Point Plot Registry Checklist', href: '/blog/huda-plots-in-faridabad-property-verification', badge: 'Must Read' },
+  { label: 'Plot Registry & Possession Process', href: '/blog/faridabad-huda-plot-registry-process-guide', badge: 'Guide' },
+  { label: 'Top Sectors to Buy Freehold Plots', href: '/blog/top-5-sectors-to-invest-huda-plots-faridabad', badge: 'Investment' },
   { label: 'Why Sector 65 is #1 Location for Plots', href: '/blog/why-invest-in-sector-65-faridabad-plots', badge: 'Insight' },
 ];
 
 const inventoryLinks = [
-  { label: 'HUDA & HSVP Plots Inventory', href: '/properties/huda-plots', count: 'Live Inventory' },
+  { label: 'BPTP Townships & Plots', href: '/properties/bptp-townships', count: 'BPTP' },
+  { label: 'Residential Plots, Flats & Villas', href: '/properties/residential-plots', count: 'Residential' },
   { label: 'Luxury Builder Floors', href: '/properties/builder-floors', count: 'Premium' },
-  { label: 'Gated Townships & Societies', href: '/properties/gated-townships', count: 'Gated' },
-  { label: 'Commercial Shops & SCO Plots', href: '/properties/commercial-rent-sale', count: 'Commercial' },
+  { label: 'Commercial Shops & Industrial', href: '/properties/commercial-rent-sale', count: 'Commercial' },
   { label: 'Browse All Verified Properties', href: '/properties', count: 'View All' },
 ];
 

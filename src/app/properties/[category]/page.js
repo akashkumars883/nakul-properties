@@ -4,37 +4,70 @@ import CategoryPageClient from '@/components/CategoryPageClient';
 
 // Fully SEO Optimized & Unique Category Data for Google Ranking
 const categoryData = {
-  'huda-plots': {
-    slug: 'huda-plots',
-    title: 'HUDA & HSVP Sector Plots for Sale in Faridabad',
-    subtitle: 'HSVP Authority Approved Plots',
+  'bptp-townships': {
+    slug: 'bptp-townships',
+    title: 'BPTP Townships & Gated Plots in Faridabad',
+    subtitle: 'Secured BPTP Townships & Parklands',
     description:
-      'Explore verified freehold HUDA & HSVP residential plots in Faridabad. Located in prime established sectors like Sector 14, 15, 21, 7, and 8, these plots come with 100% clear legal titles, gated boundaries, wide 12m to 24m layout roads, and direct access to municipal utilities. Perfect choice for immediate registry, construction, and high investment return.',
-    heroImage: '/cat-huda.png',
-    seoTitle: 'HUDA HSVP Sector Plots for Sale in Faridabad | Nakul Properties',
+      'Explore verified BPTP township plots, independent floors, and villas in Greater Faridabad (Neharpar). Featuring BPTP Parklands, BPTP Discovery Park, BPTP District, and prime gated communities. 100% clear legal titles, gated security, clubhouses, wide 18m roads, and fast appreciation potential.',
+    heroImage: '/cat-gated.png',
+    seoTitle: 'BPTP Townships & Plots for Sale in Faridabad | Nakul Properties',
     seoDesc:
-      'Buy verified freehold HUDA & HSVP sector plots in Sector 14, 15, and 21 Faridabad. Clear registry, bank loans available. Contact Faridabad top property consultants.',
+      'Buy verified plots, builder floors & villas in BPTP Parklands and BPTP townships across Faridabad. Clear registry, bank loan approval. Contact top consultants.',
+    properties: [
+      {
+        id: 1,
+        image: '/plot2.png',
+        title: 'BPTP Parklands Township Plot',
+        location: 'BPTP Parklands, Sector 85, Faridabad',
+        size: '350 Sq. Yds (Gaj)',
+        dimensions: '35 ft × 90 ft',
+        facing: 'Park Facing & East',
+        roadSize: '18 Meter Wide Road',
+        price: '₹1.45 Cr',
+        pricePerSqYd: '₹41,400 / Sq. Yd',
+        badge: 'BPTP Township',
+        verified: true,
+        features: ['24/7 Gated Security', 'Park Facing', 'Underground Wiring'],
+      },
+    ],
+    faqs: [
+      { q: 'Are all BPTP plots 100% registry ready with clear titles?', a: 'Yes, all listed BPTP township plots in Parklands and District undergo strict due diligence verifying allotment letters, conveyance deeds, zero pending dues, and clear title history.' },
+      { q: 'What amenities are available in BPTP gated townships?', a: 'BPTP gated societies feature 24/7 security checkpoints, paved wide sector roads, underground utilities, landscaped green parks, and clubhouse access.' },
+      { q: 'Can I get a bank loan on BPTP plots?', a: 'Yes, leading nationalized and private banks (ICICI, HDFC, SBI) provide up to 75-80% loan on verified BPTP plots.' }
+    ],
+  },
+  'residential-plots': {
+    slug: 'residential-plots',
+    title: 'Freehold Residential Plots for Sale in Faridabad',
+    subtitle: 'Freehold Sector & Locality Plots',
+    description:
+      'Explore verified freehold residential plots across prime Faridabad sectors including Sector 2, Sector 62, Sector 63, Sector 64, and Sector 65. Available from 100 Sq. Yds to 500 Sq. Yds with 100% clear legal titles, wide layout roads, and immediate physical possession ready for registry.',
+    heroImage: '/cat-huda.png',
+    seoTitle: 'Freehold Residential Plots for Sale in Faridabad | Nakul Properties',
+    seoDesc:
+      'Buy verified freehold residential plots in Sector 2, 62, 63, 64 & 65 Faridabad. Clear registry, bank loans available. Contact Nakul Properties.',
     properties: [
       {
         id: 1,
         image: '/plot1.png',
-        title: 'HUDA Approved Residential Plot',
-        location: 'Sector 14, Faridabad',
+        title: 'Sector 65 Prime Residential Plot',
+        location: 'Sector 65, Faridabad',
         size: '250 Sq. Yds (Gaj)',
         dimensions: '30 ft × 75 ft',
         facing: 'North-East Facing',
         roadSize: '12 Meter Wide Road',
         price: '₹1.85 Cr',
         pricePerSqYd: '₹74,000 / Sq. Yd',
-        badge: 'HUDA Approved',
+        badge: 'Freehold Registry',
         verified: true,
-        features: ['HUDA Approved', 'Freehold Registry', 'Prime Sector 14'],
+        features: ['Freehold Title', 'Registry Ready', 'Prime Sector 65'],
       },
       {
         id: 2,
         image: '/plot2.png',
-        title: 'HSVP Corner Residential Plot',
-        location: 'Sector 15, Faridabad',
+        title: 'Sector 64 Corner Residential Plot',
+        location: 'Sector 64, Faridabad',
         size: '300 Sq. Yds (Gaj)',
         dimensions: '30 ft × 90 ft',
         facing: 'East Facing | Corner',
@@ -48,33 +81,84 @@ const categoryData = {
       {
         id: 3,
         image: '/plot3.png',
-        title: 'HUDA Plot — Prime Sector 21',
-        location: 'Sector 21C, Faridabad',
+        title: 'Sector 62 Prime Plot',
+        location: 'Sector 62, Faridabad',
         size: '200 Sq. Yds (Gaj)',
         dimensions: '27 ft × 66 ft',
         facing: 'North Facing',
         roadSize: '9 Meter Wide Road',
         price: '₹1.35 Cr',
         pricePerSqYd: '₹67,500 / Sq. Yd',
-        badge: 'HUDA Approved',
+        badge: 'Clear Title',
         verified: true,
-        features: ['HUDA Approved', 'Registry Ready', 'Sector 21'],
+        features: ['Clear Registry', 'Immediate Possession', 'Sector 62'],
       },
       {
         id: 4,
         image: '/plot4.png',
-        title: 'HSVP Plot Near Metro',
-        location: 'Sector 7, Faridabad',
+        title: 'Sector 2 Residential Plot',
+        location: 'Sector 2, Faridabad',
         size: '160 Sq. Yds (Gaj)',
         dimensions: '24 ft × 60 ft',
         facing: 'East Facing',
         roadSize: '12 Meter Road',
         price: '₹1.10 Cr',
         pricePerSqYd: '₹68,750 / Sq. Yd',
-        badge: 'Near Metro',
+        badge: 'Near Highway',
         verified: true,
-        features: ['Near Metro Station', 'Prime Sector', 'Freehold Title'],
+        features: ['Great Connectivity', 'Prime Sector 2', 'Freehold Title'],
       },
+    ],
+    faqs: [
+      { q: 'Are these residential plots freehold with clear title registry?', a: 'Yes, 100% of our listed residential plots across Sector 2, 62, 63, 64 & 65 are freehold with clear single-owner titles.' },
+      { q: 'Which sectors offer maximum price appreciation?', a: 'Sector 65, 64, 62 & Sector 2 offer highest capital appreciation due to 18m wide planned roads, express connectivity, and metro link proximity.' },
+      { q: 'How can I schedule a physical site visit?', a: 'Call or WhatsApp +91 9811548267 for an immediate guided site visit with our senior real estate consultants.' }
+    ],
+  },
+  'flats': {
+    slug: 'flats',
+    title: 'Residential Flats & Luxury Apartments for Sale in Faridabad',
+    subtitle: 'Flats & High-Rise Apartments',
+    description:
+      'Discover 2 BHK, 3 BHK, and 4 BHK luxury flats and apartments for sale across Faridabad. Located in prime residential sectors with modern amenities, power backup, security, and dedicated parking.',
+    heroImage: '/cat-builder.png',
+    seoTitle: 'Flats & Apartments for Sale in Faridabad | Nakul Properties',
+    seoDesc:
+      'Buy verified 2, 3 & 4 BHK residential flats and luxury apartments in Faridabad. Clear registry, bank loan approved.',
+    properties: [],
+    faqs: [
+      { q: 'What configurations of residential flats are available?', a: 'We deal in 2 BHK, 3 BHK, and 4 BHK luxury residential flats and high-rise apartments across prime Faridabad sectors.' },
+      { q: 'Are these flats eligible for bank home loans?', a: 'Yes, 100% of listed apartment complexes are approved by leading national banks for home loans.' }
+    ],
+  },
+  'villas': {
+    slug: 'villas',
+    title: 'Luxury Independent Villas for Sale in Faridabad',
+    subtitle: 'Exclusive Independent Villas',
+    description:
+      'Acquire premium luxury villas and bungalow homes in gated communities and prime established sectors of Faridabad. Featuring private gardens, multi-car parking, and high-end finishes.',
+    heroImage: '/cat-builder.png',
+    seoTitle: 'Luxury Villas for Sale in Faridabad | Nakul Properties',
+    seoDesc:
+      'Explore exclusive independent villas and luxury bungalows for sale in prime Faridabad sectors.',
+    properties: [],
+    faqs: [
+      { q: 'Do independent luxury villas feature private gardens?', a: 'Yes, our luxury bungalow villas feature private lawn gardens, multi-car stilt parking, elevators, and triplex layouts.' }
+    ],
+  },
+  'industrial': {
+    slug: 'industrial',
+    title: 'Industrial Plots & Factory Spaces for Sale in Faridabad',
+    subtitle: 'Industrial Plots & Warehouses',
+    description:
+      'Buy or lease industrial plots, manufacturing plants, and warehousing facilities across Faridabad industrial sectors. Excellent highway access, wide heavy-duty roads, and power infrastructure.',
+    heroImage: '/cat-commercial.png',
+    seoTitle: 'Industrial Plots for Sale in Faridabad | Nakul Properties',
+    seoDesc:
+      'Verified industrial plots and factory space for sale/lease in Faridabad. High connectivity & clear titles.',
+    properties: [],
+    faqs: [
+      { q: 'Are industrial plots approved for heavy manufacturing?', a: 'Yes, Sector 63 and industrial hubs feature heavy power connections, wide 24m roads, and cargo container access.' }
     ],
   },
   'gated-townships': {
@@ -149,6 +233,9 @@ const categoryData = {
         features: ['Clubhouse Access', 'Secured Entry', 'Near NH-48'],
       },
     ],
+    faqs: [
+      { q: 'What gated townships are available in Greater Faridabad?', a: 'We feature plots in BPTP Parklands, Puri Amanvilas, RPS Savana, Omaxe City, and prime gated communities.' }
+    ],
   },
   'commercial-rent-sale': {
     slug: 'commercial-rent-sale',
@@ -210,17 +297,16 @@ const categoryData = {
         id: 4,
         image: '/deal1.png',
         title: 'Retail Shop — Sector 14 Market',
-        location: 'Main Market, Sector 14',
-        size: '250 Sq. Ft (Carpet)',
-        dimensions: 'Ground Floor',
-        facing: 'Main Market Road',
-        roadSize: 'Prime Market Location',
         price: '₹25,000 / mo',
         pricePerSqYd: 'Rent | Negotiable',
         badge: 'For Rent',
         verified: true,
         features: ['Busy Market', 'Ready Possession', 'Established Area'],
       },
+    ],
+    faqs: [
+      { q: 'What commercial properties do you deal in?', a: 'We specialize in ground floor retail shops in Omaxe World Street, high-footfall main market shops, and SCO (Shop-cum-Office) plots along Mathura Road.' },
+      { q: 'Are commercial properties available for both purchase and leasing?', a: 'Yes, we have prime options available for outright purchase as well as long-term commercial lease agreements.' }
     ],
   },
   'builder-floors': {
@@ -262,7 +348,7 @@ const categoryData = {
         pricePerSqYd: 'Including Registry',
         badge: 'Ground Floor',
         verified: true,
-        features: ['Stilt Parking', 'Modular Kitchen', 'Prime Sector 14'],
+        features: ['Stilt Parking', 'Modular Kitchen', 'Zero Brokerage'],
       },
       {
         id: 3,
@@ -301,10 +387,15 @@ const categoryData = {
 import { client } from '@/sanity/lib/client';
 
 const sanityCategoryMap = {
-  'huda-plots': 'huda',
+  'bptp-townships': 'bptp',
+  'residential-plots': 'plots',
+  'flats': 'flats',
+  'villas': 'villas',
   'gated-townships': 'gated',
   'commercial-rent-sale': 'commercial',
   'builder-floors': 'floor',
+  'industrial': 'industrial',
+  'huda-plots': 'plots',
 };
 
 export async function generateStaticParams() {
@@ -322,10 +413,12 @@ export async function generateMetadata({ params }) {
     keywords: [
       data.title,
       `${decodedCategory} in Faridabad`,
-      'HUDA plots in Faridabad',
+      'BPTP plots in Faridabad',
       'Sector 65 plots Faridabad',
       'Sector 64 plots Faridabad',
+      'Sector 63 plots Faridabad',
       'Sector 62 plots Faridabad',
+      'Sector 2 plots Faridabad',
       'plots for sale in Faridabad',
       'Nakul Properties Faridabad',
     ],
@@ -357,20 +450,39 @@ export default async function CategoryPage({ params }) {
     notFound();
   }
 
-  const sanityCategory = sanityCategoryMap[decodedCategory];
   let categoryProperties = [];
-  if (sanityCategory) {
-    if (sanityCategory === 'gated') {
-      // Fetch both gated and budget (individual plots) properties
-      categoryProperties = await client.fetch(
-        `*[_type == "property" && (category == "gated" || category == "budget")] | order(_createdAt desc)`
-      );
-    } else {
-      categoryProperties = await client.fetch(
-        `*[_type == "property" && category == $sanityCategory] | order(_createdAt desc)`,
-        { sanityCategory }
-      );
-    }
+  if (decodedCategory === 'bptp-townships' || decodedCategory === 'gated-townships') {
+    categoryProperties = await client.fetch(
+      `*[_type == "property" && (category == "bptp" || category == "gated" || title match "*BPTP*")] | order(_createdAt desc)`
+    );
+  } else if (decodedCategory === 'residential-plots' || decodedCategory === 'huda-plots') {
+    categoryProperties = await client.fetch(
+      `*[_type == "property" && (category == "plots" || category == "huda" || category == "budget" || title match "*Plot*")] | order(_createdAt desc)`
+    );
+  } else if (decodedCategory === 'builder-floors') {
+    categoryProperties = await client.fetch(
+      `*[_type == "property" && (category == "floor" || title match "*Floor*")] | order(_createdAt desc)`
+    );
+  } else if (decodedCategory === 'commercial-rent-sale') {
+    categoryProperties = await client.fetch(
+      `*[_type == "property" && (category == "commercial" || title match "*Shop*" || title match "*SCO*")] | order(_createdAt desc)`
+    );
+  } else if (decodedCategory === 'flats') {
+    categoryProperties = await client.fetch(
+      `*[_type == "property" && (category == "flats" || title match "*Flat*" || title match "*Apartment*")] | order(_createdAt desc)`
+    );
+  } else if (decodedCategory === 'villas') {
+    categoryProperties = await client.fetch(
+      `*[_type == "property" && (category == "villas" || title match "*Villa*")] | order(_createdAt desc)`
+    );
+  } else if (decodedCategory === 'industrial') {
+    categoryProperties = await client.fetch(
+      `*[_type == "property" && (category == "industrial" || title match "*Industrial*")] | order(_createdAt desc)`
+    );
+  } else {
+    categoryProperties = await client.fetch(
+      `*[_type == "property"] | order(_createdAt desc)`
+    );
   }
 
   // Merge Sanity properties into static SEO data

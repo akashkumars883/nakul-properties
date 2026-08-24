@@ -41,10 +41,13 @@ export default function Navbar() {
 
   const propertyCategories = [
     { name: 'All Properties', href: '/properties' },
-    { name: 'HUDA / HSVP Sector Plots', href: '/properties/huda-plots' },
-    { name: 'Gated Townships & Registry Plots', href: '/properties/gated-townships' },
+    { name: 'BPTP & Townships', href: '/properties/bptp-townships' },
+    { name: 'Residential Plots & Land', href: '/properties/residential-plots' },
+    { name: 'Flats & Apartments', href: '/properties/flats' },
     { name: 'Independent Builder Floors', href: '/properties/builder-floors' },
+    { name: 'Luxury Villas', href: '/properties/villas' },
     { name: 'Commercial Shops & SCO', href: '/properties/commercial-rent-sale' },
+    { name: 'Industrial Plots & Units', href: '/properties/industrial' },
   ];
 
   // Rotate Top Bar announcements

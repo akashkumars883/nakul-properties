@@ -17,9 +17,9 @@ const defaultGuides = [
   {
     slug: 'faridabad-huda-plot-registry-process-guide',
     title: 'HUDA Plot Registry & Physical Possession Process in Faridabad',
-    excerpt: 'Step-by-step procedure for stamp duty calculations, transfer permissions, and clearance documents needed for HSVP plot registry.',
+    excerpt: 'Step-by-step procedure for stamp duty calculations, transfer permissions, and clearance documents needed for plot registry.',
     image: '/plot1.png',
-    keywords: ['registry', 'possession', 'huda', 'hsvp', 'plot', 'sector', 'freehold', 'land', 'floor'],
+    keywords: ['registry', 'possession', 'huda', 'plot', 'sector', 'freehold', 'land', 'floor'],
     badge: 'Registry Guide'
   },
   {

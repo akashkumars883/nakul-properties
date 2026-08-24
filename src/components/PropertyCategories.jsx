@@ -8,67 +8,85 @@ import Image from 'next/image';
 export default function PropertyCategories() {
   const plotCategories = [
     {
-      id: 'sector-65-plots',
-      title: 'Sector 65 Prime Plots',
-      location: 'Sector 65, Faridabad (Head Office)',
-      desc: '100 Gaj to 500 Gaj freehold HUDA approved sector plots in Sector 65 with 18m wide roads.',
-      seoKeyword: 'Sector 65 plots in Faridabad, HUDA plot Sector 65',
+      id: 'bptp-townships',
+      title: 'BPTP Townships & Plots',
+      location: 'Neharpar & Sectors 81-89',
+      desc: 'Premium BPTP township plots, villas, and independent floors in secured gated communities.',
+      seoKeyword: 'BPTP plots Faridabad, BPTP Parklands, BPTP town houses',
+      image: '/cat-gated.png',
+      link: '/properties/bptp-townships',
+    },
+    {
+      id: 'residential-plots',
+      title: 'Residential Sector Plots',
+      location: 'Sectors 2, 62, 63, 64, 65 & VIP Sectors',
+      desc: '100 Gaj to 500 Gaj freehold residential sector plots with 100% verified registry titles.',
+      seoKeyword: 'Residential plots Faridabad, sector plots Faridabad',
       image: '/plot1.png',
-      link: '/locations/sector-65',
+      link: '/properties/residential-plots',
     },
     {
-      id: 'sector-64-plots',
-      title: 'Sector 64 Sector Plots',
-      location: 'Sector 64, Faridabad',
-      desc: '100 Gaj to 500 Gaj residential sector plots in Sector 64 with 100% clear legal titles.',
-      seoKeyword: 'Sector 64 plots for sale, HUDA plot Sector 64',
+      id: 'flats-apartments',
+      title: 'Flats & Apartments',
+      location: 'Sector 69, 65, 64, 2 & Prime Zones',
+      desc: 'Luxury 3 BHK & 4 BHK apartments, modern flats, and high-rise residences.',
+      seoKeyword: 'Flats for sale Faridabad, 3 BHK flats Faridabad',
+      image: '/plot4.png',
+      link: '/properties/flats',
+    },
+    {
+      id: 'builder-floors',
+      title: 'Luxury Builder Floors',
+      location: 'Sectors 14, 15, 69, 65 & 62',
+      desc: 'Independent 3 BHK & 4 BHK builder floors with private lift, stilt parking & terrace rights.',
+      seoKeyword: 'Builder floors Faridabad, independent floors',
       image: '/plot2.png',
-      link: '/locations/sector-64',
+      link: '/properties/flats',
     },
     {
-      id: 'sector-62-plots',
-      title: 'Sector 62 Freehold Plots',
-      location: 'Sector 62, Faridabad',
-      desc: '100 Gaj to 500 Gaj residential plots in Sector 62 with immediate registry & possession.',
-      seoKeyword: 'Sector 62 plots Faridabad, freehold plots Sector 62',
+      id: 'commercial-sco',
+      title: 'Commercial Shops & SCO',
+      location: 'Mathura Road, Sector 65, World Street',
+      desc: 'Retail shops, SCO plots, corporate office spaces, and commercial showrooms.',
+      seoKeyword: 'Commercial shops Faridabad, SCO plots Faridabad',
+      image: '/cat-commercial.png',
+      link: '/properties/commercial-rent-sale',
+    },
+    {
+      id: 'industrial-plots',
+      title: 'Industrial Units & Plots',
+      location: 'Sector 63, 24, 25 & Industrial Zones',
+      desc: 'Approved industrial plots, factory sheds, and warehousing spaces.',
+      seoKeyword: 'Industrial plots Faridabad, factory space',
       image: '/plot3.png',
-      link: '/locations/sector-62',
-    },
-    {
-      id: 'huda-plots',
-      title: 'HUDA / HSVP Sector Plots',
-      location: 'Sector 65, 64, 62 & Prime Sectors',
-      desc: 'Freehold HSVP sector plots in prime established sectors of Faridabad with 100% clear legal titles.',
-      seoKeyword: 'HUDA plots in Faridabad, HSVP plot for sale',
-      image: '/cat-huda.png',
-      link: '/properties/huda-plots',
+      link: '/properties/industrial-plots',
     },
   ];
 
   return (
     <section
       id="properties"
-      className="scroll-mt-32"
+      className="scroll-mt-32 font-outfit"
       aria-labelledby="properties-heading"
     >
       {/* SEO Optimized Section Header */}
-      <div className="text-center max-w-3xl mx-auto mb-12">
+      <div className="text-center max-w-3xl mx-auto mb-10">
         <span className="text-xs font-semibold uppercase tracking-widest text-neutral-500 mb-2 block">
           Faridabad Real Estate Listings
         </span>
         <h2
           id="properties-heading"
-          className="text-3xl sm:text-4xl font-semibold text-black mb-4 tracking-tight"
+          className="text-3xl sm:text-4xl font-semibold text-black mb-3 tracking-tight"
         >
-          Explore Plot Categories &amp; Property Types in Faridabad
+          Explore Property Categories in Faridabad
         </h2>
         <p className="text-neutral-600 text-base leading-relaxed">
-          Find prime residential plots, HUDA sector plots, gated township plots &amp; commercial properties across Faridabad &amp; Greater Faridabad.
+          Find prime BPTP townships, residential plots, 3/4 BHK flats, luxury builder floors, commercial &amp; industrial properties across Sectors 2, 62, 63, 64, 65, 69 &amp; Greater Faridabad.
         </p>
       </div>
 
       {/* Grid Container */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {plotCategories.map((cat) => (
           <Link
             key={cat.id}

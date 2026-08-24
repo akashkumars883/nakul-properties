@@ -50,13 +50,13 @@ const seoDealsData = {
   },
   'huda-plots-for-sale-faridabad': {
     slug: 'huda-plots-for-sale-faridabad',
-    keywordTitle: 'HUDA & HSVP Approved Sector Plots for Sale in Faridabad',
-    seoTitle: 'HUDA Plots for Sale in Faridabad | HSVP Approved Sectors',
-    seoDesc: 'Verified Freehold HUDA & HSVP sector plots for sale in Faridabad with clear titles. Sector 14, 15, 21, 64 & 65 plots. Bank Loan Approved. Call: +91 9811548267!',
+    keywordTitle: 'Freehold Sector Plots for Sale in Faridabad',
+    seoTitle: 'Freehold Plots for Sale in Faridabad | Prime Sectors',
+    seoDesc: 'Verified Freehold sector plots for sale in Faridabad with clear titles. Sectors 2, 62, 63, 64 & 65 plots. Bank Loan Approved. Call: +91 9811548267!',
     heroImage: '/cat-huda.png',
-    longDescription: 'HUDA / HSVP approved sectors are highly preferred due to high quality civic infrastructure, wide roads, municipal water supply, and high-class neighborhood amenities. We present selected clear-title sector plots for sale in Faridabad with hassle-free freehold registry approvals.',
+    longDescription: 'Prime approved sectors are highly preferred due to high quality civic infrastructure, wide roads, municipal water supply, and high-class neighborhood amenities. We present selected clear-title sector plots for sale in Faridabad with hassle-free freehold registry approvals.',
     benefits: [
-      'HSVP Authority Approved Lands',
+      'Authority Approved Sector Lands',
       'Immediate Registry & Possession',
       'Wide Planned Sector Roads (12m to 24m)',
       '100% Secure & Clear Legal Titles'
@@ -65,29 +65,29 @@ const seoDealsData = {
       {
         id: 1,
         image: '/plot1.png',
-        title: 'HUDA Approved Residential Plot',
-        location: 'Sector 14, Faridabad',
-        size: '250 Sq. Yds',
-        dimensions: '30 ft × 75 ft',
+        title: 'Freehold Residential Sector Plot',
+        location: 'Sector 65, Faridabad',
+        size: '500 Sq. Yds',
+        dimensions: '50 ft × 90 ft',
         facing: 'North-East Facing',
-        roadSize: '12 Meter Road',
-        price: '₹1.85 Cr',
-        priceSub: '₹74,000 / Sq. Yd',
-        badge: 'HUDA Sector 14',
+        roadSize: '18 Meter Road',
+        price: '₹5.15 Cr',
+        priceSub: '₹1,03,000 / Sq. Yd',
+        badge: 'Sector 65 Hot',
         verified: true,
       },
       {
         id: 2,
         image: '/plot3.png',
-        title: 'HUDA Plot — Prime Sector 21',
-        location: 'Sector 21C, Faridabad',
-        size: '200 Sq. Yds',
-        dimensions: '27 ft × 66 ft',
+        title: 'Prime Sector Plot — Sector 62',
+        location: 'Sector 62, Faridabad',
+        size: '350 Sq. Yds',
+        dimensions: '35 ft × 90 ft',
         facing: 'North Facing',
-        roadSize: '9 Meter Road',
-        price: '₹1.35 Cr',
-        priceSub: '₹67,500 / Sq. Yd',
-        badge: 'HUDA Sector 21',
+        roadSize: '12 Meter Road',
+        price: '₹4.25 Cr',
+        priceSub: '₹1,21,428 / Sq. Yd',
+        badge: 'Sector 62 Prime',
         verified: true,
       }
     ]
@@ -231,9 +231,9 @@ import { urlFor } from '@/sanity/lib/image';
 
 const keywordSanityFilterMap = {
   'best-property-dealer-faridabad': `*[_type == "property"] | order(_createdAt desc)`,
-  'huda-plots-for-sale-faridabad': `*[_type == "property" && category == "huda"] | order(_createdAt desc)`,
+  'huda-plots-for-sale-faridabad': `*[_type == "property" && (category == "plots" || category == "huda")] | order(_createdAt desc)`,
   'luxury-builder-floors-faridabad': `*[_type == "property" && category == "floor"] | order(_createdAt desc)`,
-  'plots-for-sale-greater-faridabad': `*[_type == "property" && (category == "gated" || category == "budget")] | order(_createdAt desc)`,
+  'plots-for-sale-greater-faridabad': `*[_type == "property" && (category == "bptp" || category == "gated")] | order(_createdAt desc)`,
   'commercial-sco-plots-faridabad': `*[_type == "property" && category == "commercial"] | order(_createdAt desc)`,
 };
 
@@ -265,7 +265,7 @@ export async function generateMetadata({ params }) {
 
   const data = seoDealsData[decodedSlug];
   const title = sanityKeyword?.seoTitle || data?.seoTitle || 'Property Deals in Faridabad | Nakul Properties';
-  const description = sanityKeyword?.seoDesc || data?.seoDesc || 'Find verified property deals, HUDA plots, and commercial spaces in Faridabad.';
+  const description = sanityKeyword?.seoDesc || data?.seoDesc || 'Find verified property deals, freehold plots, and commercial spaces in Faridabad.';
 
   return {
     title,
@@ -274,9 +274,9 @@ export async function generateMetadata({ params }) {
       title,
       `${decodedSlug.replace(/-/g, ' ')}`,
       'Nakul Properties Faridabad',
-      'HUDA plots Sector 65 Faridabad',
-      'HUDA plots Sector 64 Faridabad',
-      'HUDA plots Sector 62 Faridabad',
+      'plots Sector 65 Faridabad',
+      'plots Sector 64 Faridabad',
+      'plots Sector 62 Faridabad',
       'real estate agent Faridabad',
       'property dealers in Faridabad',
     ],
@@ -364,7 +364,7 @@ export default async function DealPage({ params }) {
 
     pageData = {
       ...data,
-      properties: sanityProperties.length > 0 ? sanityProperties : data.properties,
+      properties: sanityProperties,
     };
   }
 

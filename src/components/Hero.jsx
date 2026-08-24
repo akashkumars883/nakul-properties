@@ -26,44 +26,50 @@ export default function Hero() {
     {
       id: 1,
       image: '/hero-banner.png',
-      alt: 'HUDA Sector Plots in Sector 65, 64 & 62 Faridabad',
+      alt: 'Nakul Properties Faridabad — Best Real Estate Agent & Verified Plots Dealer in Sector 65, 64, 63, 62, 2',
       heading: (
         <>
           Leading Real Estate Dealer &amp; Property Consultant in <span className="font-semibold text-white">Faridabad</span>
         </>
       ),
-      paragraph: 'Nakul Properties specializes in freehold HUDA sector plots, residential plot deals, and prime property investments across Sector 65, 64 & 62 Faridabad.'
+      paragraph: 'Nakul Properties specializes in BPTP townships, freehold residential sector plots, 3/4 BHK luxury flats, independent builder floors, commercial SCOs & industrial properties across Sectors 2, 62, 63, 64, 65 & 69 Faridabad.'
     },
     {
       id: 2,
       image: '/hero-banner2.png',
-      alt: 'Prime Residential Sector Plots in Faridabad',
+      alt: 'Verified Freehold Residential Plots & 3/4 BHK Luxury Flats in Sector 69, 65, 64 Faridabad',
       heading: (
         <>
-          Exclusive 100 Gaj to 500 Gaj Sector Plots in <span className="font-semibold text-white">Sector 65, 64 &amp; 62</span>
+          Verified Plots, 3/4 BHK Luxury Flats &amp; Commercials in <span className="font-semibold text-white">Sectors 69, 65, 64 &amp; 62</span>
         </>
       ),
-      paragraph: 'Explore verified freehold HUDA sector plots ranging from 100 Sq. Yds to 500 Sq. Yds with 100% clear legal titles and immediate registry ready.'
+      paragraph: 'Explore 100 Gaj to 500 Gaj freehold sector plots, 3 BHK & 4 BHK luxury apartments in Sector 69 & Sector 65 with 100% clear legal titles, bank loan approvals, and zero litigation assurance.'
     }
   ];
 
   // Dropdown mapping configurations
   const propertyTypesList = [
     { value: 'all', label: 'All Properties' },
-    { value: 'builder-floors', label: 'Builder Floors' },
+    { value: 'bptp-townships', label: 'BPTP Townships' },
     { value: 'residential-plots', label: 'Residential Plots' },
-    { value: 'commercial', label: 'Commercial Shops' }
+    { value: 'flats', label: 'Flats & Apartments' },
+    { value: 'builder-floors', label: 'Builder Floors' },
+    { value: 'villas', label: 'Luxury Villas' },
+    { value: 'commercial', label: 'Commercial Shops & SCO' },
+    { value: 'industrial', label: 'Industrial Plots & Units' }
   ];
 
   const locationsList = [
     { value: 'all', label: 'All Faridabad' },
-    { value: 'sector-65', label: 'Sector 65' },
-    { value: 'sector-64', label: 'Sector 64' },
+    { value: 'sector-2', label: 'Sector 2' },
     { value: 'sector-62', label: 'Sector 62' },
+    { value: 'sector-63', label: 'Sector 63' },
+    { value: 'sector-64', label: 'Sector 64' },
+    { value: 'sector-65', label: 'Sector 65' },
+    { value: 'sector-69', label: 'Sector 69' },
     { value: 'sector-14', label: 'Sector 14' },
     { value: 'sector-15', label: 'Sector 15' },
-    { value: 'sector-21', label: 'Sector 21' },
-    { value: 'neharpar', label: 'Greater Faridabad' }
+    { value: 'neharpar', label: 'Greater Faridabad (BPTP)' }
   ];
 
   const budgetsList = [
@@ -114,7 +120,7 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative min-h-[85vh] flex flex-col justify-between pt-28 sm:pt-36 pb-6 px-4 sm:px-6 lg:px-8 bg-black">
+    <section className="relative min-h-[80vh] sm:min-h-[85vh] flex flex-col justify-between pt-24 sm:pt-28 pb-8 px-4 sm:px-6 lg:px-8 bg-black overflow-hidden">
       {/* Background Image Carousel with Smooth Transitions */}
       {slides.map((slide, index) => (
         <div
@@ -125,18 +131,19 @@ export default function Hero() {
           <img
             src={slide.image}
             alt={slide.alt}
+            loading={index === 0 ? 'eager' : 'lazy'}
             className="w-full h-full object-cover object-center"
           />
-          <div className="absolute inset-0 bg-black/45 z-0" />
+          <div className="absolute inset-0 bg-black/50 z-0" />
         </div>
       ))}
 
       {/* Slide Navigation Arrows */}
-      <div className="absolute inset-x-2 sm:inset-x-6 top-1/2 -translate-y-1/2 z-20 flex justify-between pointer-events-none max-w-7xl mx-auto">
+      <div className="absolute inset-x-2 sm:inset-x-6 top-1/3 -translate-y-1/2 z-20 flex justify-between pointer-events-none max-w-7xl mx-auto">
         <button
           type="button"
           onClick={prevSlide}
-          className="pointer-events-auto w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-black/40 hover:bg-black/80 text-white flex items-center justify-center backdrop-blur-md transition-all border border-white/20 active:scale-95 shadow-lg"
+          className="pointer-events-auto w-9 h-9 sm:w-11 sm:h-11 rounded-xl bg-black/50 hover:bg-black/80 text-white flex items-center justify-center backdrop-blur-md transition-all border border-white/20 active:scale-95 shadow-md cursor-pointer"
           aria-label="Previous Slide"
         >
           <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" />
@@ -144,7 +151,7 @@ export default function Hero() {
         <button
           type="button"
           onClick={nextSlide}
-          className="pointer-events-auto w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-black/40 hover:bg-black/80 text-white flex items-center justify-center backdrop-blur-md transition-all border border-white/20 active:scale-95 shadow-lg"
+          className="pointer-events-auto w-9 h-9 sm:w-11 sm:h-11 rounded-xl bg-black/50 hover:bg-black/80 text-white flex items-center justify-center backdrop-blur-md transition-all border border-white/20 active:scale-95 shadow-md cursor-pointer"
           aria-label="Next Slide"
         >
           <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6" />
@@ -152,7 +159,7 @@ export default function Hero() {
       </div>
 
       {/* Hero Title & SEO Paragraph Slider Content */}
-      <div className="relative z-10 flex-1 flex flex-col items-start sm:items-center justify-center max-w-6xl w-full mx-auto text-white py-8 sm:py-12 min-h-[220px]">
+      <div className="relative z-10 flex-1 flex flex-col items-start sm:items-center justify-center max-w-5xl w-full mx-auto text-white pt-4 pb-6 min-h-[180px]">
         {slides.map((slide, index) => (
           <div
             key={slide.id}
@@ -161,10 +168,10 @@ export default function Hero() {
               : 'opacity-0 translate-y-4 absolute pointer-events-none'
               }`}
           >
-            <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-normal font-outfit text-start sm:text-center max-w-5xl leading-tight tracking-tight mb-4">
+            <h1 className="text-2xl sm:text-4xl md:text-5xl font-medium font-outfit text-start sm:text-center max-w-4xl leading-snug tracking-tight mb-3">
               {slide.heading}
             </h1>
-            <p className="text-sm sm:text-base md:text-lg text-neutral-200 text-start sm:text-center max-w-3xl font-outfit font-light leading-relaxed">
+            <p className="text-xs sm:text-sm md:text-base text-neutral-200 text-start sm:text-center max-w-2xl font-outfit font-light leading-relaxed">
               {slide.paragraph}
             </p>
           </div>
@@ -172,13 +179,13 @@ export default function Hero() {
       </div>
 
       {/* Dot Indicators */}
-      <div className="relative z-20 flex items-center justify-center gap-2 mb-3">
+      <div className="relative z-20 flex items-center justify-center gap-2 my-2 sm:my-3">
         {slides.map((_, index) => (
           <button
             key={index}
             type="button"
             onClick={() => setCurrentSlide(index)}
-            className={`h-2 rounded-full transition-all duration-300 ${index === currentSlide ? 'w-8 bg-white' : 'w-2 bg-white/40 hover:bg-white/70'
+            className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${index === currentSlide ? 'w-7 bg-white' : 'w-2 bg-white/40 hover:bg-white/70'
               }`}
             aria-label={`Go to slide ${index + 1}`}
           />
@@ -187,12 +194,12 @@ export default function Hero() {
 
       {/* Quick Property Search Card */}
       <div className="relative z-30 max-w-7xl w-full mx-auto text-white flex justify-center">
-        <div className="w-full max-w-6xl bg-white text-black rounded-2xl p-4 sm:p-7 shadow-2xl font-outfit border border-neutral-100 relative z-30">
-          <h2 className="text-lg sm:text-xl font-bold text-black text-start sm:text-center mb-5 tracking-tight">
+        <div className="w-full max-w-5xl bg-white text-black rounded-2xl p-3.5 sm:p-5 font-outfit border border-neutral-200 relative z-30">
+          <h2 className="text-base sm:text-lg font-bold text-black text-start sm:text-center mb-3.5 tracking-tight">
             Search Your Dream Property in Faridabad
           </h2>
           
-          <form onSubmit={handleSearchSubmit} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 items-center relative z-30">
+          <form onSubmit={handleSearchSubmit} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 items-center relative z-30">
             
             {/* 1. Custom Property Type Dropdown */}
             <div ref={typeRef} className="relative flex flex-col gap-1.5 bg-neutral-50 hover:bg-neutral-100/70 border border-neutral-200 rounded-xl p-3.5 text-left cursor-pointer transition-colors" onClick={() => setTypeDropdownOpen(!typeDropdownOpen)}>

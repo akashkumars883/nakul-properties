@@ -95,97 +95,92 @@ export default function SeoLandingClient({ data }) {
                         return (
                             <article
                                 key={dynamicId}
-                                className="bg-white border border-neutral-200 rounded-xl p-4 transition-all duration-300 group hover:-translate-y-1 hover:shadow-lg flex flex-col justify-between"
+                                className="bg-white border border-neutral-200 rounded-xl overflow-hidden transition-all duration-300 group hover:-translate-y-1 hover:shadow-lg flex flex-col justify-between"
                             >
                                 <div>
-                                    {/* Property Image */}
-                                    <Link href={`/property/${dynamicId}`} className="relative w-full h-44 rounded-md overflow-hidden mb-4 bg-neutral-100 block">
+                                    {/* Top Image — Full Bleed Header */}
+                                    <Link href={`/property/${dynamicId}`} className="relative w-full h-44 overflow-hidden bg-neutral-100 block">
                                         <img
                                             src={getImageUrl(property.image)}
                                             alt={property.title}
                                             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                                         />
-                                        <div className="absolute top-2.5 left-2.5">
-                                            <span className="bg-black/80 backdrop-blur-md text-white text-[11px] font-semibold px-2.5 py-1 rounded-md">
-                                                {property.badge}
+                                        {/* Gradient Overlay */}
+                                        <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
+
+                                        <div className="absolute top-3 left-3">
+                                            <span className="bg-black/80 backdrop-blur-xs text-white text-[11px] font-semibold px-2.5 py-1 rounded-md">
+                                                {property.badge || 'Verified'}
                                             </span>
                                         </div>
                                         {property.verified && (
-                                            <div className="absolute top-2.5 right-2.5">
-                                                <span className="bg-white/90 backdrop-blur-md text-black text-[11px] font-semibold px-2 py-0.5 rounded-md flex items-center gap-1">
-                                                    <ShieldCheck className="w-3.5 h-3.5 text-black" /> Verified
+                                            <div className="absolute top-3 right-3">
+                                                <span className="bg-white/95 text-black text-[10px] font-bold px-2 py-0.5 rounded-md border border-neutral-200 shadow-xs flex items-center gap-1">
+                                                    <ShieldCheck className="w-3 h-3 text-black" /> Verified
                                                 </span>
                                             </div>
                                         )}
                                     </Link>
 
-                                    {/* Title */}
-                                    <Link href={`/property/${dynamicId}`}>
-                                        <h3 className="text-base font-bold text-black mb-1.5 leading-snug group-hover:text-neutral-700 transition-colors">
-                                            {property.title}
-                                        </h3>
-                                    </Link>
+                                    {/* Card Content Body */}
+                                    <div className="p-4">
+                                        <div className="flex items-center gap-1 text-neutral-500 font-semibold text-[11px] tracking-wider uppercase mb-1">
+                                            <MapPin className="w-3 h-3 text-black shrink-0" />
+                                            <span className="truncate">{property.location}</span>
+                                        </div>
 
-                                    {/* Location */}
-                                    <div className="flex items-center gap-1 text-neutral-500 text-xs font-medium mb-3">
-                                        <MapPin className="w-3.5 h-3.5 text-black shrink-0" />
-                                        <span className="truncate">{property.location}</span>
-                                    </div>
+                                        <Link href={`/property/${dynamicId}`}>
+                                            <h3 className="text-base font-bold text-black mb-3 group-hover:text-neutral-600 transition-colors leading-snug line-clamp-1">
+                                                {property.title}
+                                            </h3>
+                                        </Link>
 
-                                    {/* Specs Grid */}
-                                    <div className="grid grid-cols-2 gap-2 text-xs bg-neutral-50 p-2.5 rounded-md border border-neutral-200/80 mb-4">
-                                        <div className="space-y-0.5">
-                                            <p className="text-neutral-500 text-[11px]">Size</p>
-                                            <p className="text-black font-semibold truncate">{property.size}</p>
-                                        </div>
-                                        <div className="space-y-0.5">
-                                            <p className="text-neutral-500 text-[11px]">Facing</p>
-                                            <p className="text-black font-semibold truncate">{property.facing}</p>
-                                        </div>
-                                        <div className="space-y-0.5">
-                                            <p className="text-neutral-500 text-[11px]">Dimensions</p>
-                                            <p className="text-black font-semibold truncate">{property.dimensions}</p>
-                                        </div>
-                                        <div className="space-y-0.5">
-                                            <p className="text-neutral-500 text-[11px]">Road Size</p>
-                                            <p className="text-black font-semibold truncate">{property.roadSize}</p>
+                                        {/* Specs Grid */}
+                                        <div className="grid grid-cols-2 gap-2 text-xs bg-neutral-50 p-2.5 rounded-md border border-neutral-200/80 mb-2">
+                                            <div className="space-y-0.5">
+                                                <p className="text-neutral-500 text-[11px]">Size</p>
+                                                <p className="text-black font-semibold truncate">{property.size || 'N/A'}</p>
+                                            </div>
+                                            <div className="space-y-0.5">
+                                                <p className="text-neutral-500 text-[11px]">Facing</p>
+                                                <p className="text-black font-semibold truncate">{property.facing || 'N/A'}</p>
+                                            </div>
+                                            <div className="space-y-0.5">
+                                                <p className="text-neutral-500 text-[11px]">Dimensions</p>
+                                                <p className="text-black font-semibold truncate">{property.dimensions || 'N/A'}</p>
+                                            </div>
+                                            <div className="space-y-0.5">
+                                                <p className="text-neutral-500 text-[11px]">Road Size</p>
+                                                <p className="text-black font-semibold truncate">{property.roadSize || 'N/A'}</p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
 
-                                {/* Price & CTAs */}
-                                <div>
-                                    <div className="pt-2 pb-3 border-t border-neutral-100 flex items-baseline justify-between mb-3">
-                                        <div>
-                                            <div className="text-xl font-bold text-black tracking-tight">{property.price}</div>
-                                            <div className="text-[11px] text-neutral-500 font-medium">{property.priceSub || property.pricePerSqYd}</div>
+                                {/* Card Footer Price & Action Bar */}
+                                <div className="p-4 pt-0">
+                                    <div className="pt-3 border-t border-neutral-100 flex items-center justify-between gap-2">
+                                        <div className="min-w-0">
+                                            <span className="text-[10px] text-neutral-400 block font-medium uppercase tracking-wider">Price Guide</span>
+                                            <span className="text-sm font-bold text-black truncate block">{property.price}</span>
                                         </div>
-                                    </div>
 
-                                    <div className="flex flex-col gap-2">
-                                        <Link
-                                            href={`/property/${dynamicId}`}
-                                            className="w-full flex items-center justify-center gap-1.5 bg-black hover:bg-neutral-800 text-white font-semibold text-xs py-2 rounded-md transition-all active:scale-95 shadow-xs"
-                                        >
-                                            <Eye className="w-3.5 h-3.5" />
-                                            <span>View Details</span>
-                                        </Link>
-                                        <div className="grid grid-cols-2 gap-2">
+                                        <div className="flex items-center gap-1.5 shrink-0">
+                                            <Link
+                                                href={`/property/${dynamicId}`}
+                                                className="flex items-center gap-1 bg-black hover:bg-neutral-800 text-white font-semibold text-xs px-3 py-2 rounded-lg transition-all active:scale-95 shadow-xs"
+                                            >
+                                                <Eye className="w-3.5 h-3.5" />
+                                                <span>Details</span>
+                                            </Link>
                                             <a
                                                 href={`https://wa.me/919811548267?text=Hi%20Nakul%20Properties,%20I%20am%20interested%20in%20${encodeURIComponent(property.title)}%20listed%20on%20${encodeURIComponent(data.keywordTitle)}`}
                                                 target="_blank"
                                                 rel="noreferrer"
-                                                className="flex items-center justify-center gap-1 text-black border border-neutral-300 hover:bg-neutral-50 font-semibold text-[10px] sm:text-xs py-1.5 rounded-md transition-all active:scale-95"
+                                                title="WhatsApp Agent"
+                                                className="w-8 h-8 flex items-center justify-center bg-green-500 hover:bg-green-600 text-white rounded-lg transition-all active:scale-95"
                                             >
-                                                <FaWhatsapp className="w-3.5 h-3.5" />
-                                                <span>WhatsApp</span>
-                                            </a>
-                                            <a
-                                                href="tel:+919811548267"
-                                                className="flex items-center justify-center gap-1 border border-neutral-300 hover:bg-neutral-50 text-black font-semibold text-[10px] sm:text-xs py-1.5 rounded-md transition-all active:scale-95"
-                                            >
-                                                <Phone className="w-3.5 h-3.5" />
-                                                <span>Call Agent</span>
+                                                <FaWhatsapp className="w-4 h-4" />
                                             </a>
                                         </div>
                                     </div>

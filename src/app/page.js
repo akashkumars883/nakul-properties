@@ -73,8 +73,7 @@ export default async function Home() {
       'postalCode': '121004',
       'addressCountry': 'IN',
     },
-    'priceRange': '₹₹₹',
-    'areaServed': ['Sector 65 Faridabad', 'Sector 64 Faridabad', 'Sector 62 Faridabad', 'Faridabad']
+    'areaServed': ['Sector 65 Faridabad', 'Sector 64 Faridabad', 'Sector 63 Faridabad', 'Sector 62 Faridabad', 'Sector 2 Faridabad']
   };
 
   const faqJsonLd = {
@@ -94,7 +93,7 @@ export default async function Home() {
         'name': 'Which property types do you deal in?',
         'acceptedAnswer': {
           '@type': 'Answer',
-          'text': 'We specialize in HUDA/HSVP freehold residential plots (Sector 65, 64, 62, 14, 15, 21), luxury independent builder floors, gated society plots, and commercial SCOs.'
+          'text': 'We specialize in BPTP townships, residential plots (Sectors 2, 62, 63, 64, 65), luxury builder floors, flats, villas, commercial SCOs, and industrial properties.'
         }
       },
       {

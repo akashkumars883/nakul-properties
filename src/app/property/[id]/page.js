@@ -4,10 +4,83 @@ import PropertyDetailsClient from '@/components/PropertyDetailsClient';
 
 // Shared database for all properties listed on Nakul Properties website
 const allPropertiesDb = {
-  // HUDA Sector Plots
+  '3bhk-luxury-unit-2046sqft-sec69-imt': {
+    id: '3bhk-luxury-unit-2046sqft-sec69-imt',
+    title: '3 BHK Luxury Group Housing Unit (2046 Sq. Ft) - Sector 69 IMT',
+    category: 'flats',
+    location: 'Plot G.H.-11, Sector 69, IMT Faridabad',
+    size: '2045.83 Sq. Ft (2046 Sq. Ft)',
+    dimensions: '3 BHK + 3 Baths + Dress + Grand Lobby',
+    facing: '3-Side Open Balconies',
+    roadSize: '24 Meter Wide Sector Road',
+    price: '₹1.64 Cr',
+    pricePerSqYd: '₹8,000 / Sq. Ft',
+    badge: 'Approved 3 BHK Plan',
+    verified: true,
+    features: ['2045.83 Sq. Ft Super Builtup Area', '1265.02 Sq. Ft Builtup + 443 Sq. Ft Balcony', 'Grand Lobby/Dining (12\'0" × 24\'6")', '3 Attached Toilets + Dedicated Dress Room', 'Plot G.H.-11, Sector 69, IMT Faridabad', 'Architect Approved Building Plan'],
+    image: '/sec69-3bhk-plan.png',
+    gallery: ['/sec69-3bhk-plan.png', '/plot4.png'],
+    longDescription: 'Architect approved 3 BHK Luxury Group Housing Society Unit Plan on Plot No. G.H.-11, Sector-69, IMT, Faridabad. Total super built-up area of 2045.835 Sq. Ft (1265 Sq. Ft built-up, 443 Sq. Ft balcony area, and common circulation loading). Features 3 spacious bedrooms with attached toilets, dress room, grand 12\'x24\'6" lobby/dining, 13\'9"x8\'6" kitchen, and continuous 3-side balconies. Rate @ ₹8,000/Sq. Ft.'
+  },
+  '3bhk-luxury-apartment-2030sqft-sec65': {
+    id: '3bhk-luxury-apartment-2030sqft-sec65',
+    title: '3 BHK Luxury Apartment - Sector 69',
+    category: 'flats',
+    location: 'Sector 69, Faridabad',
+    size: '2030 Sq. Ft (approx)',
+    dimensions: '3 BHK + 3 Baths + Servant Room',
+    facing: 'North-East Facing',
+    roadSize: '18 Meter Wide Road',
+    price: '₹1.62 Cr',
+    pricePerSqYd: '₹8,000 / Sq. Ft',
+    badge: 'Luxury 3 BHK',
+    verified: true,
+    features: ['2030 Sq. Ft Spacious Layout', '₹8,000/Sq. Ft Competitive Pricing', 'Private Lift & Stilt Car Parking', 'Italian Marble & Modular Kitchen', '100% Freehold Title'],
+    image: '/plot4.png',
+    gallery: ['/plot4.png', '/plot2.png'],
+    longDescription: 'High-end 3 BHK luxury apartment/floor measuring approximately 2030 Sq. Ft in Sector 69, Faridabad. Offered at ₹8,000/Sq. Ft (₹1.62 Cr total). Premium finishes, private lift, stilt parking, and 100% verified registry titles.'
+  },
+  '3bhk-luxury-apartment-2080sqft-sec64': {
+    id: '3bhk-luxury-apartment-2080sqft-sec64',
+    title: '3 BHK Premium Luxury Apartment - Sector 69',
+    category: 'flats',
+    location: 'Sector 69, Faridabad',
+    size: '2080 Sq. Ft (approx)',
+    dimensions: '3 BHK + 3 Baths + Utility Balcony',
+    facing: 'East Facing',
+    roadSize: '18 Meter Wide Road',
+    price: '₹1.66 Cr',
+    pricePerSqYd: '₹8,000 / Sq. Ft',
+    badge: 'Luxury 3 BHK',
+    verified: true,
+    features: ['2080 Sq. Ft Deluxe Layout', '₹8,000/Sq. Ft Value Rate', 'Gated Security & CCTV Patrol', 'Italian Marble Flooring', 'Immediate Registry & Loan Approval'],
+    image: '/plot2.png',
+    gallery: ['/plot2.png', '/plot3.png'],
+    longDescription: 'Spacious 2080 Sq. Ft 3 BHK luxury apartment in Sector 69, Faridabad at ₹8,000/Sq. Ft (₹1.66 Cr total). Featuring modern design, high ventilation, dedicated parking, and full legal clearance.'
+  },
+  '4bhk-ultra-luxury-apartment-2290sqft-sec65': {
+    id: '4bhk-ultra-luxury-apartment-2290sqft-sec65',
+    title: '4 BHK Ultra Luxury Apartment - Sector 69',
+    category: 'flats',
+    location: 'Sector 69, Faridabad',
+    size: '2290 Sq. Ft (approx)',
+    dimensions: '4 BHK + 4 Baths + Powder Room',
+    facing: 'North-East Corner',
+    roadSize: '24 Meter Wide Road',
+    price: '₹1.83 Cr',
+    pricePerSqYd: '₹8,000 / Sq. Ft',
+    badge: 'Ultra Luxury 4 BHK',
+    verified: true,
+    features: ['2290 Sq. Ft Ultra Spacious 4 BHK', '₹8,000/Sq. Ft Premium Pricing', 'Dual Balcony & Grand Living Room', 'Private Elevator & Reserved Parking', 'Clear Title Freehold Land'],
+    image: '/plot1.png',
+    gallery: ['/plot1.png', '/plot4.png'],
+    longDescription: 'Expansive 2290 Sq. Ft 4 BHK ultra-luxury apartment in Sector 69, Faridabad at ₹8,000/Sq. Ft (₹1.83 Cr total). Unmatched luxury with private lift, Italian marble, and premier connectivity.'
+  },
+  // Residential Plots
   'huda-plot-sec14-250': {
     id: 'huda-plot-sec14-250',
-    title: 'HUDA Approved Prime Sector 14 Residential Plot',
+    title: 'Prime Sector 14 Residential Plot',
+    category: 'plots',
     location: 'Sector 14, Faridabad',
     size: '250 Sq. Yds (Gaj)',
     dimensions: '30 ft × 75 ft',
@@ -15,16 +88,17 @@ const allPropertiesDb = {
     roadSize: '12 Meter Wide Road',
     price: '₹1.85 Cr',
     pricePerSqYd: '₹74,000 / Sq. Yd',
-    badge: 'HUDA Sector 14',
+    badge: 'Sector 14',
     verified: true,
-    features: ['HUDA Approved Layout', 'Freehold Clear Registry', 'Near HUDA Market', 'Wide Paved Roads', 'Municipal Water Connection'],
+    features: ['Approved Layout', 'Freehold Clear Registry', 'Near Market', 'Wide Paved Roads', 'Municipal Water Connection'],
     image: '/plot1.png',
     gallery: ['/plot1.png', '/plot2.png', '/plot3.png'],
     longDescription: 'Excellent opportunity to buy a premium freehold residential plot in Sector 14, Faridabad. Situated in one of the most elite VIP sectors with high security, lush green parks, and wide 12m internal sector roads. Immediate registration and construction permits ready. Clean legal title history with absolute security.'
   },
   'huda-plot-sec15-300': {
     id: 'huda-plot-sec15-300',
-    title: 'HSVP Corner Residential Plot Sector 15',
+    title: 'Corner Residential Plot Sector 15',
+    category: 'plots',
     location: 'Sector 15, Faridabad',
     size: '300 Sq. Yds (Gaj)',
     dimensions: '30 ft × 90 ft',
@@ -41,7 +115,8 @@ const allPropertiesDb = {
   },
   'huda-plot-sec21-200': {
     id: 'huda-plot-sec21-200',
-    title: 'Prime HUDA Plot in Sector 21C',
+    title: 'Prime Plot in Sector 21C',
+    category: 'plots',
     location: 'Sector 21C, Faridabad',
     size: '200 Sq. Yds (Gaj)',
     dimensions: '27 ft × 66 ft',
@@ -49,16 +124,17 @@ const allPropertiesDb = {
     roadSize: '9 Meter Wide Road',
     price: '₹1.35 Cr',
     pricePerSqYd: '₹67,500 / Sq. Yd',
-    badge: 'HUDA Approved',
+    badge: 'Approved',
     verified: true,
-    features: ['HUDA Approved', 'Registry Ready', 'Metro Connected', 'Freehold Registry', 'Quiet Neighborhood'],
+    features: ['Approved', 'Registry Ready', 'Metro Connected', 'Freehold Registry', 'Quiet Neighborhood'],
     image: '/plot3.png',
     gallery: ['/plot3.png', '/plot1.png'],
     longDescription: 'Well-located residential plot for sale in Sector 21C, Faridabad. Situated near the metro station and local shopping hubs, this freehold plot offers immediate construction potential with clear boundary walls.'
   },
   'huda-plot-sec7-160': {
     id: 'huda-plot-sec7-160',
-    title: 'HSVP Plot Near Metro Station Sector 7',
+    title: 'Residential Plot Near Metro Station Sector 7',
+    category: 'plots',
     location: 'Sector 7, Faridabad',
     size: '160 Sq. Yds (Gaj)',
     dimensions: '24 ft × 60 ft',
@@ -78,6 +154,7 @@ const allPropertiesDb = {
   'builder-floor-sec15-300': {
     id: 'builder-floor-sec15-300',
     title: '4 BHK Luxury Independent Builder Floor',
+    category: 'floor',
     location: 'Sector 15, Faridabad',
     size: '300 Sq. Yds',
     dimensions: 'Stilt + 4 Floors',
@@ -95,6 +172,7 @@ const allPropertiesDb = {
   'builder-floor-sec14-250': {
     id: 'builder-floor-sec14-250',
     title: '3 BHK Premium Builder Floor Sector 14',
+    category: 'floor',
     location: 'Sector 14, Faridabad',
     size: '250 Sq. Yds',
     dimensions: 'Ground Floor | Stilt',
@@ -107,13 +185,14 @@ const allPropertiesDb = {
     features: ['Stilt Parking', 'Modular Kitchen', 'Prime Sector 14', 'Zero Brokerage', 'Italian Marble Flooring'],
     image: '/deal3.png',
     gallery: ['/deal3.png', '/deal1.png'],
-    longDescription: 'Spacious 3 BHK independent ground floor with stilt parking in Sector 14. Located close to the local HUDA market. Offers zero brokerage options. Ready to move.'
+    longDescription: 'Spacious 3 BHK independent ground floor with stilt parking in Sector 14. Located close to the local sector market. Offers zero brokerage options. Ready to move.'
   },
 
-  // Gated Townships
+  // BPTP & Gated Townships
   'gated-plot-sec85-350': {
     id: 'gated-plot-sec85-350',
     title: 'Premium Gated Township Plot in BPTP Parklands',
+    category: 'bptp',
     location: 'BPTP Parklands, Sector 85',
     size: '350 Sq. Yds (Gaj)',
     dimensions: '35 ft × 90 ft',
@@ -121,7 +200,7 @@ const allPropertiesDb = {
     roadSize: '18 Meter Wide Road',
     price: '₹1.45 Cr',
     pricePerSqYd: '₹41,400 / Sq. Yd',
-    badge: 'Gated Township',
+    badge: 'BPTP Township',
     verified: true,
     features: ['24/7 Gated Security', 'Park Facing', 'Underground Wiring', 'Clubhouse Access', 'Paved Paths'],
     image: '/plot2.png',
@@ -133,6 +212,7 @@ const allPropertiesDb = {
   'commercial-shop-sec79-600': {
     id: 'commercial-shop-sec79-600',
     title: 'Ground Floor Retail Shop in Omaxe World Street',
+    category: 'commercial',
     location: 'Omaxe World Street, Sector 79',
     size: '600 Sq. Ft (Carpet)',
     dimensions: 'Ground Floor',

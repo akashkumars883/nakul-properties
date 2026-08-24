@@ -4,25 +4,18 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { MapPin, ShieldCheck, Phone, ArrowLeft, ChevronRight, Home, Eye } from 'lucide-react';
 import { FaWhatsapp } from 'react-icons/fa6';
+import { urlFor } from '@/sanity/lib/image';
 import RelatedBlogsForProperty from '@/components/RelatedBlogsForProperty';
 
 export default function LocationPageClient({ data }) {
-  // Helper to map properties array local items IDs to dynamic Db slugs
-  const getSlugId = (propertyTitle) => {
-    const title = propertyTitle.toLowerCase();
-    if (title.includes('sec14') || title.includes('sector 14')) return 'huda-plot-sec14-250';
-    if (title.includes('sec15') || title.includes('sector 15')) {
-      if (title.includes('floor')) return 'builder-floor-sec15-300';
-      return 'huda-plot-sec15-300';
+  const getImageUrl = (image) => {
+    if (!image) return '/placeholder.png';
+    if (typeof image === 'string') return image;
+    try {
+      return urlFor(image).url();
+    } catch (e) {
+      return '/placeholder.png';
     }
-    if (title.includes('sec21') || title.includes('sector 21')) {
-      if (title.includes('floor')) return 'builder-floor-sec14-250';
-      return 'huda-plot-sec21-200';
-    }
-    if (title.includes('sec7') || title.includes('sector 7')) return 'huda-plot-sec7-160';
-    if (title.includes('gated') || title.includes('bptp')) return 'gated-plot-sec85-350';
-    if (title.includes('retail') || title.includes('shop') || title.includes('commercial') || title.includes('sco')) return 'commercial-shop-sec79-600';
-    return 'huda-plot-sec14-250'; // Default fallback slug
   };
 
   return (
@@ -32,7 +25,7 @@ export default function LocationPageClient({ data }) {
         {/* Background Image */}
         <div className="absolute inset-0">
           <Image
-            src={data.heroImage}
+            src={getImageUrl(data.heroImage)}
             alt={data.title}
             fill
             className="object-cover"
@@ -111,22 +104,20 @@ export default function LocationPageClient({ data }) {
             const dynamicId = property.slug?.current || property._id || property.id;
             return (
               <article
-                key={property.id}
+                key={dynamicId}
                 className="bg-white border border-neutral-200 rounded-xl p-4 transition-all duration-300 group hover:-translate-y-1 hover:shadow-lg flex flex-col justify-between"
               >
                 <div>
                   {/* Property Image */}
                   <Link href={`/property/${dynamicId}`} className="relative w-full h-44 rounded-md overflow-hidden mb-4 bg-neutral-100 block">
-                    <Image
-                      src={property.image}
+                    <img
+                      src={getImageUrl(property.image)}
                       alt={property.title}
-                      fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-500"
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
                     <div className="absolute top-2.5 left-2.5">
                       <span className="bg-black/80 backdrop-blur-md text-white text-[11px] font-semibold px-2.5 py-1 rounded-md">
-                        {property.badge}
+                        {property.badge || 'Verified'}
                       </span>
                     </div>
                     {property.verified && (
@@ -157,33 +148,35 @@ export default function LocationPageClient({ data }) {
                   <div className="grid grid-cols-2 gap-2 text-xs bg-neutral-50 p-2.5 rounded-md border border-neutral-200/80 mb-4">
                     <div className="space-y-0.5">
                       <p className="text-neutral-500 text-[11px]">Size</p>
-                      <p className="text-black font-semibold truncate">{property.size}</p>
+                      <p className="text-black font-semibold truncate">{property.size || 'N/A'}</p>
                     </div>
                     <div className="space-y-0.5">
                       <p className="text-neutral-500 text-[11px]">Facing</p>
-                      <p className="text-black font-semibold truncate">{property.facing}</p>
+                      <p className="text-black font-semibold truncate">{property.facing || 'N/A'}</p>
                     </div>
                     <div className="space-y-0.5">
                       <p className="text-neutral-500 text-[11px]">Dimensions</p>
-                      <p className="text-black font-semibold truncate">{property.dimensions}</p>
+                      <p className="text-black font-semibold truncate">{property.dimensions || 'N/A'}</p>
                     </div>
                     <div className="space-y-0.5">
                       <p className="text-neutral-500 text-[11px]">Road Size</p>
-                      <p className="text-black font-semibold truncate">{property.roadSize}</p>
+                      <p className="text-black font-semibold truncate">{property.roadSize || 'N/A'}</p>
                     </div>
                   </div>
 
                   {/* Features */}
-                  <div className="flex flex-wrap gap-1 mb-4">
-                    {property.features.map((f) => (
-                      <span
-                        key={f}
-                        className="bg-neutral-100 text-neutral-700 text-[10px] font-semibold px-2 py-0.5 rounded-md border border-neutral-200"
-                      >
-                        {f}
-                      </span>
-                    ))}
-                  </div>
+                  {property.features && property.features.length > 0 && (
+                    <div className="flex flex-wrap gap-1 mb-4">
+                      {property.features.slice(0, 3).map((f) => (
+                        <span
+                          key={f}
+                          className="bg-neutral-100 text-neutral-700 text-[10px] font-semibold px-2 py-0.5 rounded-md border border-neutral-200"
+                        >
+                          {f}
+                        </span>
+                      ))}
+                    </div>
+                  )}
                 </div>
 
                 {/* Price & CTAs */}
@@ -191,7 +184,7 @@ export default function LocationPageClient({ data }) {
                   <div className="pt-2 pb-3 border-t border-neutral-100 flex items-baseline justify-between mb-3">
                     <div>
                       <div className="text-xl font-bold text-black tracking-tight">{property.price}</div>
-                      <div className="text-[11px] text-neutral-500 font-medium">{property.pricePerSqYd}</div>
+                      <div className="text-[11px] text-neutral-500 font-medium">{property.priceSub || property.pricePerSqYd}</div>
                     </div>
                   </div>
 

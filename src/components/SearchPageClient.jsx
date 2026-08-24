@@ -14,20 +14,25 @@ export default function SearchPageClient({ type, location, budget, propertiesDb 
       // 1. Filter by Property Type
       if (type && type !== 'all') {
         const itemCategory = item.id.toLowerCase();
-        if (type === 'builder-floors' && !itemCategory.includes('floor')) return false;
+        if (type === 'bptp-townships' && !itemCategory.includes('bptp') && !itemCategory.includes('gated')) return false;
         if (type === 'residential-plots' && !itemCategory.includes('plot')) return false;
-        if (type === 'commercial' && !itemCategory.includes('shop') && !itemCategory.includes('commercial')) return false;
+        if (type === 'flats' && !itemCategory.includes('flat') && !itemCategory.includes('apartment')) return false;
+        if (type === 'builder-floors' && !itemCategory.includes('floor')) return false;
+        if (type === 'villas' && !itemCategory.includes('villa')) return false;
+        if (type === 'commercial' && !itemCategory.includes('shop') && !itemCategory.includes('commercial') && !itemCategory.includes('sco')) return false;
+        if (type === 'industrial' && !itemCategory.includes('industrial') && !itemCategory.includes('factory')) return false;
       }
 
       // 2. Filter by Location
       if (location && location !== 'all') {
         const itemLoc = item.location.toLowerCase();
-        if (location === 'sector-65' && !itemLoc.includes('65')) return false;
-        if (location === 'sector-64' && !itemLoc.includes('64')) return false;
+        if (location === 'sector-2' && !itemLoc.includes('2')) return false;
         if (location === 'sector-62' && !itemLoc.includes('62')) return false;
+        if (location === 'sector-63' && !itemLoc.includes('63')) return false;
+        if (location === 'sector-64' && !itemLoc.includes('64')) return false;
+        if (location === 'sector-65' && !itemLoc.includes('65')) return false;
         if (location === 'sector-14' && !itemLoc.includes('sector 14')) return false;
         if (location === 'sector-15' && !itemLoc.includes('sector 15')) return false;
-        if (location === 'sector-21' && !itemLoc.includes('21')) return false;
         if (location === 'neharpar' && !itemLoc.includes('85') && !itemLoc.includes('89') && !itemLoc.includes('neharpar') && !itemLoc.includes('bptp')) return false;
       }
 

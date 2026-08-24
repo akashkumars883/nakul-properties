@@ -25,10 +25,13 @@ export default {
       type: 'string',
       options: {
         list: [
-          { title: 'HUDA / HSVP Sector Plots', value: 'huda' },
-          { title: 'Gated Townships & Registry Plots', value: 'gated' },
+          { title: 'BPTP & Sector Plots', value: 'plots' },
+          { title: 'Residential Plots & Land', value: 'plots' },
+          { title: 'Residential Flats / Apartments', value: 'flats' },
           { title: 'Independent Builder Floors', value: 'floor' },
+          { title: 'Luxury Villas', value: 'villas' },
           { title: 'Commercial Shops & SCO', value: 'commercial' },
+          { title: 'Industrial Plots & Units', value: 'industrial' },
         ],
       },
       validation: Rule => Rule.required(),

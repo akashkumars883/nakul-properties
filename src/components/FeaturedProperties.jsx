@@ -18,36 +18,47 @@ export default function FeaturedProperties({ properties = [] }) {
         }
     };
 
-    const getFilterCategory = (category) => {
-        if (category === 'budget') return 'gated';
-        return category;
+    const matchesCategory = (item, filterKey) => {
+        if (filterKey === 'all') return true;
+        const cat = item.category;
+        const titleLower = item.title?.toLowerCase() || '';
+        if (filterKey === 'bptp') return cat === 'bptp' || cat === 'gated' || titleLower.includes('bptp');
+        if (filterKey === 'plots') return cat === 'plots' || cat === 'huda' || cat === 'budget' || titleLower.includes('plot');
+        if (filterKey === 'flats') return cat === 'flats' || titleLower.includes('flat') || titleLower.includes('apartment');
+        if (filterKey === 'floor') return cat === 'floor' || titleLower.includes('floor');
+        if (filterKey === 'villas') return cat === 'villas' || titleLower.includes('villa');
+        if (filterKey === 'commercial') return cat === 'commercial' || titleLower.includes('shop') || titleLower.includes('sco');
+        if (filterKey === 'industrial') return cat === 'industrial' || titleLower.includes('industrial');
+        return cat === filterKey;
     };
 
     // Filter featured properties only. Fallback to all properties if none are marked as featured.
     const featuredProperties = properties.filter(item => item.featured === true);
     const displayProperties = featuredProperties.length > 0 ? featuredProperties : properties;
 
-    const filteredProperties = (activeFilter === 'all' 
-        ? displayProperties 
-        : displayProperties.filter(item => getFilterCategory(item.category) === activeFilter)
-    ).slice(0, 8);
+    const filteredProperties = displayProperties
+        .filter(item => matchesCategory(item, activeFilter))
+        .slice(0, 4);
 
     return (
-        <section id="properties" className="scroll-mt-32" aria-labelledby="featured-heading">
+        <section id="properties" className="scroll-mt-32 font-outfit" aria-labelledby="featured-heading">
             {/* Section Header */}
             <div className="text-center max-w-3xl mx-auto mb-10">
-                <span className="text-xs font-semibold uppercase tracking-widest text-neutral-500 mb-2 block">Featured Plot Listings</span>
-                <h2 id="featured-heading" className="text-3xl sm:text-4xl font-semibold text-black mb-3 tracking-tight">Verified Sector Plots for Sale</h2>
-                <p className="text-neutral-600 text-base leading-relaxed">Direct options for HUDA approved sector plots across Sector 65, 64 &amp; 62 Faridabad.</p>
+                <span className="text-xs font-semibold uppercase tracking-widest text-neutral-500 mb-2 block">Featured Listings</span>
+                <h2 id="featured-heading" className="text-3xl sm:text-4xl font-semibold text-black mb-3 tracking-tight">Verified Properties for Sale &amp; Rent</h2>
+                <p className="text-neutral-600 text-base leading-relaxed">Direct verified options for BPTP townships, residential plots, builder floors, flats, villas, commercial &amp; industrial properties in Faridabad.</p>
             </div>
 
             {/* Filter Buttons */}
             <div className="flex flex-wrap justify-center gap-2 mb-8">
                 {[
-                    { key: 'all', label: 'All Plots' },
-                    { key: 'huda', label: 'HUDA Sectors' },
-                    { key: 'gated', label: 'Gated & Registry Plots' },
-                    { key: 'commercial', label: 'Commercial Shops' },
+                    { key: 'all', label: 'All Properties' },
+                    { key: 'bptp', label: 'BPTP Townships' },
+                    { key: 'plots', label: 'Residential Plots' },
+                    { key: 'floor', label: 'Builder Floors' },
+                    { key: 'flats', label: 'Flats & Apartments' },
+                    { key: 'commercial', label: 'Commercial SCO' },
+                    { key: 'industrial', label: 'Industrial Units' },
                 ].map((tab) => (
                     <button
                         key={tab.key}
@@ -67,98 +78,92 @@ export default function FeaturedProperties({ properties = [] }) {
                     return (
                     <article
                         key={propertyId}
-                        className="bg-white border border-neutral-200 rounded-xl p-4 transition-all duration-300 group hover:-translate-y-1 flex flex-col justify-between"
+                        className="bg-white border border-neutral-200 rounded-xl overflow-hidden transition-all duration-300 group hover:-translate-y-1 hover:shadow-lg flex flex-col justify-between"
                     >
                         <div>
-                            {/* Property Image Container */}
-                            <Link href={`/property/${propertyId}`} className="relative w-full h-44 rounded-md overflow-hidden mb-4 bg-neutral-100 block">
+                            {/* Top Image — Full Bleed Header */}
+                            <Link href={`/property/${propertyId}`} className="relative w-full h-44 overflow-hidden bg-neutral-100 block">
                                 <img
                                     src={getImageUrl(property.image)}
                                     alt={property.title}
                                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                                 />
-                                <div className="absolute top-2.5 left-2.5">
-                                    <span className="bg-black/80 backdrop-blur-md text-white text-[11px] font-semibold px-2.5 py-1 rounded-md">
-                                        {property.badge}
+                                {/* Gradient Overlay */}
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
+
+                                <div className="absolute top-3 left-3">
+                                    <span className="bg-black/80 backdrop-blur-xs text-white text-[11px] font-semibold px-2.5 py-1 rounded-md">
+                                        {property.badge || 'Verified'}
                                     </span>
                                 </div>
                                 {property.verified && (
-                                    <div className="absolute top-2.5 right-2.5">
-                                        <span className="bg-white/90 backdrop-blur-md text-black text-[11px] font-semibold px-2 py-0.5 rounded-md flex items-center gap-1">
-                                            <ShieldCheck className="w-3.5 h-3.5 text-black" /> Verified
+                                    <div className="absolute top-3 right-3">
+                                        <span className="bg-white/95 text-black text-[10px] font-bold px-2 py-0.5 rounded-md border border-neutral-200 shadow-xs flex items-center gap-1">
+                                            <ShieldCheck className="w-3 h-3 text-black" /> Verified
                                         </span>
                                     </div>
                                 )}
                             </Link>
 
-                            {/* Title */}
-                            <Link href={`/property/${propertyId}`}>
-                                <h3 className="text-base font-bold text-black mb-1.5 leading-snug group-hover:text-neutral-700 transition-colors">
-                                    {property.title}
-                                </h3>
-                            </Link>
+                            {/* Card Content Body */}
+                            <div className="p-4">
+                                <div className="flex items-center gap-1 text-neutral-500 font-semibold text-[11px] tracking-wider uppercase mb-1">
+                                    <MapPin className="w-3 h-3 text-black shrink-0" />
+                                    <span className="truncate">{property.location}</span>
+                                </div>
 
-                            {/* Location */}
-                            <div className="flex items-center gap-1 text-neutral-500 text-xs font-medium mb-3">
-                                <MapPin className="w-3.5 h-3.5 text-black shrink-0" />
-                                <span className="truncate">{property.location}</span>
-                            </div>
+                                <Link href={`/property/${propertyId}`}>
+                                    <h3 className="text-base font-bold text-black mb-3 group-hover:text-neutral-600 transition-colors leading-snug line-clamp-1">
+                                        {property.title}
+                                    </h3>
+                                </Link>
 
-                            {/* Property Specifications Grid */}
-                            <div className="grid grid-cols-2 gap-2 text-xs bg-neutral-50 p-2.5 rounded-md border border-neutral-200/80 mb-4">
-                                <div className="space-y-0.5">
-                                    <p className="text-neutral-500 text-[11px]">Size</p>
-                                    <p className="text-black font-semibold truncate">{property.size}</p>
-                                </div>
-                                <div className="space-y-0.5">
-                                    <p className="text-neutral-500 text-[11px]">Facing</p>
-                                    <p className="text-black font-semibold truncate">{property.facing}</p>
-                                </div>
-                                <div className="space-y-0.5">
-                                    <p className="text-neutral-500 text-[11px]">Dimensions</p>
-                                    <p className="text-black font-semibold truncate">{property.dimensions}</p>
-                                </div>
-                                <div className="space-y-0.5">
-                                    <p className="text-neutral-500 text-[11px]">Road Size</p>
-                                    <p className="text-black font-semibold truncate">{property.roadSize}</p>
+                                {/* Specs Grid */}
+                                <div className="grid grid-cols-2 gap-2 text-xs bg-neutral-50 p-2.5 rounded-md border border-neutral-200/80 mb-2">
+                                    <div className="space-y-0.5">
+                                        <p className="text-neutral-500 text-[11px]">Size</p>
+                                        <p className="text-black font-semibold truncate">{property.size || 'N/A'}</p>
+                                    </div>
+                                    <div className="space-y-0.5">
+                                        <p className="text-neutral-500 text-[11px]">Facing</p>
+                                        <p className="text-black font-semibold truncate">{property.facing || 'N/A'}</p>
+                                    </div>
+                                    <div className="space-y-0.5">
+                                        <p className="text-neutral-500 text-[11px]">Dimensions</p>
+                                        <p className="text-black font-semibold truncate">{property.dimensions || 'N/A'}</p>
+                                    </div>
+                                    <div className="space-y-0.5">
+                                        <p className="text-neutral-500 text-[11px]">Road Size</p>
+                                        <p className="text-black font-semibold truncate">{property.roadSize || 'N/A'}</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
 
-                        {/* Price & Action Buttons */}
-                        <div>
-                            <div className="pt-2 pb-3 border-t border-neutral-100 flex items-baseline justify-between mb-3">
-                                <div>
-                                    <div className="text-xl font-bold text-black tracking-tight">{property.price}</div>
-                                    <div className="text-[11px] text-neutral-500 font-medium">{property.pricePerSqYd || property.priceSub}</div>
+                        {/* Card Footer Price & Action Bar */}
+                        <div className="p-4 pt-0">
+                            <div className="pt-3 border-t border-neutral-100 flex items-center justify-between gap-2">
+                                <div className="min-w-0">
+                                    <span className="text-[10px] text-neutral-400 block font-medium uppercase tracking-wider">Price Guide</span>
+                                    <span className="text-sm font-bold text-black truncate block">{property.price}</span>
                                 </div>
-                            </div>
 
-                            {/* CTAs */}
-                            <div className="flex flex-col gap-2">
-                                <Link
-                                    href={`/property/${propertyId}`}
-                                    className="w-full flex items-center justify-center gap-1.5 bg-black hover:bg-neutral-800 text-white font-semibold text-xs py-2.5 rounded-md transition-all active:scale-95 shadow-xs"
-                                >
-                                    <Eye className="w-3.5 h-3.5" />
-                                    <span>View Details</span>
-                                </Link>
-                                <div className="grid grid-cols-2 gap-2">
+                                <div className="flex items-center gap-1.5 shrink-0">
+                                    <Link
+                                        href={`/property/${propertyId}`}
+                                        className="flex items-center gap-1 bg-black hover:bg-neutral-800 text-white font-semibold text-xs px-3 py-2 rounded-lg transition-all active:scale-95 shadow-xs"
+                                    >
+                                        <Eye className="w-3.5 h-3.5" />
+                                        <span>Details</span>
+                                    </Link>
                                     <a
                                         href={`https://wa.me/919811548267?text=Hi%20Nakul%20Properties,%20I%20am%20interested%20in%20${encodeURIComponent(property.title)}%20(${encodeURIComponent(property.location)})`}
                                         target="_blank"
                                         rel="noreferrer"
-                                        className="flex items-center justify-center gap-1 text-black border border-neutral-300 hover:bg-neutral-50 font-semibold text-[10px] sm:text-xs py-2 rounded-md transition-all active:scale-95"
+                                        title="WhatsApp Agent"
+                                        className="w-8 h-8 flex items-center justify-center bg-green-500 hover:bg-green-600 text-white rounded-lg transition-all active:scale-95"
                                     >
-                                        <FaWhatsapp className="w-3.5 h-3.5 text-black shrink-0" />
-                                        <span>WhatsApp</span>
-                                    </a>
-                                    <a
-                                        href="tel:+919811548267"
-                                        className="flex items-center justify-center gap-1 text-black border border-neutral-300 hover:bg-neutral-50 font-semibold text-[10px] sm:text-xs py-2 rounded-md transition-all active:scale-95"
-                                    >
-                                        <Phone className="w-3.5 h-3.5 text-black shrink-0" />
-                                        <span>Call Agent</span>
+                                        <FaWhatsapp className="w-4 h-4" />
                                     </a>
                                 </div>
                             </div>
