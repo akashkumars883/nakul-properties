@@ -13,13 +13,19 @@ export default function StartupFormModal() {
   useEffect(() => {
     // Check if user has already dismissed or filled the modal during this session
     const hasShown = sessionStorage.getItem('nakul_startup_modal_shown');
-    if (hasShown !== 'true') {
-      const timer = setTimeout(() => {
-        setIsOpen(true);
-      }, 4000); // Trigger after 4 seconds
+    if (hasShown === 'true') return;
 
-      return () => clearTimeout(timer);
-    }
+    const handleScroll = () => {
+      // Trigger after user scrolls down ~1.5 to 2 viewports (2-3 page height scroll)
+      const threshold = window.innerHeight * 1.5;
+      if (window.scrollY >= threshold) {
+        setIsOpen(true);
+        window.removeEventListener('scroll', handleScroll);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const handleClose = () => {

@@ -6,7 +6,6 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { Calendar, ArrowLeft, ChevronRight, Home, BadgeAlert } from 'lucide-react';
 import { PortableText } from '@portabletext/react';
-import RelatedBlogsForProperty from '@/components/RelatedBlogsForProperty';
 import ShareButtons from '@/components/ShareButtons';
 
 function parseInlineText(text) {
@@ -122,6 +121,37 @@ const createPortableTextComponents = (urlFor) => ({
             </figcaption>
           )}
         </figure>
+      );
+    },
+    table: ({ value }) => {
+      if (!value?.rows) return null;
+      return (
+        <div className="my-8 overflow-x-auto border border-neutral-200 rounded-xl shadow-sm">
+          <table className="w-full text-left border-collapse text-sm sm:text-base">
+            <thead>
+              {value.rows.slice(0, 1).map((row, rIdx) => (
+                <tr key={rIdx} className="bg-neutral-100 border-b border-neutral-200">
+                  {row.cells?.map((cell, cIdx) => (
+                    <th key={cIdx} className="p-3 sm:p-4 font-bold text-black border-r last:border-r-0 border-neutral-200">
+                      {cell}
+                    </th>
+                  ))}
+                </tr>
+              ))}
+            </thead>
+            <tbody className="divide-y divide-neutral-200">
+              {value.rows.slice(1).map((row, rIdx) => (
+                <tr key={rIdx} className="hover:bg-neutral-50/80 transition-colors">
+                  {row.cells?.map((cell, cIdx) => (
+                    <td key={cIdx} className="p-3 sm:p-4 text-neutral-700 font-light border-r last:border-r-0 border-neutral-200">
+                      {cell}
+                    </td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       );
     },
   },
@@ -383,9 +413,6 @@ export default async function BlogPostPage({ params }) {
           </p>
         </header>
 
-        {/* Social Share Buttons */}
-        <ShareButtons title={post.title} slug={decodedSlug} />
-
         {/* Hero Image */}
         <div className="relative w-full h-[240px] sm:h-[450px] rounded-xl overflow-hidden bg-neutral-100 mb-10 border border-neutral-200">
           <img 
@@ -447,9 +474,6 @@ export default async function BlogPostPage({ params }) {
             </div>
           </div>
         )}
-
-        {/* Related Buyer & Verification Guides */}
-        <RelatedBlogsForProperty property={{ title: post.title, longDescription: post.excerpt }} title="Related Market & Verification Guides" />
 
         {/* Footer Actions */}
         <div className="mt-12 pt-6 border-t border-neutral-150 flex items-center justify-between">
