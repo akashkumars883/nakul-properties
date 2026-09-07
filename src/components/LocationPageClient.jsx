@@ -87,6 +87,27 @@ export default function LocationPageClient({ data }) {
           </div>
         )}
 
+        {/* Unique Detailed Location Overview (300-400 words) */}
+        {data.detailedContent && (
+          <section className="mb-10 p-6 sm:p-8 bg-neutral-50/90 border border-neutral-200/80 rounded-2xl space-y-4 font-outfit">
+            <div className="space-y-1">
+              <span className="text-xs font-semibold uppercase tracking-widest text-neutral-500 block">Comprehensive Location Guide</span>
+              <h2 className="text-xl sm:text-2xl font-bold text-black tracking-tight">
+                Real Estate Overview & Investment Insights for {data.subtitle}
+              </h2>
+            </div>
+            <div className="space-y-3 text-neutral-700 text-sm sm:text-base leading-relaxed font-light">
+              {Array.isArray(data.detailedContent) ? (
+                data.detailedContent.map((paragraph, idx) => (
+                  <p key={idx}>{paragraph}</p>
+                ))
+              ) : (
+                <p>{data.detailedContent}</p>
+              )}
+            </div>
+          </section>
+        )}
+
         {/* Results Count */}
         <div className="flex items-center justify-between mb-6">
           <span className="text-sm font-semibold text-neutral-500">

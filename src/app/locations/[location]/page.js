@@ -21,6 +21,11 @@ const locationData = {
       { title: 'Ownership & Legal Status', desc: 'Single Owner Freehold Registry Deed' },
       { title: 'Location Connectivity', desc: 'Direct Link to Bypass Road, Delhi Highway & Metro' },
     ],
+    detailedContent: [
+      'Sector 65 is widely recognized as one of Faridabad’s most strategic and rapidly developing residential and commercial micro-markets. Featuring wide 18-meter and 12-meter sector roads, modern underground drainage, and seamless connection to the Delhi-Mumbai Expressway bypass corridor, Sector 65 provides a high-quality living environment alongside excellent capital growth prospects. Residents enjoy instant access to major commercial hubs, renowned hospitals like Amrita Hospital, and premier educational institutions.',
+      'The real estate landscape in Sector 65 offers a comprehensive selection of residential plot sizes ranging from 100 Sq. Yds (Gaj), 160 Gaj, 250 Gaj, 350 Gaj up to 500 Sq. Yds, as well as luxury independent builder floors constructed under approved stilt + 4 floor building norms. All listed properties possess 100% clear freehold registry titles with single-owner documentation, ensuring complete eligibility for home and plot loans across leading public and private sector banks.',
+      'Serving as the head office location for Nakul Properties, Sector 65 provides homebuyers and real estate investors an unmatched localized advantage. Our physically located office guarantees immediate site visits, instant document verification, and access to exclusive verified inventory. Property values in Sector 65 continue to experience healthy appreciation due to ongoing urban infrastructure enhancements and consistent end-user demand across Delhi NCR.'
+    ],
     faqs: [
       {
         q: 'Why is Sector 65 Faridabad considered a prime location for property investment?',
@@ -52,6 +57,11 @@ const locationData = {
       { title: 'Wide Sector Roads', desc: '18 Meter & 12 Meter Wide Paved Roads' },
       { title: 'Approval Status', desc: '100% Approved Freehold Title Deed' },
       { title: 'High Demand Pocket', desc: 'Rapid Capital Appreciation & Top Infrastructure' },
+    ],
+    detailedContent: [
+      'Situated right adjacent to the Sector 65 commercial belt, Sector 64 stands out as one of Faridabad’s most desirable residential sector pockets. The locality is characterized by well-planned 18-meter and 12-meter sector avenues, green parks, and robust municipal services. Its strategic positioning provides swift transit access to the Delhi-Mumbai Expressway bypass, Mathura Road (NH-44), and nearby Violet Line metro stations.',
+      'Sector 64 offers verified residential plots ranging from 100 Gaj to 500 Gaj along with newly constructed luxury builder floors featuring modern stilt parking and private elevators. The neighborhood is fully inhabited and peaceful, with thriving local shopping markets and top schools within walking distance. Every plot listing features single-owner conveyance deeds, guaranteeing transparent transactions free from encumbrances.',
+      'Real estate in Sector 64 enjoys high liquidity and robust rental demand from professionals working across industrial and corporate centers in Faridabad, Delhi, and Noida. Nakul Properties brings extensive hyper-local insight to Sector 64, supporting buyers with site visits, legal title verification, and hassle-free registration. Contact our team today to secure verified plot options in Sector 64.'
     ],
     faqs: [
       {
@@ -85,6 +95,11 @@ const locationData = {
       { title: 'Clear Title Deeds', desc: '100% Verified Single Owner Registry' },
       { title: 'Connectivity', desc: 'Direct link to Bypass Road & Main Arterial Roads' },
     ],
+    detailedContent: [
+      'Sector 63, Faridabad is a versatile micro-market that combines residential plot development, independent builder floors, commercial SCO markets, and light industrial units. Strategically positioned near major arterial sector roads and the Faridabad Bypass Expressway, Sector 63 has established itself as an attractive location for investors seeking diverse income-generating assets.',
+      'Residential plots in Sector 63 are available in standard plot sizes of 100 Gaj, 160 Gaj, 250 Gaj, and 350 Gaj. These plots offer full construction flexibility under HSVP building bylaws, enabling property owners to build modern stilt + 4 independent floors. The sector features wide paved roads, reliable utility connections, and convenient proximity to retail markets and healthcare facilities.',
+      'All transactions in Sector 63 facilitated by Nakul Properties undergo thorough legal due diligence to ensure 100% clear freehold registry titles. Whether you wish to build a multi-story home or invest in commercial SCO units with long-term rental income, Sector 63 delivers competitive pricing per Gaj. Get in touch with Nakul Properties for authentic site details and verified listings in Sector 63.'
+    ],
     faqs: [
       {
         q: 'What type of properties are available in Sector 63 Faridabad?',
@@ -108,6 +123,11 @@ const locationData = {
       { title: 'Peaceful Sector Layout', desc: 'Surrounded by Parks & Green Belts' },
       { title: 'Clear Title Deeds', desc: '100% Verified Ownership & Zero Dues' },
       { title: 'Convenient Connectivity', desc: 'Close to Mathura Road & Local Markets' },
+    ],
+    detailedContent: [
+      'Sector 62, Faridabad is a mature, green residential sector designed for comfortable family living. Renowned for its peaceful atmosphere, wide inner sector roads, and landscaped neighborhood parks, Sector 62 balances quiet suburban living with direct access to urban conveniences. It sits within a quick drive to Mathura Road metro stations and local HUDA shopping centers.',
+      'Residential inventory in Sector 62 primarily includes freehold plots from 100 Gaj to 500 Gaj and move-in ready independent builder floors. The sector is fully inhabited with fully functional water supply, electricity grids, and municipal sewerage systems. Listings provided by Nakul Properties feature verified single-owner registry deeds, enabling seamless bank loan approvals.',
+      'Owing to its established infrastructure and vibrant community life, Sector 62 maintains steady property valuation growth and consistent buyer interest. Nakul Properties offers hyper-local expertise in Sector 62, helping clients identify park-facing, corner, and wide-road plot options at realistic market values. Contact us today to arrange a physical walkthrough of available properties in Sector 62.'
     ],
     faqs: [
       {
@@ -137,6 +157,11 @@ const locationData = {
       { title: 'Registry Status', desc: 'Instant Registry & Single Owner Documents' },
       { title: 'Amenities', desc: 'Inhabited Locality, Markets & Top Schools' },
     ],
+    detailedContent: [
+      'Sector 2, Faridabad is a highly accessible, centrally located residential sector situated near the Delhi-Mathura Highway (NH-44) and major Violet Line metro stations. Its location makes it a preferred residential choice for individuals commuting daily between Faridabad, South Delhi, and Noida. The sector is backed by established civic amenities, wide roads, and active market zones.',
+      'Properties in Sector 2 feature residential plots from 100 Gaj to 500 Gaj, classic independent bungalows, and contemporary 3BHK & 4BHK builder floors. The neighborhood includes reputable schools, healthcare clinics, banking institutions, and grocery stores within easy walking distance. Clear freehold title documentation allows buyers to complete registry quickly and secure favorable home loan interest rates.',
+      'Driven by its central connectivity and strong neighborhood character, Sector 2 experiences continuous rental demand and high resale liquidity. Nakul Properties provides transparent real estate advice in Sector 2, matching buyer requirements with legal, dispute-free freehold properties. Contact our real estate advisors to review available plots and floors in Sector 2 Faridabad.'
+    ],
     faqs: [
       {
         q: 'Why invest in Sector 2 Faridabad properties?',
@@ -161,6 +186,11 @@ const locationData = {
       { title: 'Top Amenities', desc: 'Walk to Top Convent Schools & Local HUDA Markets' },
       { title: 'Freehold Title', desc: 'Single Owner Registered Conveyance Deeds' },
     ],
+    detailedContent: [
+      'Sectors 14 and 15 are widely recognized as the premier VIP residential addresses in Faridabad. Planned with grand 18-meter wide avenues, gated access points, lush green sector parks, and an elite resident demographic, these sectors offer an unmatched standard of luxury living. Located close to the city core, Sectors 14 and 15 provide immediate access to top convent schools, fine dining, and major commercial centers.',
+      'Real estate options in Sectors 14 & 15 include large freehold plots ranging from 250 Gaj to over 1000 Gaj, as well as ultra-luxury independent builder floors crafted with premium specifications, elevator access, and private stilt parking. Properties in these sectors command high market valuations, serving as resilient wealth-preserving real estate assets with consistent long-term capital growth.',
+      'Acquiring real estate in Sectors 14 & 15 requires detailed legal oversight and strong local relationships. Nakul Properties maintains a discreet network of property owners across these VIP sectors, guaranteeing 100% verified single-owner registry titles and transparent deal execution. Connect with Nakul Properties for private site visits and confidential consultation in Sectors 14 & 15.'
+    ],
     faqs: [
       {
         q: 'Why are Sectors 14 and 15 considered VIP sectors in Faridabad?',
@@ -183,6 +213,11 @@ const locationData = {
       { title: 'Metro Proximity', desc: 'Walk to Violet Line Metro Stations' },
       { title: 'Prime Location', desc: 'Heart of Central Commercial & Residential Faridabad' },
     ],
+    detailedContent: [
+      'The Central Faridabad micro-market, comprising Sectors 21, 28, and 31, serves as the vibrant commercial and residential heart of the city. Situated along the Delhi-Mathura Highway and Violet Line Metro line (Bata Chowk and Neelam Chowk Ajronda stations), this micro-market offers exceptional transit ease for commuters travelling across Faridabad, Delhi, and Gurgaon.',
+      'This core area features a diverse array of residential choices including independent plots, builder floors, multi-story apartments, and high-street commercial retail units. Surrounding amenities include leading healthcare institutions such as Fortis Escorts and Asian Institute of Medical Sciences, major shopping malls, multiplexes, and established educational centers.',
+      'Properties in Sectors 21, 28, and 31 enjoy consistent tenant demand and strong resale liquidity due to their central positioning. Nakul Properties delivers comprehensive market advisory across Central Faridabad, managing buying, selling, and leasing with verified documentation. Contact our specialist team for authentic property options in Central Faridabad.'
+    ],
     properties: []
   },
   'sector-81-89': {
@@ -199,6 +234,11 @@ const locationData = {
       { title: 'Gated Security', desc: '24/7 Gated Security & Clubhouse Amenities' },
       { title: 'Modern Townships', desc: 'BPTP Parklands, Puri Amanvilas & Omaxe' },
     ],
+    detailedContent: [
+      'Sectors 81 through 89 form the core residential extension of Greater Faridabad (Neharpar), a modern master-planned urban corridor. Connected via the 6-lane Master Road and bridges over the Agra Canal, this sector belt is home to premier gated townships built by top real estate developers including BPTP Parklands, Puri Amanvilas, Omaxe, and RPS Group.',
+      'Property choices in Sectors 81-89 encompass gated residential plots from 100 Gaj to 500 Gaj, modern independent floors, and high-rise apartment communities. Residents benefit from round-the-clock gated security, underground electrical wiring, clubhouse amenities, landscaped parks, and wide internal sector roads. The sector also hosts Asia’s largest medical facility, Amrita Hospital (2400+ beds), along with top international schools.',
+      'Greater Faridabad Sectors 81 to 89 represent one of the fastest appreciating real estate corridors in Delhi NCR, spurred by upcoming infrastructure projects such as the FNG Expressway link. Nakul Properties specializes in plot resales and builder floor transactions across Sectors 81-89. Contact us for verified inventory and transparent pricing in Greater Faridabad.'
+    ],
     properties: []
   },
   'sector-mathura-road': {
@@ -214,6 +254,11 @@ const locationData = {
     highlights: [
       { title: 'High Footfall', desc: 'Highway Visibility & High Traffic Commercial Zones' },
       { title: 'SCO & Retail', desc: 'Freehold Commercial Shops & SCO Plots' },
+    ],
+    detailedContent: [
+      'The Mathura Road (NH-44) highway belt and Omaxe World Street commercial hub represent the primary commercial engines of Faridabad. Known for high vehicle traffic, prominent highway frontage, and massive daily footfall, this corridor attracts major national retail brands, corporate offices, financial hubs, and entertainment destinations.',
+      'Commercial offerings along Mathura Road and World Street comprise freehold Shop-Cum-Office (SCO) plots, lockable retail shop units, food court spaces, and corporate office spaces. These commercial properties feature modern architecture, dedicated parking facilities, high ceiling clearances, and power backup systems designed for optimal business operations.',
+      'Investing in commercial assets along Mathura Road and World Street provides stable inflation-hedged rental returns and strong long-term asset value growth. Nakul Properties delivers professional commercial real estate brokerage, assisting investors with tenant evaluation, lease structuring, and projected yield analysis. Contact Nakul Properties today for verified commercial opportunities in Faridabad.'
     ],
     properties: []
   },
