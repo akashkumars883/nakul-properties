@@ -62,6 +62,25 @@ export default {
       description: 'Example: ₹74,000 / Sq. Yd or Rent | + Maintenance',
     },
     {
+      name: 'shortDescription',
+      title: 'Short Description',
+      type: 'text',
+      description: 'A brief description shown on the property card.',
+      validation: Rule => Rule.required().max(200),
+    },
+    {
+      name: 'seoTitle',
+      title: 'SEO Title (High CTR)',
+      type: 'string',
+      description: 'Optional: A catchy, clickbait title for Google Search Results. If empty, the main Title will be used.',
+    },
+    {
+      name: 'seoDescription',
+      title: 'SEO Meta Description',
+      type: 'text',
+      description: 'Optional: A catchy meta description for Google Search. If empty, the Short Description will be used.',
+    },
+    {
       name: 'location',
       title: 'Location',
       type: 'string',

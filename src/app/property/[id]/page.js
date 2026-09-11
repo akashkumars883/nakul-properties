@@ -27,12 +27,12 @@ export async function generateMetadata({ params }) {
   const priceText = property.price ? `@ ${property.price}` : '';
 
   // High-CTR Title (Keeps main query first, removes clutter)
-  const metaTitle = sizeText 
+  const metaTitle = property.seoTitle || (sizeText 
     ? `${sizeText} ${cleanTitle} in ${locationText} ${priceText} | Nakul Properties`
-    : `${cleanTitle} in ${locationText} ${priceText} | Nakul Properties`;
+    : `${cleanTitle} in ${locationText} ${priceText} | Nakul Properties`);
 
   // Dynamic High-CTR Meta Description with strong CTA
-  const metaDescription = `Verified ${sizeText ? `${sizeText} ` : ''}${cleanTitle} for sale in ${locationText}. ${property.facing ? `${property.facing}, ` : ''}${property.roadSize ? `${property.roadSize}. ` : ''}100% Freehold Title, Bank Loan & Registry Ready. Call/WhatsApp: +91 9811548267 for Direct Site Visit!`;
+  const metaDescription = property.seoDescription || `Verified ${sizeText ? `${sizeText} ` : ''}${cleanTitle} for sale in ${locationText}. ${property.facing ? `${property.facing}, ` : ''}${property.roadSize ? `${property.roadSize}. ` : ''}100% Freehold Title, Bank Loan & Registry Ready. Call/WhatsApp: +91 9811548267 for Direct Site Visit!`;
 
   const imageUrl = property.image ? (typeof property.image === 'string' ? property.image : '') : '';
 

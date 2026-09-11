@@ -43,6 +43,18 @@ export default {
       validation: Rule => Rule.required(),
     },
     {
+      name: 'seoTitle',
+      title: 'SEO Title (High CTR)',
+      type: 'string',
+      description: 'Optional: A highly attractive, clickbait title for Google Search Results. If empty, the main Title will be used.',
+    },
+    {
+      name: 'seoDescription',
+      title: 'SEO Meta Description',
+      type: 'text',
+      description: 'Optional: A catchy meta description for Google Search. If empty, the Excerpt will be used.',
+    },
+    {
       name: 'tags',
       title: 'Tags',
       type: 'array',
