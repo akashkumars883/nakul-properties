@@ -32,12 +32,12 @@ export const metadata = {
     'Nakul Properties Faridabad'
   ],
   alternates: {
-    canonical: 'https://nakulproperties.com',
+    canonical: 'https://www.nakulproperties.com',
   },
   openGraph: {
     title: 'Nakul Properties Faridabad | Top Real Estate Agent & Verified Plots Dealer',
     description: 'Buy, Sell & Invest in 100% Verified HUDA Residential Plots, Independent Builder Floors & Commercial Properties in Faridabad. Call +91 9811548267!',
-    url: 'https://nakulproperties.com',
+    url: 'https://www.nakulproperties.com',
     siteName: 'Nakul Properties Faridabad',
     type: 'website',
   },
@@ -63,7 +63,7 @@ export default async function Home() {
     '@type': 'RealEstateAgent',
     'name': 'Nakul Properties',
     'description': 'Buy, sell, and rent top luxury flats, builder floors, residential plots, and commercial properties in Faridabad & Greater Faridabad.',
-    'url': 'https://nakulproperties.com',
+    'url': 'https://www.nakulproperties.com',
     'telephone': '+919811548267',
     'address': {
       '@type': 'PostalAddress',

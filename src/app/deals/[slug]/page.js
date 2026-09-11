@@ -281,12 +281,12 @@ export async function generateMetadata({ params }) {
       'property dealers in Faridabad',
     ],
     alternates: {
-      canonical: `https://nakulproperties.com/deals/${decodedSlug}`,
+      canonical: `https://www.nakulproperties.com/deals/${decodedSlug}`,
     },
     openGraph: {
       title,
       description,
-      url: `https://nakulproperties.com/deals/${decodedSlug}`,
+      url: `https://www.nakulproperties.com/deals/${decodedSlug}`,
       siteName: 'Nakul Properties Faridabad',
       type: 'website',
     },
@@ -376,19 +376,19 @@ export default async function DealPage({ params }) {
         '@type': 'ListItem',
         'position': 1,
         'name': 'Home',
-        'item': 'https://nakulproperties.com/'
+        'item': 'https://www.nakulproperties.com/'
       },
       {
         '@type': 'ListItem',
         'position': 2,
         'name': 'Deals',
-        'item': 'https://nakulproperties.com/#deals'
+        'item': 'https://www.nakulproperties.com/#deals'
       },
       {
         '@type': 'ListItem',
         'position': 3,
         'name': pageData.keywordTitle || pageData.seoTitle,
-        'item': `https://nakulproperties.com/deals/${decodedSlug}`
+        'item': `https://www.nakulproperties.com/deals/${decodedSlug}`
       }
     ]
   };

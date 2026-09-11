@@ -18,7 +18,7 @@ export default function ContactPage() {
     '@type': 'ContactPage',
     'name': 'Contact Nakul Properties',
     'description': 'Book a free site visit or consultation with Nakul Properties in Sector 65, Faridabad.',
-    'url': 'https://nakulproperties.com/contact',
+    'url': 'https://www.nakulproperties.com/contact',
     'mainEntity': {
       '@type': 'RealEstateAgent',
       'name': 'Nakul Properties',

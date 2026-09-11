@@ -1,7 +1,7 @@
 import './globals.css';
 import Script from 'next/script';
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://nakulproperties.com';
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.nakulproperties.com';
 
 export const metadata = {
   metadataBase: new URL(siteUrl),

@@ -5,15 +5,25 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { MapPin, ShieldCheck, Phone, ArrowLeft, ChevronRight, Home, Eye } from 'lucide-react';
 import { FaWhatsapp } from 'react-icons/fa6';
+import { urlFor } from '@/sanity/lib/image';
 
 export default function SearchPageClient({ type, location, budget, propertiesDb }) {
+  const getImageUrl = (image) => {
+    if (!image) return '/placeholder.png';
+    if (typeof image === 'string') return image;
+    try {
+      return urlFor(image).url();
+    } catch (e) {
+      return '/placeholder.png';
+    }
+  };
   
   // Filter logic based on URL search queries
   const filteredProperties = useMemo(() => {
-    return Object.values(propertiesDb).filter((item) => {
+    return (Array.isArray(propertiesDb) ? propertiesDb : Object.values(propertiesDb)).filter((item) => {
       // 1. Filter by Property Type
       if (type && type !== 'all') {
-        const itemCategory = item.id.toLowerCase();
+        const itemCategory = (item.category || item._id || '').toLowerCase();
         if (type === 'bptp-townships' && !itemCategory.includes('bptp') && !itemCategory.includes('gated')) return false;
         if (type === 'residential-plots' && !itemCategory.includes('plot')) return false;
         if (type === 'flats' && !itemCategory.includes('flat') && !itemCategory.includes('apartment')) return false;
@@ -144,16 +154,18 @@ export default function SearchPageClient({ type, location, budget, propertiesDb 
         {/* Grid List */}
         {filteredProperties.length > 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {filteredProperties.map((property) => (
+            {filteredProperties.map((property) => {
+              const dynamicId = property.slug?.current || property._id;
+              return (
               <article
-                key={property.id}
+                key={dynamicId}
                 className="bg-white border border-neutral-200 rounded-xl p-4 transition-all duration-300 group hover:-translate-y-1 hover:shadow-lg flex flex-col justify-between"
               >
                 <div>
                   {/* Property Image Link */}
-                  <Link href={`/property/${property.id}`} className="relative w-full h-44 rounded-md overflow-hidden mb-4 bg-neutral-100 block">
+                  <Link href={`/property/${dynamicId}`} className="relative w-full h-44 rounded-md overflow-hidden mb-4 bg-neutral-100 block">
                     <img
-                      src={property.image}
+                      src={getImageUrl(property.image)}
                       alt={property.title}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
@@ -172,7 +184,7 @@ export default function SearchPageClient({ type, location, budget, propertiesDb 
                   </Link>
 
                   {/* Title Link */}
-                  <Link href={`/property/${property.id}`}>
+                  <Link href={`/property/${dynamicId}`}>
                     <h2 className="text-base font-bold text-black mb-1.5 leading-snug group-hover:text-neutral-700 transition-colors">
                       {property.title}
                     </h2>
@@ -217,7 +229,7 @@ export default function SearchPageClient({ type, location, budget, propertiesDb 
                   {/* Actions buttons */}
                   <div className="flex flex-col gap-2">
                     <Link
-                      href={`/property/${property.id}`}
+                      href={`/property/${dynamicId}`}
                       className="w-full flex items-center justify-center gap-1.5 bg-black hover:bg-neutral-800 text-white font-semibold text-xs py-2 rounded-md transition-all active:scale-95 shadow-xs"
                     >
                       <Eye className="w-3.5 h-3.5" />
@@ -244,7 +256,8 @@ export default function SearchPageClient({ type, location, budget, propertiesDb 
                   </div>
                 </div>
               </article>
-            ))}
+            );
+          })}
           </div>
         ) : (
           <div className="text-center py-16 bg-neutral-50 rounded-2xl border border-neutral-200">

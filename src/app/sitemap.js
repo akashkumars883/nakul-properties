@@ -1,7 +1,7 @@
 import { client } from '@/sanity/lib/client';
 
 export default async function sitemap() {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://nakulproperties.com';
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.nakulproperties.com';
 
   // Dynamic category slugs
   const categories = [

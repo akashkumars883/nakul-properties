@@ -327,19 +327,19 @@ export default async function BlogPostPage({ params }) {
     'author': {
       '@type': 'Organization',
       'name': 'Nakul Properties',
-      'url': 'https://nakulproperties.com'
+      'url': 'https://www.nakulproperties.com'
     },
     'publisher': {
       '@type': 'Organization',
       'name': 'Nakul Properties',
       'logo': {
         '@type': 'ImageObject',
-        'url': 'https://nakulproperties.com/logo.png'
+        'url': 'https://www.nakulproperties.com/logo.png'
       }
     },
     'mainEntityOfPage': {
       '@type': 'WebPage',
-      '@id': `https://nakulproperties.com/blog/${decodedSlug}`
+      '@id': `https://www.nakulproperties.com/blog/${decodedSlug}`
     }
   };
 
@@ -351,19 +351,19 @@ export default async function BlogPostPage({ params }) {
         '@type': 'ListItem',
         'position': 1,
         'name': 'Home',
-        'item': 'https://nakulproperties.com/'
+        'item': 'https://www.nakulproperties.com/'
       },
       {
         '@type': 'ListItem',
         'position': 2,
         'name': 'Blog',
-        'item': 'https://nakulproperties.com/blog'
+        'item': 'https://www.nakulproperties.com/blog'
       },
       {
         '@type': 'ListItem',
         'position': 3,
         'name': post.title,
-        'item': `https://nakulproperties.com/blog/${decodedSlug}`
+        'item': `https://www.nakulproperties.com/blog/${decodedSlug}`
       }
     ]
   };

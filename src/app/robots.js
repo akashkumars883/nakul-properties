@@ -1,5 +1,5 @@
 export default function robots() {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://nakulproperties.com';
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.nakulproperties.com';
 
   return {
     rules: [

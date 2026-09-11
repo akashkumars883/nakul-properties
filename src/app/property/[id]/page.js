@@ -2,238 +2,11 @@ import { notFound } from 'next/navigation';
 import Navbar from '@/components/Navbar';
 import PropertyDetailsClient from '@/components/PropertyDetailsClient';
 
-// Shared database for all properties listed on Nakul Properties website
-const allPropertiesDb = {
-  '3bhk-luxury-unit-2046sqft-sec69-imt': {
-    id: '3bhk-luxury-unit-2046sqft-sec69-imt',
-    title: '3 BHK Luxury Group Housing Unit (2046 Sq. Ft) - Sector 69 IMT',
-    category: 'flats',
-    location: 'Plot G.H.-11, Sector 69, IMT Faridabad',
-    size: '2045.83 Sq. Ft (2046 Sq. Ft)',
-    dimensions: '3 BHK + 3 Baths + Dress + Grand Lobby',
-    facing: '3-Side Open Balconies',
-    roadSize: '24 Meter Wide Sector Road',
-    price: '₹1.64 Cr',
-    pricePerSqYd: '₹8,000 / Sq. Ft',
-    badge: 'Approved 3 BHK Plan',
-    verified: true,
-    features: ['2045.83 Sq. Ft Super Builtup Area', '1265.02 Sq. Ft Builtup + 443 Sq. Ft Balcony', 'Grand Lobby/Dining (12\'0" × 24\'6")', '3 Attached Toilets + Dedicated Dress Room', 'Plot G.H.-11, Sector 69, IMT Faridabad', 'Architect Approved Building Plan'],
-    image: '/sec69-3bhk-plan.png',
-    gallery: ['/sec69-3bhk-plan.png', '/plot4.png'],
-    longDescription: 'Architect approved 3 BHK Luxury Group Housing Society Unit Plan on Plot No. G.H.-11, Sector-69, IMT, Faridabad. Total super built-up area of 2045.835 Sq. Ft (1265 Sq. Ft built-up, 443 Sq. Ft balcony area, and common circulation loading). Features 3 spacious bedrooms with attached toilets, dress room, grand 12\'x24\'6" lobby/dining, 13\'9"x8\'6" kitchen, and continuous 3-side balconies. Rate @ ₹8,000/Sq. Ft.'
-  },
-  '3bhk-luxury-apartment-2030sqft-sec65': {
-    id: '3bhk-luxury-apartment-2030sqft-sec65',
-    title: '3 BHK Luxury Apartment - Sector 69',
-    category: 'flats',
-    location: 'Sector 69, Faridabad',
-    size: '2030 Sq. Ft (approx)',
-    dimensions: '3 BHK + 3 Baths + Servant Room',
-    facing: 'North-East Facing',
-    roadSize: '18 Meter Wide Road',
-    price: '₹1.62 Cr',
-    pricePerSqYd: '₹8,000 / Sq. Ft',
-    badge: 'Luxury 3 BHK',
-    verified: true,
-    features: ['2030 Sq. Ft Spacious Layout', '₹8,000/Sq. Ft Competitive Pricing', 'Private Lift & Stilt Car Parking', 'Italian Marble & Modular Kitchen', '100% Freehold Title'],
-    image: '/plot4.png',
-    gallery: ['/plot4.png', '/plot2.png'],
-    longDescription: 'High-end 3 BHK luxury apartment/floor measuring approximately 2030 Sq. Ft in Sector 69, Faridabad. Offered at ₹8,000/Sq. Ft (₹1.62 Cr total). Premium finishes, private lift, stilt parking, and 100% verified registry titles.'
-  },
-  '3bhk-luxury-apartment-2080sqft-sec64': {
-    id: '3bhk-luxury-apartment-2080sqft-sec64',
-    title: '3 BHK Premium Luxury Apartment - Sector 69',
-    category: 'flats',
-    location: 'Sector 69, Faridabad',
-    size: '2080 Sq. Ft (approx)',
-    dimensions: '3 BHK + 3 Baths + Utility Balcony',
-    facing: 'East Facing',
-    roadSize: '18 Meter Wide Road',
-    price: '₹1.66 Cr',
-    pricePerSqYd: '₹8,000 / Sq. Ft',
-    badge: 'Luxury 3 BHK',
-    verified: true,
-    features: ['2080 Sq. Ft Deluxe Layout', '₹8,000/Sq. Ft Value Rate', 'Gated Security & CCTV Patrol', 'Italian Marble Flooring', 'Immediate Registry & Loan Approval'],
-    image: '/plot2.png',
-    gallery: ['/plot2.png', '/plot3.png'],
-    longDescription: 'Spacious 2080 Sq. Ft 3 BHK luxury apartment in Sector 69, Faridabad at ₹8,000/Sq. Ft (₹1.66 Cr total). Featuring modern design, high ventilation, dedicated parking, and full legal clearance.'
-  },
-  '4bhk-ultra-luxury-apartment-2290sqft-sec65': {
-    id: '4bhk-ultra-luxury-apartment-2290sqft-sec65',
-    title: '4 BHK Ultra Luxury Apartment - Sector 69',
-    category: 'flats',
-    location: 'Sector 69, Faridabad',
-    size: '2290 Sq. Ft (approx)',
-    dimensions: '4 BHK + 4 Baths + Powder Room',
-    facing: 'North-East Corner',
-    roadSize: '24 Meter Wide Road',
-    price: '₹1.83 Cr',
-    pricePerSqYd: '₹8,000 / Sq. Ft',
-    badge: 'Ultra Luxury 4 BHK',
-    verified: true,
-    features: ['2290 Sq. Ft Ultra Spacious 4 BHK', '₹8,000/Sq. Ft Premium Pricing', 'Dual Balcony & Grand Living Room', 'Private Elevator & Reserved Parking', 'Clear Title Freehold Land'],
-    image: '/plot1.png',
-    gallery: ['/plot1.png', '/plot4.png'],
-    longDescription: 'Expansive 2290 Sq. Ft 4 BHK ultra-luxury apartment in Sector 69, Faridabad at ₹8,000/Sq. Ft (₹1.83 Cr total). Unmatched luxury with private lift, Italian marble, and premier connectivity.'
-  },
-  // Residential Plots
-  'huda-plot-sec14-250': {
-    id: 'huda-plot-sec14-250',
-    title: 'Prime Sector 14 Residential Plot',
-    category: 'plots',
-    location: 'Sector 14, Faridabad',
-    size: '250 Sq. Yds (Gaj)',
-    dimensions: '30 ft × 75 ft',
-    facing: 'North-East Facing',
-    roadSize: '12 Meter Wide Road',
-    price: '₹1.85 Cr',
-    pricePerSqYd: '₹74,000 / Sq. Yd',
-    badge: 'Sector 14',
-    verified: true,
-    features: ['Approved Layout', 'Freehold Clear Registry', 'Near Market', 'Wide Paved Roads', 'Municipal Water Connection'],
-    image: '/plot1.png',
-    gallery: ['/plot1.png', '/plot2.png', '/plot3.png'],
-    longDescription: 'Excellent opportunity to buy a premium freehold residential plot in Sector 14, Faridabad. Situated in one of the most elite VIP sectors with high security, lush green parks, and wide 12m internal sector roads. Immediate registration and construction permits ready. Clean legal title history with absolute security.'
-  },
-  'huda-plot-sec15-300': {
-    id: 'huda-plot-sec15-300',
-    title: 'Corner Residential Plot Sector 15',
-    category: 'plots',
-    location: 'Sector 15, Faridabad',
-    size: '300 Sq. Yds (Gaj)',
-    dimensions: '30 ft × 90 ft',
-    facing: 'East Facing | Corner',
-    roadSize: '18 Meter Wide Road',
-    price: '₹2.40 Cr',
-    pricePerSqYd: '₹80,000 / Sq. Yd',
-    badge: 'Corner Plot',
-    verified: true,
-    features: ['Corner 2-Side Open', 'Premium Location', 'Freehold Title', 'Registry Ready', 'Bank Loan Approved'],
-    image: '/plot2.png',
-    gallery: ['/plot2.png', '/plot3.png', '/plot4.png'],
-    longDescription: 'A premium 2-side open corner plot for sale in Sector 15, Faridabad. Facing east and connected directly to wide 18m roads. Excellent layout plans for custom villa construction. Freehold status with registry ready. Premium VIP gentry neighborhood.'
-  },
-  'huda-plot-sec21-200': {
-    id: 'huda-plot-sec21-200',
-    title: 'Prime Plot in Sector 21C',
-    category: 'plots',
-    location: 'Sector 21C, Faridabad',
-    size: '200 Sq. Yds (Gaj)',
-    dimensions: '27 ft × 66 ft',
-    facing: 'North Facing',
-    roadSize: '9 Meter Wide Road',
-    price: '₹1.35 Cr',
-    pricePerSqYd: '₹67,500 / Sq. Yd',
-    badge: 'Approved',
-    verified: true,
-    features: ['Approved', 'Registry Ready', 'Metro Connected', 'Freehold Registry', 'Quiet Neighborhood'],
-    image: '/plot3.png',
-    gallery: ['/plot3.png', '/plot1.png'],
-    longDescription: 'Well-located residential plot for sale in Sector 21C, Faridabad. Situated near the metro station and local shopping hubs, this freehold plot offers immediate construction potential with clear boundary walls.'
-  },
-  'huda-plot-sec7-160': {
-    id: 'huda-plot-sec7-160',
-    title: 'Residential Plot Near Metro Station Sector 7',
-    category: 'plots',
-    location: 'Sector 7, Faridabad',
-    size: '160 Sq. Yds (Gaj)',
-    dimensions: '24 ft × 60 ft',
-    facing: 'East Facing',
-    roadSize: '12 Meter Road',
-    price: '₹1.10 Cr',
-    pricePerSqYd: '₹68,750 / Sq. Yd',
-    badge: 'Near Metro',
-    verified: true,
-    features: ['Near Metro Station', 'Prime Sector', 'Freehold Title', 'Registry Ready', 'Gated Society Access'],
-    image: '/plot4.png',
-    gallery: ['/plot4.png', '/plot2.png'],
-    longDescription: 'Affordable residential plot in Sector 7, Faridabad, located within walking distance of the metro station. Excellent connectivity to Delhi and main highway. 100% verified legal papers.'
-  },
 
-  // Builder Floors
-  'builder-floor-sec15-300': {
-    id: 'builder-floor-sec15-300',
-    title: '4 BHK Luxury Independent Builder Floor',
-    category: 'floor',
-    location: 'Sector 15, Faridabad',
-    size: '300 Sq. Yds',
-    dimensions: 'Stilt + 4 Floors',
-    facing: 'East Facing',
-    roadSize: '18 Meter Wide Road',
-    price: '₹1.65 Cr',
-    pricePerSqYd: 'All Inclusive Price',
-    badge: 'Builder Floor',
-    verified: true,
-    features: ['Private Lift', 'Luxury Modular Kitchen', 'Terrace Rights', 'Stilt Parking', 'CCTV Secured'],
-    image: '/deal1.png',
-    gallery: ['/deal1.png', '/deal3.png', '/plot1.png'],
-    longDescription: 'Ultra-luxurious 4 BHK builder floor in Sector 15, Faridabad. Includes private automatic lift, secure stilt parking, Italian marble layout floorings, fully loaded modular kitchen, and exclusive roof terrace rights. Zero brokerage options available.'
-  },
-  'builder-floor-sec14-250': {
-    id: 'builder-floor-sec14-250',
-    title: '3 BHK Premium Builder Floor Sector 14',
-    category: 'floor',
-    location: 'Sector 14, Faridabad',
-    size: '250 Sq. Yds',
-    dimensions: 'Ground Floor | Stilt',
-    facing: 'North-East Facing',
-    roadSize: '12 Meter Road',
-    price: '₹1.20 Cr',
-    pricePerSqYd: 'Including Registry',
-    badge: 'Ground Floor',
-    verified: true,
-    features: ['Stilt Parking', 'Modular Kitchen', 'Prime Sector 14', 'Zero Brokerage', 'Italian Marble Flooring'],
-    image: '/deal3.png',
-    gallery: ['/deal3.png', '/deal1.png'],
-    longDescription: 'Spacious 3 BHK independent ground floor with stilt parking in Sector 14. Located close to the local sector market. Offers zero brokerage options. Ready to move.'
-  },
-
-  // BPTP & Gated Townships
-  'gated-plot-sec85-350': {
-    id: 'gated-plot-sec85-350',
-    title: 'Premium Gated Township Plot in BPTP Parklands',
-    category: 'bptp',
-    location: 'BPTP Parklands, Sector 85',
-    size: '350 Sq. Yds (Gaj)',
-    dimensions: '35 ft × 90 ft',
-    facing: 'Park Facing & East',
-    roadSize: '18 Meter Wide Road',
-    price: '₹1.45 Cr',
-    pricePerSqYd: '₹41,400 / Sq. Yd',
-    badge: 'BPTP Township',
-    verified: true,
-    features: ['24/7 Gated Security', 'Park Facing', 'Underground Wiring', 'Clubhouse Access', 'Paved Paths'],
-    image: '/plot2.png',
-    gallery: ['/plot2.png', '/plot4.png'],
-    longDescription: 'Premium gated society residential plot in BPTP Parklands, Sector 85, Greater Faridabad. Faces a beautifully maintained park. Includes underground wiring layouts, security checkpoints, and high capital growth value.'
-  },
-
-  // Commercial Shops
-  'commercial-shop-sec79-600': {
-    id: 'commercial-shop-sec79-600',
-    title: 'Ground Floor Retail Shop in Omaxe World Street',
-    category: 'commercial',
-    location: 'Omaxe World Street, Sector 79',
-    size: '600 Sq. Ft (Carpet)',
-    dimensions: 'Ground Floor',
-    facing: 'Main Road Facing',
-    roadSize: '24 Meter Main Road',
-    price: '₹45,000 / mo',
-    pricePerSqYd: 'Rent | + Maintenance',
-    badge: 'For Rent',
-    verified: true,
-    features: ['Ground Floor Location', 'High Footfall Traffic', 'Prominent Frontage View', '24/7 Power Backup', 'Basement Parking'],
-    image: '/deal2.png',
-    gallery: ['/deal2.png', '/deal4.png'],
-    longDescription: 'High-visibility ground floor commercial retail shop available for rent/lease at Omaxe World Street. Prominent main road layout guarantees massive consumer traffic. Perfect location for showrooms or flagship retail spaces.'
-  }
-};
 
 import { client } from '@/sanity/lib/client';
 
-export async function generateStaticParams() {
-  return Object.keys(allPropertiesDb).map((id) => ({ id }));
-}
+
 
 export async function generateMetadata({ params }) {
   const { id } = await params;
@@ -244,10 +17,6 @@ export async function generateMetadata({ params }) {
     `*[_type == "property" && (slug.current == $id || _id == $id)][0]`,
     { id: decodedId }
   );
-
-  if (!property) {
-    property = allPropertiesDb[decodedId];
-  }
 
   if (!property) return {};
 
@@ -283,15 +52,22 @@ export async function generateMetadata({ params }) {
       'Nakul Properties Faridabad',
     ],
     alternates: {
-      canonical: `https://nakulproperties.com/property/${decodedId}`,
+      canonical: `https://www.nakulproperties.com/property/${decodedId}`,
     },
     openGraph: {
       title: metaTitle,
       description: metaDescription,
-      url: `https://nakulproperties.com/property/${decodedId}`,
+      url: `https://www.nakulproperties.com/property/${decodedId}`,
       siteName: 'Nakul Properties Faridabad',
       type: 'website',
-      images: imageUrl ? [{ url: imageUrl, alt: cleanTitle }] : [],
+      images: [
+        {
+          url: `https://www.nakulproperties.com/api/og?title=${encodeURIComponent(cleanTitle)}&location=${encodeURIComponent(locationText)}&price=${encodeURIComponent(priceText)}`,
+          width: 1200,
+          height: 630,
+          alt: cleanTitle,
+        }
+      ],
     },
     twitter: {
       card: 'summary_large_image',
@@ -312,10 +88,6 @@ export default async function PropertyPage({ params }) {
   );
 
   if (!property) {
-    property = allPropertiesDb[decodedId];
-  }
-
-  if (!property) {
     notFound();
   }
 
@@ -330,7 +102,7 @@ export default async function PropertyPage({ params }) {
   };
 
   const numericPrice = parseNumericPrice(property.price);
-  const canonicalUrl = `https://nakulproperties.com/property/${decodedId}`;
+  const canonicalUrl = `https://www.nakulproperties.com/property/${decodedId}`;
 
   // Generate structured JSON-LD data for Google Rich Results Validation
   const jsonLd = {
@@ -338,7 +110,7 @@ export default async function PropertyPage({ params }) {
     '@type': 'Product',
     'name': property.title,
     'description': property.longDescription || `Verified freehold plot for sale in ${property.location} Faridabad.`,
-    'image': property.image ? (typeof property.image === 'string' ? property.image : 'https://nakulproperties.com/plot1.png') : 'https://nakulproperties.com/plot1.png',
+    'image': property.image ? (typeof property.image === 'string' ? property.image : 'https://www.nakulproperties.com/plot1.png') : 'https://www.nakulproperties.com/plot1.png',
     'sku': decodedId,
     'mpn': decodedId,
     'brand': {
@@ -384,14 +156,39 @@ export default async function PropertyPage({ params }) {
     ],
   };
 
+  const breadcrumbLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    'itemListElement': [
+      {
+        '@type': 'ListItem',
+        'position': 1,
+        'name': 'Home',
+        'item': 'https://www.nakulproperties.com/'
+      },
+      {
+        '@type': 'ListItem',
+        'position': 2,
+        'name': 'Properties',
+        'item': 'https://www.nakulproperties.com/properties'
+      },
+      {
+        '@type': 'ListItem',
+        'position': 3,
+        'name': property.title || 'Property',
+        'item': canonicalUrl
+      }
+    ]
+  };
+
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar />
       
-      {/* Insert JSON-LD script for Google Rich Snippets */}
+      {/* Insert JSON-LD script for Google Rich Snippets & Breadcrumbs */}
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify([jsonLd, breadcrumbLd]) }}
       />
       
       <PropertyDetailsClient property={property} />

@@ -286,15 +286,15 @@ export async function generateMetadata({ params }) {
       'Nakul Properties Faridabad',
     ],
     alternates: {
-      canonical: `https://nakulproperties.com/locations/${decodedLocation}`,
+      canonical: `https://www.nakulproperties.com/locations/${decodedLocation}`,
     },
     openGraph: {
       title: data.seoTitle,
       description: data.seoDesc,
-      url: `https://nakulproperties.com/locations/${decodedLocation}`,
+      url: `https://www.nakulproperties.com/locations/${decodedLocation}`,
       siteName: 'Nakul Properties Faridabad',
       type: 'website',
-      images: [{ url: `https://nakulproperties.com${data.heroImage}`, alt: data.title }],
+      images: [{ url: `https://www.nakulproperties.com${data.heroImage}`, alt: data.title }],
     },
     twitter: {
       card: 'summary_large_image',
@@ -352,19 +352,19 @@ export default async function LocationPage({ params }) {
         '@type': 'ListItem',
         'position': 1,
         'name': 'Home',
-        'item': 'https://nakulproperties.com/'
+        'item': 'https://www.nakulproperties.com/'
       },
       {
         '@type': 'ListItem',
         'position': 2,
         'name': 'Locations',
-        'item': 'https://nakulproperties.com/#prime-sectors'
+        'item': 'https://www.nakulproperties.com/#prime-sectors'
       },
       {
         '@type': 'ListItem',
         'position': 3,
         'name': pageData.title,
-        'item': `https://nakulproperties.com/locations/${decodedLocation}`
+        'item': `https://www.nakulproperties.com/locations/${decodedLocation}`
       }
     ]
   };
@@ -373,9 +373,9 @@ export default async function LocationPage({ params }) {
     '@context': 'https://schema.org',
     '@type': 'RealEstateAgent',
     'name': 'Nakul Properties',
-    'image': 'https://nakulproperties.com/logo.png',
-    '@id': 'https://nakulproperties.com/#organization',
-    'url': 'https://nakulproperties.com',
+    'image': 'https://www.nakulproperties.com/logo.png',
+    '@id': 'https://www.nakulproperties.com/#organization',
+    'url': 'https://www.nakulproperties.com',
     'telephone': '+91-9811548267',
     'priceRange': '₹₹₹',
     'address': {

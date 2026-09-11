@@ -10,7 +10,7 @@ export default function ShareButtons({ title = '', slug = '' }) {
   // Construct absolute URL for sharing
   const shareUrl = typeof window !== 'undefined' 
     ? window.location.href 
-    : `https://nakulproperties.com/blog/${slug}`;
+    : `https://www.nakulproperties.com/blog/${slug}`;
 
   const handleCopyLink = async () => {
     try {

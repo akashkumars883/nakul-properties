@@ -21,10 +21,10 @@ export const metadata = {
   openGraph: {
     title: 'All Properties & Plots for Sale | Nakul Properties Faridabad',
     description: 'Browse all verified residential plots, HUDA sector plots, Sector 65, 64, 62 plots listed in Faridabad.',
-    url: 'https://nakulproperties.com/properties',
+    url: 'https://www.nakulproperties.com/properties',
     siteName: 'Nakul Properties Faridabad',
     type: 'website',
-    images: [{ url: 'https://nakulproperties.com/cat-huda.png', alt: 'All Properties Nakul Properties' }],
+    images: [{ url: 'https://www.nakulproperties.com/cat-huda.png', alt: 'All Properties Nakul Properties' }],
   },
   twitter: {
     card: 'summary_large_image',
@@ -50,7 +50,7 @@ export default async function AllPropertiesPage() {
       '@type': 'ListItem',
       'position': idx + 1,
       'name': prop.title,
-      'url': `https://nakulproperties.com/property/${prop.slug?.current || prop._id}`,
+      'url': `https://www.nakulproperties.com/property/${prop.slug?.current || prop._id}`,
     })),
   };
 

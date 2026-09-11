@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
 
 
 export default function Hero() {
@@ -53,11 +54,13 @@ export default function Hero() {
           className={`absolute inset-0 z-0 transition-opacity duration-1000 ease-in-out ${index === currentSlide ? 'opacity-100 scale-100' : 'opacity-0 scale-105 pointer-events-none'
             }`}
         >
-          <img
+          <Image
             src={slide.image}
             alt={slide.alt}
-            loading={index === 0 ? 'eager' : 'lazy'}
-            className="w-full h-full object-cover object-center"
+            priority={index === 0}
+            fill
+            sizes="100vw"
+            className="object-cover object-center"
           />
           <div className="absolute inset-0 bg-black/30 z-0" />
         </div>
