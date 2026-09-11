@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { Calendar, ArrowRight, BookOpen, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Calendar, ArrowRight, BookOpen, ChevronLeft, ChevronRight, Clock, Tag } from 'lucide-react';
 import { urlFor } from '@/sanity/lib/image';
 
 export default function BlogListingClient({ posts }) {
@@ -28,6 +28,18 @@ export default function BlogListingClient({ posts }) {
     });
   };
 
+  const getReadingTime = (post) => {
+    if (typeof post.body === 'string') {
+      const words = post.body.trim().split(/\s+/).length;
+      return `${Math.max(2, Math.ceil(words / 200))} min read`;
+    } else if (Array.isArray(post.body)) {
+      const text = post.body.map(b => b.children?.map(c => c.text).join(' ')).join(' ');
+      const words = text.trim().split(/\s+/).length;
+      return `${Math.max(2, Math.ceil(words / 200))} min read`;
+    }
+    return '3 min read';
+  };
+
   if (!posts || posts.length === 0) {
     return (
       <div className="text-center py-16 max-w-md mx-auto space-y-4">
@@ -48,37 +60,104 @@ export default function BlogListingClient({ posts }) {
     );
   }
 
+  const featuredPost = currentPage === 1 ? posts[0] : null;
+  const regularPosts = currentPage === 1 ? posts.slice(1) : posts;
+
   // Pagination Logic
-  const totalPages = Math.ceil(posts.length / postsPerPage);
-  const indexOfLastPost = currentPage * postsPerPage;
+  const totalPages = Math.ceil(regularPosts.length / postsPerPage);
+  const indexOfLastPost = (currentPage === 1 ? currentPage : currentPage - 1) * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
-  const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost);
+  const currentPosts = currentPage === 1 ? regularPosts.slice(0, postsPerPage) : regularPosts.slice(indexOfFirstPost, indexOfLastPost);
 
   const handlePageChange = (pageNum) => {
     setCurrentPage(pageNum);
-    // Smooth scroll to top of content
     window.scrollTo({ top: 300, behavior: 'smooth' });
   };
 
   return (
     <div className="space-y-12">
+      
+      {/* Featured Post (Only on Page 1) */}
+      {featuredPost && (
+        <article className="group bg-white border border-neutral-200/80 rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col lg:flex-row hover:-translate-y-1 relative mb-12">
+          {/* Absolute Featured Badge */}
+          <div className="absolute top-4 left-4 z-10 bg-black text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1.5 rounded-full shadow-md">
+            Featured
+          </div>
+
+          <Link href={`/blog/${featuredPost.slug?.current}`} className="lg:w-1/2 relative h-64 lg:h-auto bg-neutral-100 overflow-hidden block">
+            <img 
+              src={getImageUrl(featuredPost.mainImage)} 
+              alt={featuredPost.title}
+              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-in-out"
+            />
+          </Link>
+
+          <div className="lg:w-1/2 p-6 sm:p-10 flex flex-col justify-center">
+            <div className="flex flex-wrap items-center gap-4 text-neutral-400 text-xs font-semibold mb-4">
+              <div className="flex items-center gap-1.5">
+                <Calendar className="w-3.5 h-3.5" />
+                <span>{formatDate(featuredPost.publishedAt)}</span>
+              </div>
+              <div className="flex items-center gap-1.5">
+                <Clock className="w-3.5 h-3.5" />
+                <span>{getReadingTime(featuredPost)}</span>
+              </div>
+              {featuredPost.tags && featuredPost.tags[0] && (
+                <div className="flex items-center gap-1.5 text-[#D4AF37]">
+                  <Tag className="w-3.5 h-3.5" />
+                  <span>{featuredPost.tags[0]}</span>
+                </div>
+              )}
+            </div>
+            
+            <Link href={`/blog/${featuredPost.slug?.current}`}>
+              <h2 className="text-2xl sm:text-3xl font-bold text-black hover:text-[#D4AF37] transition-colors line-clamp-2 leading-snug mb-4">
+                {featuredPost.title}
+              </h2>
+            </Link>
+            
+            <p className="text-neutral-500 text-sm sm:text-base line-clamp-3 leading-relaxed font-light mb-6">
+              {featuredPost.excerpt}
+            </p>
+            
+            <Link 
+              href={`/blog/${featuredPost.slug?.current}`}
+              className="inline-flex items-center gap-2 text-sm font-bold text-black hover:gap-3 transition-all group/link w-max"
+            >
+              <span>Read Full Article</span>
+              <ArrowRight className="w-4 h-4 group-hover/link:text-[#D4AF37] transition-colors" />
+            </Link>
+          </div>
+        </article>
+      )}
+
+      <h3 className="text-2xl font-bold text-black border-b border-neutral-100 pb-4">
+        {currentPage === 1 ? 'Latest Articles' : `Page ${currentPage} Articles`}
+      </h3>
+
       {/* Listings Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
         {currentPosts.map((post) => {
           const slug = post.slug?.current;
           return (
             <article 
               key={post._id}
-              className="bg-white border border-neutral-200/85 rounded-xl overflow-hidden shadow-xs hover:shadow-md transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1"
+              className="bg-white border border-neutral-200/80 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1 relative"
             >
               <div>
                 {/* Main Image */}
                 {slug ? (
                   <Link href={`/blog/${slug}`} className="block relative w-full h-48 bg-neutral-100 overflow-hidden">
+                    {post.tags && post.tags[0] && (
+                      <div className="absolute top-3 left-3 z-10 bg-white/90 backdrop-blur text-black text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded shadow-sm">
+                        {post.tags[0]}
+                      </div>
+                    )}
                     <img 
                       src={getImageUrl(post.mainImage)} 
                       alt={post.title}
-                      className="w-full h-full object-cover group-hover:scale-103 transition-transform duration-500"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
                   </Link>
                 ) : (
@@ -93,19 +172,25 @@ export default function BlogListingClient({ posts }) {
 
                 {/* Metadata & Content */}
                 <div className="p-5 space-y-3">
-                  <div className="flex items-center gap-1.5 text-neutral-400 text-xs font-semibold">
-                    <Calendar className="w-3.5 h-3.5" />
-                    <span>{formatDate(post.publishedAt)}</span>
+                  <div className="flex items-center gap-4 text-neutral-400 text-[11px] font-semibold">
+                    <div className="flex items-center gap-1.5">
+                      <Calendar className="w-3.5 h-3.5" />
+                      <span>{formatDate(post.publishedAt)}</span>
+                    </div>
+                    <div className="flex items-center gap-1.5">
+                      <Clock className="w-3.5 h-3.5" />
+                      <span>{getReadingTime(post)}</span>
+                    </div>
                   </div>
                   
                   {slug ? (
                     <Link href={`/blog/${slug}`}>
-                      <h2 className="text-base sm:text-lg font-bold text-black hover:text-neutral-700 transition-colors line-clamp-2 leading-snug">
+                      <h2 className="text-base font-bold text-black hover:text-[#D4AF37] transition-colors line-clamp-2 leading-snug">
                         {post.title}
                       </h2>
                     </Link>
                   ) : (
-                    <h2 className="text-base sm:text-lg font-bold text-black line-clamp-2 leading-snug">
+                    <h2 className="text-base font-bold text-black line-clamp-2 leading-snug">
                       {post.title}
                     </h2>
                   )}
@@ -118,12 +203,12 @@ export default function BlogListingClient({ posts }) {
 
               {/* Read More Link */}
               {slug && (
-                <div className="px-5 pb-5 pt-1">
+                <div className="px-5 pb-5 pt-1 mt-auto border-t border-neutral-100/50">
                   <Link 
                     href={`/blog/${slug}`}
-                    className="inline-flex items-center gap-1.5 text-xs font-bold text-black hover:gap-2.5 transition-all"
+                    className="inline-flex items-center gap-1.5 text-xs font-bold text-black hover:gap-2.5 transition-all mt-4"
                   >
-                    <span>Read Full Article</span>
+                    <span>Read Article</span>
                     <ArrowRight className="w-3.5 h-3.5" />
                   </Link>
                 </div>
