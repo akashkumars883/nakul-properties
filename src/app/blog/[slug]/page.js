@@ -262,15 +262,24 @@ export async function generateMetadata({ params }) {
 
   if (!post) return {};
 
+  let metaTitle = `${post.title} | Nakul Properties Blog`;
+  let metaDescription = post.excerpt;
+
+  // High-CTR SEO Override for specific blog post to boost clicks
+  if (decodedSlug === 'huda-plots-in-faridabad-property-verification') {
+    metaTitle = "Don't Buy HUDA Plots in Faridabad Before Checking These 5 Documents!";
+    metaDescription = "Warning: Avoid property fraud! Learn exactly how to verify HUDA plots in Faridabad. Check these 5 crucial legal documents before you pay any token amount. Read our expert guide.";
+  }
+
   return {
-    title: `${post.title} | Nakul Properties Blog`,
-    description: post.excerpt,
+    title: metaTitle,
+    description: metaDescription,
     alternates: {
       canonical: `/blog/${decodedSlug}`,
     },
     openGraph: {
-      title: `${post.title} | Nakul Properties Blog`,
-      description: post.excerpt,
+      title: metaTitle,
+      description: metaDescription,
       type: 'article',
       publishedTime: post.publishedAt,
     },
