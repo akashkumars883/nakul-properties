@@ -79,13 +79,13 @@ export default function BlogListingClient({ posts }) {
       
       {/* Featured Post (Only on Page 1) */}
       {featuredPost && (
-        <article className="group bg-white border border-neutral-200/80 rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col lg:flex-row hover:-translate-y-1 relative mb-12">
+        <article className="group bg-white border border-neutral-200/80 rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col lg:flex-row hover:-translate-y-1 relative mb-12 lg:h-64">
           {/* Absolute Featured Badge */}
-          <div className="absolute top-4 left-4 z-10 bg-black text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1.5 rounded-full shadow-md">
+          <div className="absolute top-3 left-3 z-10 bg-black text-white text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full shadow-md">
             Featured
           </div>
 
-          <Link href={`/blog/${featuredPost.slug?.current}`} className="lg:w-1/2 relative h-64 lg:h-auto bg-neutral-100 overflow-hidden block">
+          <Link href={`/blog/${featuredPost.slug?.current}`} className="lg:w-5/12 relative h-48 lg:h-full bg-neutral-100 overflow-hidden block shrink-0">
             <img 
               src={getImageUrl(featuredPost.mainImage)} 
               alt={featuredPost.title}
@@ -93,8 +93,8 @@ export default function BlogListingClient({ posts }) {
             />
           </Link>
 
-          <div className="lg:w-1/2 p-6 sm:p-10 flex flex-col justify-center">
-            <div className="flex flex-wrap items-center gap-4 text-neutral-400 text-xs font-semibold mb-4">
+          <div className="lg:w-7/12 p-5 sm:p-6 flex flex-col justify-center">
+            <div className="flex flex-wrap items-center gap-3 text-neutral-400 text-xs font-semibold mb-3">
               <div className="flex items-center gap-1.5">
                 <Calendar className="w-3.5 h-3.5" />
                 <span>{formatDate(featuredPost.publishedAt)}</span>
@@ -112,21 +112,21 @@ export default function BlogListingClient({ posts }) {
             </div>
             
             <Link href={`/blog/${featuredPost.slug?.current}`}>
-              <h2 className="text-2xl sm:text-3xl font-bold text-black hover:text-[#D4AF37] transition-colors line-clamp-2 leading-snug mb-4">
+              <h2 className="text-xl sm:text-2xl font-bold text-black hover:text-[#D4AF37] transition-colors line-clamp-2 leading-snug mb-2">
                 {featuredPost.title}
               </h2>
             </Link>
             
-            <p className="text-neutral-500 text-sm sm:text-base line-clamp-3 leading-relaxed font-light mb-6">
+            <p className="text-neutral-500 text-sm line-clamp-2 leading-relaxed font-light mb-4">
               {featuredPost.excerpt}
             </p>
             
             <Link 
               href={`/blog/${featuredPost.slug?.current}`}
-              className="inline-flex items-center gap-2 text-sm font-bold text-black hover:gap-3 transition-all group/link w-max"
+              className="inline-flex items-center gap-1.5 text-xs font-bold text-black hover:gap-2.5 transition-all group/link w-max mt-auto"
             >
               <span>Read Full Article</span>
-              <ArrowRight className="w-4 h-4 group-hover/link:text-[#D4AF37] transition-colors" />
+              <ArrowRight className="w-3.5 h-3.5 group-hover/link:text-[#D4AF37] transition-colors" />
             </Link>
           </div>
         </article>
