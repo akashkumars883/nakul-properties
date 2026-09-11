@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+
 
 export default function Hero() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -40,13 +40,7 @@ export default function Hero() {
     return () => clearInterval(timer);
   }, [slides.length]);
 
-  const prevSlide = () => {
-    setCurrentSlide((prev) => (prev === 0 ? slides.length - 1 : prev - 1));
-  };
 
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % slides.length);
-  };
 
 
 
@@ -69,25 +63,7 @@ export default function Hero() {
         </div>
       ))}
 
-      {/* Slide Navigation Arrows */}
-      <div className="absolute inset-x-2 sm:inset-x-6 top-1/3 -translate-y-1/2 z-20 flex justify-between pointer-events-none max-w-7xl mx-auto">
-        <button
-          type="button"
-          onClick={prevSlide}
-          className="pointer-events-auto w-9 h-9 sm:w-11 sm:h-11 rounded-xl bg-black/50 hover:bg-black/80 text-white flex items-center justify-center backdrop-blur-md transition-all border border-white/20 active:scale-95 shadow-md cursor-pointer"
-          aria-label="Previous Slide"
-        >
-          <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" />
-        </button>
-        <button
-          type="button"
-          onClick={nextSlide}
-          className="pointer-events-auto w-9 h-9 sm:w-11 sm:h-11 rounded-xl bg-black/50 hover:bg-black/80 text-white flex items-center justify-center backdrop-blur-md transition-all border border-white/20 active:scale-95 shadow-md cursor-pointer"
-          aria-label="Next Slide"
-        >
-          <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6" />
-        </button>
-      </div>
+
 
       {/* Hero Title & SEO Paragraph Slider Content */}
       <div className="relative z-10 flex-1 flex flex-col items-start sm:items-center justify-center max-w-5xl w-full mx-auto text-white pt-4 pb-16 sm:pb-28 mb-16 sm:mb-32 min-h-[180px]">
